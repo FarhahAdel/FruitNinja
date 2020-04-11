@@ -1,4 +1,4 @@
-package fruitNinja.models.fruits;
+package fruitNinja.models.fruits.special;
 
 public class DoubleScore extends SpecialFruit {
 }

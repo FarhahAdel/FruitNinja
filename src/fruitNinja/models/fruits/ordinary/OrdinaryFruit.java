@@ -1,4 +1,6 @@
-package fruitNinja.models.fruits;
+package fruitNinja.models.fruits.ordinary;
+
+import fruitNinja.models.fruits.Fruit;
 
 public class OrdinaryFruit extends Fruit {
     private final int points = 1;

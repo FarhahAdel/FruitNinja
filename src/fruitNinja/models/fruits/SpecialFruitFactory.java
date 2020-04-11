@@ -1,6 +1,9 @@
 package fruitNinja.models.fruits;
 
-public class SpecialFruitFactory {
+import fruitNinja.models.fruits.special.DoubleScore;
+import fruitNinja.models.fruits.special.Frenzy;
+
+class SpecialFruitFactory {
     public Fruit createFruit(String specialFruitName)
     {
         Fruit fruit;

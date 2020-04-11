@@ -1,6 +1,12 @@
 package fruitNinja.models.fruits;
 
-public class OrdinaryFruitFactory {
+import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.fruits.FruitType;
+import fruitNinja.models.fruits.ordinary.Apple;
+import fruitNinja.models.fruits.ordinary.Banana;
+import fruitNinja.models.fruits.ordinary.Pineapple;
+
+class OrdinaryFruitFactory {
 
     public OrdinaryFruitFactory()
     {
