@@ -1,13 +1,15 @@
 package fruitNinja.models.bombs;
 
 public class BombFactory {
-    public Bomb createBomb(String BombType){
+    public Bomb createBomb(String bombType){
         Bomb bomb;
-        switch(BombType){
+        switch(bombType){
             case "fatal":
+            case "FATAL":
                 bomb = new FatalBomb();
                 break;
             case "dangerous":
+            case "DANGEROUS":
                 bomb = new DangerousBomb();
                 break;
             default:
@@ -17,16 +19,6 @@ public class BombFactory {
     }
     public Bomb createBomb(BombType BombType){
         Bomb bomb;
-        switch(BombType){
-            case FATAL:
-                bomb = new FatalBomb();
-                break;
-            case DANGEROUS:
-                bomb = new DangerousBomb();
-                break;
-            default:
-                bomb = null;
-        }
-        return bomb;
+        return createBomb(BombType.toString());
     }
 }
