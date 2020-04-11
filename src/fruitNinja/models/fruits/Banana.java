@@ -1,4 +1,4 @@
 package fruitNinja.models.fruits;
 
-public class Banana extends Fruit {
+public class Banana extends OrdinaryFruit {
 }
