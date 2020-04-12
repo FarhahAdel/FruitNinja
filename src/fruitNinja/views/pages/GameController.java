@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
+
 public class GameController {
     @FXML
     private Button pauseButton;
@@ -16,6 +18,8 @@ public class GameController {
     private Label livesLabel;
 
 
-    public void pauseButtonClicked(ActionEvent actionEvent) {
+    public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
+        PauseDialogController pauseDialog = new PauseDialogController();
+        pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 }
