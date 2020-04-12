@@ -1,5 +1,6 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.models.users.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,6 +45,14 @@ public class MainDashboardController implements Initializable {
 
     @FXML
     private Button BackButton;
+
+    private Player player;
+
+    public MainDashboardController(Player player)
+    {
+        this.player = player;
+    }
+
 
     @FXML
     void ArcadeMode(ActionEvent event) {

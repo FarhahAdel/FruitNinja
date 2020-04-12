@@ -1,8 +1,10 @@
 package fruitNinja.views.guiUtils;
 
 import fruitNinja.models.users.Player;
+import fruitNinja.views.pages.MainDashboardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -35,7 +37,7 @@ public class Navigation {
         }
     }
 
-    private void showPageWithCustomController(String fileName, String title, Stage stage, Class controllerClass)
+    private void showPageGridWithCustomController(String fileName, String title, Stage stage, Object controllerClass)
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
@@ -50,10 +52,25 @@ public class Navigation {
         }
     }
 
+    private void showPageAnchorWithCustomController(String fileName, String title, Stage stage, Object controllerClass)
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
+            loader.setController(controllerClass);
+            AnchorPane anchor = loader.load();
+            stage.setTitle(title);
+            Scene sc = new Scene(anchor, width, height);
+            stage.setScene(sc);
+            stage.show();
+        } catch (IOException ex) {
+            alerts.showErrorAlert("Data Error", "Something wrong happened!");
+        }
+    }
+
     public void showMainDashboardPage(Stage stage)
     {
-        // MainDashBoard controller = new MainDashBoardController(loggedInPlayer);
-        //showPageWithCustomController("../pages/MainPage.fxml", "Dashboard", stage, controller);
+        MainDashboardController controller = new MainDashboardController(loggedInPlayer);
+        showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, controller);
     }
 
     public void showRegisterPage(Stage stage)

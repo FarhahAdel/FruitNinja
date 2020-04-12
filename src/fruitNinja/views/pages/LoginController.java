@@ -40,8 +40,8 @@ public class LoginController {
             return;
         }
 
-        // TODO: Navigate to the main menu page if successful
-
+        Stage stage = (Stage)signUpBtn.getScene().getWindow();
+        navigation.showMainDashboardPage(stage);
     }
 
     public void handleSignUpActionButton(ActionEvent actionEvent) {

@@ -41,8 +41,8 @@ public class RegisterController {
             return;
         }
 
-        // TODO: Navigate to the maindashboard
-
+        Stage stage = (Stage)signUpBtn.getScene().getWindow();
+        navigation.showMainDashboardPage(stage);
     }
 
     public void handleSignInActionButton(ActionEvent actionEvent) {

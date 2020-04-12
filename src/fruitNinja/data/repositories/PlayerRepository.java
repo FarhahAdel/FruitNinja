@@ -35,6 +35,8 @@ public class PlayerRepository {
     public Player signUp(String fullName, String username, String password)
     {
         Player player = new Player(fullName, username, password);
+        player.setExperience(0);
+        player.setLevel(1);
         playerService.writeData(player);
         loadPlayers();
         return login(username, password);
