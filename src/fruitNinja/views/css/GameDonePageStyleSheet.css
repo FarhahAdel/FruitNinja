@@ -31,7 +31,7 @@ root {
 }
 #mainMenuBtn{
     -fx-graphic: url("../images/mainmenu.png");
-    -fx-background-color:white;
+    -fx-background-color:transparent;
 
 }
 
