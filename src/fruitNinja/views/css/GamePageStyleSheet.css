@@ -1,0 +1,7 @@
+root{
+    display: block;
+}
+.label{
+    -fx-font-family: 'Gang of Three';
+    -fx-text-fill: red;
+}
