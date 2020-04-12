@@ -1,4 +1,4 @@
-package fruitNinja.models.gameAcrions;
+package fruitNinja.models.gameActions;
 
 import fruitNinja.models.GameObject;
 
