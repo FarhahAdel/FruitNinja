@@ -7,7 +7,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginController {
+public class RegisterController {
+    public TextField fullNameTextField;
     public TextField usernameTextField;
     public PasswordField passwordTextField;
     public Button signInBtn;
@@ -16,11 +17,11 @@ public class LoginController {
     private Navigation navigation = new Navigation();
 
     public void handleSubmitActionButton(ActionEvent actionEvent) {
-        // TODO: Call the userRepository to login
+
     }
 
-    public void handleSignUpActionButton(ActionEvent actionEvent) {
+    public void handleSignInActionButton(ActionEvent actionEvent) {
         Stage stage = (Stage)signUpBtn.getScene().getWindow();
-        navigation.showRegisterPage(stage);
+        navigation.showLoginPage(stage);
     }
 }
