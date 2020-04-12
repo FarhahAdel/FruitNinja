@@ -1,6 +1,6 @@
 package fruitNinja.views.guiUtils;
 
-import fruitNinja.models.users.User;
+import fruitNinja.models.users.Player;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -14,7 +14,7 @@ public class Navigation {
     private final int width = 1280;
     private final int height = 720;
 
-    private User loggedInUser;
+    private Player loggedInPlayer;
     private Alerts alerts;
 
     public Navigation()
@@ -52,7 +52,7 @@ public class Navigation {
 
     public void showMainDashboardPage(Stage stage)
     {
-        // MainDashBoard controller = new MainDashBoardController(loggedInUser);
+        // MainDashBoard controller = new MainDashBoardController(loggedInPlayer);
         //showPageWithCustomController("../pages/MainPage.fxml", "Dashboard", stage, controller);
     }
 

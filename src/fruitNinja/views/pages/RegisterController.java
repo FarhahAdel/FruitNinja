@@ -1,6 +1,8 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.models.users.User;
+import fruitNinja.data.repositories.PlayerRepository;
+import fruitNinja.models.users.Player;
+import fruitNinja.views.guiUtils.Alerts;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -15,24 +17,32 @@ public class RegisterController {
     public Button signInBtn;
     public Button signUpBtn;
 
-    private Navigation navigation = new Navigation();
+    private Navigation navigation;
+    private Alerts alerts;
+    private PlayerRepository playerRepository;
+
+    public RegisterController()
+    {
+        navigation = new Navigation();
+        alerts = new Alerts();
+        playerRepository = new PlayerRepository();
+    }
 
     public void handleSubmitActionButton(ActionEvent actionEvent) {
-        // TODO: Call the userRepository to login
-
         // TODO: Validations to be made
 
         String fullName = fullNameTextField.getText();
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-        User user = new User(fullName, username, password);
+        Player player = playerRepository.signUp(fullName, username, password);
+        if (player == null) {
+            alerts.showErrorAlert("Invalid Credentials", "Wrong username or password");
+            return;
+        }
 
-        // TODO: CALL THE USERS REPOSITORY TO SIGN UP
-        // The Following happens if login is sucessful
+        // TODO: Navigate to the maindashboard
 
-        Stage stage = (Stage)signUpBtn.getScene().getWindow();
-        navigation.showMainDashboardPage(stage);
     }
 
     public void handleSignInActionButton(ActionEvent actionEvent) {
