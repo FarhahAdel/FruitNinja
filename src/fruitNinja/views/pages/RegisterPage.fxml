@@ -46,7 +46,7 @@
 
     <HBox spacing="10" alignment="BOTTOM_CENTER"
           GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2">
-        <Text text="Already a user?"
+        <Text id="secondaryLabel" text="Already a user?"
               GridPane.columnIndex="1" GridPane.rowIndex="6" />
     </HBox>
 

@@ -40,9 +40,8 @@
 
     <HBox spacing="10" alignment="BOTTOM_CENTER"
           GridPane.columnIndex="0" GridPane.rowIndex="5" GridPane.columnSpan="2">
-        <Text text="Don't have an account?"
-              GridPane.columnIndex="1" GridPane.rowIndex="5"
-        />
+        <Text id="secondaryLabel" text="Don't have an account?"
+              GridPane.columnIndex="1" GridPane.rowIndex="5" />
     </HBox>
 
     <HBox spacing="10" alignment="CENTER"
