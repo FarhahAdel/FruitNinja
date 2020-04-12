@@ -9,14 +9,15 @@ root {
 .label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
-    -fx-text-fill: deeppink;
-    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+    -fx-font-family: "Gang of Three";
+    -fx-text-fill: white;
+    -fx-effect: dropshadow( gaussian , darkred , 0,0,0,1 );
 }
 #welcome-text {
     -fx-font-size: 32px;
-    -fx-font-family: "Arial Black";
-    -fx-fill: yellow;
-    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
+    -fx-font-family: "Gang of Three";
+    -fx-fill: darkred;
+    -fx-effect: dropshadow(gaussian, white, 3, 1.0, 1, 1)
 }
 .text-field {
     -fx-background-color: white , white , white;
@@ -46,8 +47,31 @@ root {
             #d86e3a,
             radial-gradient(center 50% 50%, radius 100%, #ea7f4b, #c54e2c);
 }
-.button:pressed{
-    -fx-padding: 10 15 13 15;
-    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+
+#secondaryLabel {
+    -fx-font-size: 12;
+    -fx-text-fill: white;
+    -fx-fill: white;
+    -fx-font-family: "Gang of Three";
+}
+
+#signInBtn {
+    -fx-background-color: white;
+    -fx-font-family: "Gang of Three";
+    -fx-font-size: 20;
+    -fx-text-fill: darkred;
+    -fx-effect: dropshadow(three-pass-box, black, 20, 0, 0, 0);
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+}
+
+#signUpBtn {
+    -fx-background-color: white;
+    -fx-font-family: "Gang of Three";
+    -fx-font-size: 20;
+    -fx-text-fill: darkred;
+    -fx-effect: dropshadow(three-pass-box, black, 20, 0, 0, 0);
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
 }
 

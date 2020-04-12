@@ -1,5 +1,6 @@
 package fruitNinja.views.guiUtils;
 
+import fruitNinja.models.users.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -9,6 +10,11 @@ import java.io.IOException;
 
 public class Navigation {
 
+
+    private final int width = 1280;
+    private final int height = 720;
+
+    private User loggedInUser;
     private Alerts alerts;
 
     public Navigation()
@@ -16,11 +22,7 @@ public class Navigation {
         alerts = new Alerts();
     }
 
-    public void showPageWithoutController(String fileName, String title, int i, int i1, Stage stage){
-
-        int width = 1280;
-        int height = 720;
-
+    private void showPageWithoutController(String fileName, String title, Stage stage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
             GridPane grid = loader.load();
@@ -33,14 +35,35 @@ public class Navigation {
         }
     }
 
+    private void showPageWithCustomController(String fileName, String title, Stage stage, Class controllerClass)
+    {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
+            loader.setController(controllerClass);
+            GridPane grid = loader.load();
+            stage.setTitle(title);
+            Scene sc = new Scene(grid, width, height);
+            stage.setScene(sc);
+            stage.show();
+        } catch (IOException ex) {
+            alerts.showErrorAlert("Data Error", "Something wrong happened!");
+        }
+    }
+
+    public void showMainDashboardPage(Stage stage)
+    {
+        // MainDashBoard controller = new MainDashBoardController(loggedInUser);
+        //showPageWithCustomController("../pages/MainPage.fxml", "Dashboard", stage, controller);
+    }
+
     public void showRegisterPage(Stage stage)
     {
-        showPageWithoutController("../pages/RegisterPage.fxml", "Register", 1200, 700, stage);
+        showPageWithoutController("../pages/RegisterPage.fxml", "Register", stage);
     }
 
     public void showLoginPage(Stage stage)
     {
-        showPageWithoutController("../pages/LoginPage.fxml", "Login", 1200, 700, stage);
+        showPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
 }

@@ -1,5 +1,6 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.models.users.User;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -17,6 +18,14 @@ public class LoginController {
 
     public void handleSubmitActionButton(ActionEvent actionEvent) {
         // TODO: Call the userRepository to login
+
+        // TODO: Validations to be made
+
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+
+        // TODO: CALL THE USERS REPOSITORY TO LOGIN
+
     }
 
     public void handleSignUpActionButton(ActionEvent actionEvent) {
