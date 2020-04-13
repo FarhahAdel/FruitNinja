@@ -18,16 +18,13 @@ root {
     -fx-background-color: transparent;
     -fx-graphic: url("../images/playGame.png");
 }
-#highScore{
-    -fx-graphic: url("../images/highScore.png");
-}
-#score{
-    -fx-graphic: url("../images/Score.png");
-}
+
 .label{
-    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
-            -fx-background-radius: 8;
--fx-background-color:white;
+    -fx-background-color: transparent;
+    -fx-text-fill: burlywood;
+    -fx-font-family: 'Gang of Three';
+    -fx-font-size: 35px;
+    -fx-font-weight: bold;
 }
 #mainMenuBtn{
     -fx-graphic: url("../images/mainmenu.png");

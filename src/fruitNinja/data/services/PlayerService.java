@@ -34,6 +34,7 @@ public class PlayerService extends BaseService<Player> {
 
         Players players = new Players();
         ArrayList<Player> _playersList = readData();
+        _playersList.add(data);
         players.setPlayers(_playersList);
 
         try {
