@@ -14,11 +14,4 @@
         <level>1</level>
         <name>0</name>
     </player>
-    <player>
-        <username>john doe</username>
-        <fullName>john</fullName>
-        <password>john_doe</password>
-        <level>1</level>
-        <name>0</name>
-    </player>
 </players>

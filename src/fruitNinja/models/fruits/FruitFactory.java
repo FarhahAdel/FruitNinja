@@ -8,6 +8,11 @@ public class FruitFactory {
 
     }
 
+    public Fruit createFruit(String fruitName, FruitType fruitType)
+    {
+        return createFruit(fruitName, fruitType.toString());
+    }
+
     public Fruit createFruit(String fruitName, String fruitType)
     {
         if (fruitName == null) throw new NullPointerException();
