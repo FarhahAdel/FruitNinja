@@ -46,6 +46,9 @@ public class MainDashboardController implements Initializable {
     @FXML
     private Button BackButton;
 
+    @FXML
+    private Label PlayerName;
+
     private Player player;
 
     public MainDashboardController(Player player)
@@ -76,13 +79,13 @@ public class MainDashboardController implements Initializable {
 
     @FXML
     void NewGame(ActionEvent event) {
-      ZenButton.setVisible(true);
-      ClassicButton.setVisible(true);
-      ArcadeButton.setVisible(true);
-      ExitButton.setVisible(true);
-      LeaderBoardButton.setVisible(false);
-      NewGameButton.setVisible(false);
-      BackButton.setVisible(false);
+        ZenButton.setVisible(true);
+        ClassicButton.setVisible(true);
+        ArcadeButton.setVisible(true);
+        ExitButton.setVisible(true);
+        LeaderBoardButton.setVisible(false);
+        NewGameButton.setVisible(false);
+        BackButton.setVisible(false);
     }
 
     @FXML
@@ -102,6 +105,5 @@ public class MainDashboardController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 }
