@@ -17,7 +17,7 @@ public class Player {
     private String password;
     @XmlElement(name="level")
     private int level;
-    @XmlElement(name="name")
+    @XmlElement(name="experience")
     private int experience;
 
     public Player()

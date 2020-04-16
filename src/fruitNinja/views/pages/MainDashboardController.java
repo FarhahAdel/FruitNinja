@@ -1,6 +1,7 @@
 package fruitNinja.views.pages;
 
 import fruitNinja.models.users.Player;
+import fruitNinja.utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -50,12 +51,13 @@ public class MainDashboardController implements Initializable {
     private Label PlayerName;
 
     private Player player;
+    private Utils utils;
 
     public MainDashboardController(Player player)
     {
         this.player = player;
+        this.utils = new Utils();
     }
-
 
     @FXML
     void ArcadeMode(ActionEvent event) {
@@ -105,5 +107,14 @@ public class MainDashboardController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setLevel();
+    }
+
+    private void setLevel()
+    {
+        int levelMaxPoints = utils.calculateExperiencePoints(player.getLevel());
+        double percentage = player.getExperience() * 1.0 / levelMaxPoints;
+        LevelBar.setProgress(percentage);
+        Level.setText(String.valueOf(player.getLevel()));
     }
 }

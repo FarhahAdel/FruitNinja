@@ -4,14 +4,14 @@
         <username>omar</username>
         <fullName>Omar Alaa</fullName>
         <password>omar123</password>
-        <level>1</level>
-        <name>0</name>
+        <level>2</level>
+        <experience>400</experience>
     </player>
     <player>
         <username>john</username>
         <fullName>john doe</fullName>
         <password>john_doe</password>
         <level>1</level>
-        <name>0</name>
+        <experience>0</experience>
     </player>
 </players>

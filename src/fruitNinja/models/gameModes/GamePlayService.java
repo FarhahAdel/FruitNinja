@@ -9,14 +9,14 @@ import fruitNinja.utils.Utils;
 
 import java.util.ArrayList;
 
-public class Gameplay {
+public class GamePlayService {
 
     private Utils utils;
     private FruitFactory fruitFactory;
     private int wave = 1;
 
 
-    public Gameplay()
+    public GamePlayService()
     {
         utils = new Utils();
         fruitFactory = new FruitFactory();
@@ -41,7 +41,7 @@ public class Gameplay {
         return fruits;
     }
 
-    public void throwFruits(ArrayList<Fruit> fruits)
+    public void throwFruits(ArrayList<Fruit> fruits, Difficulty difficulty)
     {
 
     }
@@ -50,6 +50,11 @@ public class Gameplay {
     {
         String randomFruitName =  utils.randomValueFromEnum(OrdinaryFruitType.class).toString();
         return fruitFactory.createFruit(randomFruitName, FruitType.ORDINARY);
+    }
+
+    public void showGameOver()
+    {
+
     }
 
     public int getWave() {
