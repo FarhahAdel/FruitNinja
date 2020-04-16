@@ -5,15 +5,19 @@ import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.fruits.FruitFactory;
 import fruitNinja.models.fruits.FruitType;
 import fruitNinja.models.fruits.ordinary.OrdinaryFruitType;
+import fruitNinja.models.fruits.special.SpecialFruit;
+import fruitNinja.models.fruits.special.SpecialFruitType;
 import fruitNinja.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.TimerTask;
 
 public class GamePlayService {
 
     private Utils utils;
     private FruitFactory fruitFactory;
     private int wave = 1;
+    private GameStrategy gameStrategy;
 
 
     public GamePlayService()
@@ -46,10 +50,21 @@ public class GamePlayService {
 
     }
 
+    public void throwSpecialFruit(Fruit fruit)
+    {
+
+    }
+
     private Fruit generateRandomFruit()
     {
-        String randomFruitName =  utils.randomValueFromEnum(OrdinaryFruitType.class).toString();
+        String randomFruitName = utils.randomValueFromEnum(OrdinaryFruitType.class).toString();
         return fruitFactory.createFruit(randomFruitName, FruitType.ORDINARY);
+    }
+
+    public Fruit generateRandomSpecialFruit()
+    {
+        String randomFruitName =  utils.randomValueFromEnum(SpecialFruitType.class).toString();
+        return fruitFactory.createFruit(randomFruitName, FruitType.SPECIAL);
     }
 
     public void showGameOver()
@@ -64,4 +79,5 @@ public class GamePlayService {
     public void setWave(int wave) {
         this.wave = wave;
     }
+    public void incWave() {this.wave += 1;};
 }

@@ -8,9 +8,7 @@
 
 <?import java.net.URL?>
 <GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="fruitNinja.views.pages.GameController"
-          prefHeight="400.0" prefWidth="600.0">
+          xmlns:fx="http://javafx.com/fxml">
 <Button text="||" fx:id="pauseButton" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#pauseButtonClicked"/>
 
     <Label text="score:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>

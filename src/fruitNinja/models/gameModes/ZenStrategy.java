@@ -4,8 +4,18 @@ import java.util.Timer;
 
 public class ZenStrategy implements GameStrategy {
     @Override
+    public void initGame() {
+
+    }
+
+    @Override
     public void bombBehaviour() {
 
+    }
+
+    @Override
+    public boolean gameEndCondition() {
+        return false;
     }
 
     /*
