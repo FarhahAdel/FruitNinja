@@ -1,11 +1,8 @@
 package fruitNinja.models.gameModes;
 
-public class ClassicStrategy implements GameStrategy {
-
-    int life = 3;
-
+public class ArcadeStrategy implements GameStrategy {
     @Override
     public void bombBehaviour() {
-        life--;
+
     }
 }

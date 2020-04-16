@@ -26,4 +26,9 @@ public class Utils {
         int n = random.nextInt(en.getEnumConstants().length);
         return en.getEnumConstants()[n];
     }
+
+    public int calculateExperiencePoints(int level)
+    {
+        return (int) Math.pow(2, level + 7);
+    }
 }

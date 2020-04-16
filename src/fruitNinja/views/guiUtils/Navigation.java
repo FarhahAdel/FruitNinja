@@ -83,4 +83,7 @@ public class Navigation {
         showPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
+    public void setLoggedInPlayer(Player loggedInPlayer) {
+        this.loggedInPlayer = loggedInPlayer;
+    }
 }
