@@ -1,7 +1,7 @@
 package fruitNinja.models.fruits;
 
 import fruitNinja.data.services.FruitService;
-import fruitNinja.models.fruits.ordinary.Apple;
+
 
 public class modelsImages {
     FruitService fruitService = new FruitService();
@@ -29,8 +29,6 @@ public class modelsImages {
 
 
         }
-        Apple apple=new Apple();
-       System.out.println(apple.getImage());
     }
  }
 
