@@ -7,6 +7,7 @@ import fruitNinja.views.pages.GameController;
 import fruitNinja.views.pages.MainDashboardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -83,8 +84,11 @@ public class Navigation {
 
     public void showGamePage(Stage stage, StrategyType strategyType)
     {
+
         GameController gameController = new GameController(strategyType);
-        showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
+        //showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
+        showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
+
     }
 
     public void showLoginPage(Stage stage)

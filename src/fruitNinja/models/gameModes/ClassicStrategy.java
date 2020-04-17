@@ -1,9 +1,15 @@
 package fruitNinja.models.gameModes;
 
+import fruitNinja.animations.ProjectileShooter;
 import fruitNinja.models.Difficulty;
 import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.fruits.FruitFactory;
+import fruitNinja.models.fruits.FruitType;
+import fruitNinja.models.fruits.ordinary.Banana;
 import fruitNinja.models.gameModes.timerTasks.Round;
+import javafx.scene.canvas.Canvas;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -14,6 +20,7 @@ public class ClassicStrategy implements GameStrategy {
     private Timer timer;
     private TimerTask timerTask;
     private boolean deadlyBombDenoted = false;
+    private FruitFactory fruitFactory = new FruitFactory();
 
     private GamePlayService gamePlayService;
 
@@ -21,12 +28,12 @@ public class ClassicStrategy implements GameStrategy {
     {
         gamePlayService = new GamePlayService();
         timer = new Timer();
-        timerTask = new Round();
     }
 
     @Override
-    public void initGame() {
-        int x = 3000; // X TO BE CHANGED UPON THE LAST FRUIT THROWN
+    public void initGame(Canvas canvas) {
+        timerTask = new Round(canvas);
+        int x = 4500; // X TO BE CHANGED UPON THE LAST FRUIT IS DOWN
         timer.schedule(timerTask, 500, x);
     }
 

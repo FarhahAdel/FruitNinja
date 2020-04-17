@@ -1,10 +1,12 @@
 package fruitNinja.models.gameModes;
 
+import javafx.scene.canvas.Canvas;
+
 import java.util.Timer;
 
 public class ZenStrategy implements GameStrategy {
     @Override
-    public void initGame() {
+    public void initGame(Canvas canvas) {
 
     }
 

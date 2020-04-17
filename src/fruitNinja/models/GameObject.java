@@ -4,8 +4,8 @@ import java.awt.image.BufferedImage;
 
 public interface GameObject {
     GameObjectType getObjectType();
-    int getXlocation();
-    int getYlocation();
+    double getXlocation();
+    double getYlocation();
     int getMaxHeight();
     int getInitialVelocity();
     int getFallingVelocity();

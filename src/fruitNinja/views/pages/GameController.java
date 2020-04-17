@@ -4,14 +4,18 @@ import fruitNinja.models.gameModes.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
+    /*
     @FXML
     private Button pauseButton;
     @FXML
@@ -21,22 +25,28 @@ public class GameController implements Initializable {
     @FXML
     private Label livesLabel;
 
+     */
+    @FXML
+    private Canvas canvas;
+
+
     private StrategyFactory strategyFactory = new StrategyFactory();
+    private StrategyType strategyType;
 
     public GameController(StrategyType strategyType)
     {
-        startGame(strategyType);
+        this.strategyType = strategyType;
     }
 
 
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         PauseDialogController pauseDialog = new PauseDialogController();
-        pauseDialog.show(scoreLabel.getScene().getWindow());
+        //pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        startGame(strategyType);
     }
 
     private void startGame(StrategyType strategyType)
@@ -44,6 +54,7 @@ public class GameController implements Initializable {
         GameStrategy strategy = strategyFactory.createStrategy(strategyType);
         ModeContext modeContext = new ModeContext();
         modeContext.setGameStrategy(strategy);
-        modeContext.startGame();
+
+        modeContext.startGame(canvas);
     }
 }

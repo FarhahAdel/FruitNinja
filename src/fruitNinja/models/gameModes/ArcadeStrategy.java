@@ -1,8 +1,10 @@
 package fruitNinja.models.gameModes;
 
+import javafx.scene.canvas.Canvas;
+
 public class ArcadeStrategy implements GameStrategy {
     @Override
-    public void initGame() {
+    public void initGame(Canvas canvas) {
 
     }
 

@@ -1,7 +1,7 @@
 package fruitNinja.models.bombs;
 
-import fruitNinja.models.GameItem;
+import fruitNinja.models.Sprite;
 
-public abstract class Bomb extends GameItem {
+public abstract class Bomb extends Sprite {
     private BombType bombType;
 }

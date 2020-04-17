@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import java.net.*?>
+<?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import java.net.URL?>
-<GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml">
-<Button text="||" fx:id="pauseButton" GridPane.rowIndex="0" GridPane.columnIndex="0" onAction="#pauseButtonClicked"/>
+<GridPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<Button fx:id="pauseButton" onAction="#pauseButtonClicked" text="||" GridPane.rowIndex="1" />
 
-    <Label text="score:" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-    <Label fx:id="scoreLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-    <Label fx:id="timerLabel" text="0:00" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.halignment="RIGHT"/>
-    <Label fx:id="livesLabel" text="X X X" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.halignment="RIGHT"/>
+    <Label text="score:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <Label fx:id="scoreLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    <Label fx:id="timerLabel" text="0:00" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+    <Label fx:id="livesLabel" text="X X X" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+
 
     <columnConstraints>
-        <ColumnConstraints percentWidth="10"/>
-        <ColumnConstraints percentWidth="10"/>
-        <ColumnConstraints percentWidth="10"/>
-        <ColumnConstraints percentWidth="70"/>
+        <ColumnConstraints percentWidth="10" />
+        <ColumnConstraints percentWidth="10" />
+        <ColumnConstraints percentWidth="10" />
+        <ColumnConstraints percentWidth="70" />
     </columnConstraints>
     <stylesheets>
-        <URL value="@../css/GamePageStyleSheet.css"/>
+        <URL value="@../css/GamePageStyleSheet.css" />
     </stylesheets>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

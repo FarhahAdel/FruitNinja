@@ -8,7 +8,10 @@ import fruitNinja.models.fruits.ordinary.OrdinaryFruitType;
 import fruitNinja.models.fruits.special.SpecialFruit;
 import fruitNinja.models.fruits.special.SpecialFruitType;
 import fruitNinja.utils.Utils;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.TimerTask;
 
