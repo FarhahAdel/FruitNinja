@@ -12,11 +12,6 @@ public class ProjectileShooter {
     private double angleRad = Math.toRadians(70);
     private Projectile projectile;
     private double currentTime = 0;
-    private final GridPane root;
-
-    public ProjectileShooter(GridPane root){
-        this.root = root;
-    }
 
     private void setStartingPoint(ImageView imageView){
         Random random = new Random();
@@ -39,7 +34,6 @@ public class ProjectileShooter {
         setStartingPoint(imageView);
 
         projectile = new Projectile(new Point2D(imageView.getTranslateX(),imageView.getTranslateY()), new Point2D(575*Math.cos(angleRad),575*Math.sin(angleRad)),angleRad);
-        final Path path = new Path();
 
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
@@ -65,7 +59,4 @@ public class ProjectileShooter {
         }
         return false;
     }
-
-
-    public Projectile getProjectile() { return projectile; }
 }
