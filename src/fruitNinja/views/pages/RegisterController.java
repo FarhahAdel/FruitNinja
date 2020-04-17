@@ -37,11 +37,12 @@ public class RegisterController {
 
         Player player = playerRepository.signUp(fullName, username, password);
         if (player == null) {
-            alerts.showErrorAlert("Invalid Credentials", "Wrong username or password");
+            alerts.showErrorAlert("Eligible username", "A User with the same username already exist");
             return;
         }
 
         Stage stage = (Stage)signUpBtn.getScene().getWindow();
+        navigation.setLoggedInPlayer(player);
         navigation.showMainDashboardPage(stage);
     }
 

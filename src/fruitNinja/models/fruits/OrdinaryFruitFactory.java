@@ -25,7 +25,7 @@ class OrdinaryFruitFactory {
                 fruit = new Apple();
                 break;
 
-            case "Pineapple":
+            case "pineapple":
                 fruit = new Pineapple();
                 break;
             default:

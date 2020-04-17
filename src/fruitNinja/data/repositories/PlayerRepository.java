@@ -34,6 +34,12 @@ public class PlayerRepository {
 
     public Player signUp(String fullName, String username, String password)
     {
+        for (Player player:players)
+        {
+            if (player.getUsername().equals(username))
+                return null;
+        }
+
         Player player = new Player(fullName, username, password);
         player.setExperience(0);
         player.setLevel(1);
