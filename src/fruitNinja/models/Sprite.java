@@ -96,6 +96,10 @@ public abstract class Sprite implements GameObject {
     public Boolean isSliced() {
         return isSliced;
     }
+    public void setSliced(boolean isSliced)
+    {
+        this.isSliced = isSliced;
+    }
 
     @Override
     public Boolean hasMovedOffScreen() {
@@ -104,8 +108,6 @@ public abstract class Sprite implements GameObject {
 
     @Override
     public void slice() {
-
-        //TODO: LOGIC TO BE IMPLEMENTED
         this.isSliced = true;
     }
 
@@ -117,6 +119,12 @@ public abstract class Sprite implements GameObject {
     @Override
     public BufferedImage[] getBufferedImages() {
         return new BufferedImage[0];
+    }
+
+    @Override
+    public boolean intersect(double x, double y) {
+        return (x >= getXlocation() && x <= getXlocation() + width)
+                && (y >= getYlocation() && y <= getYlocation() + height);
     }
 
     public void render(GraphicsContext gc)

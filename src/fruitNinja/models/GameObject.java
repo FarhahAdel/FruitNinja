@@ -13,5 +13,6 @@ public interface GameObject {
     Boolean hasMovedOffScreen();
     void slice();
     void move(double time);
+    boolean intersect(double x, double y);
     BufferedImage[] getBufferedImages();
 }

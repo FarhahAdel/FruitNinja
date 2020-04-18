@@ -1,6 +1,7 @@
 package fruitNinja.animations;
 
 import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.gameModes.events.MouseEvents;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -51,6 +52,9 @@ public class ProjectileShooter {
             fruitProjectileHashMap.put(fruit, projectile);
         }
 
+        MouseEvents mouseEvents = new MouseEvents(fruitProjectileHashMap);
+        canvas.setOnMouseDragged(mouseEvents);
+
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -74,6 +78,7 @@ public class ProjectileShooter {
         };
 
         animationTimer.start();
+
 
     }
 

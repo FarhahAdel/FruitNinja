@@ -21,4 +21,11 @@ public abstract class Fruit extends Sprite {
     public void setFruitType(FruitType fruitType) {
         this.fruitType = fruitType;
     }
+
+    @Override
+    public void slice()
+    {
+        setImage(getImageAfterSlicing());
+        setSliced(true);
+    }
 }
