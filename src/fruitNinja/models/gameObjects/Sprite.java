@@ -1,16 +1,13 @@
-package fruitNinja.models;
+package fruitNinja.models.gameObjects;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
-import java.awt.image.BufferedImage;
 
 public abstract class Sprite implements GameObject {
     private Image image;
     private double XLocation;
     private double YLocation;
-    private double angleRad = Math.toRadians(70);
-    private int initialVelocity;
+    private double angleRad = Math.toRadians(70); // DEFAULT VALUE
     private boolean isSliced;
     private boolean hasFallenOff;
     private double width;
@@ -19,14 +16,6 @@ public abstract class Sprite implements GameObject {
     public Sprite()
     {
 
-    }
-
-    public Sprite(int XLocation, int YLocation, Image image, int velocity)
-    {
-        this.XLocation = XLocation;
-        this.YLocation = YLocation;
-        this.image = image;
-        this.initialVelocity = velocity;
     }
 
     public Image getImage() {
@@ -43,7 +32,6 @@ public abstract class Sprite implements GameObject {
     public double getWidth() {
         return width;
     }
-
     public void setWidth(double width) {
         this.width = width;
     }
@@ -51,20 +39,24 @@ public abstract class Sprite implements GameObject {
     public double getHeight() {
         return height;
     }
-
     public void setHeight(double height) {
         this.height = height;
     }
 
+
     @Override
-    public GameObjectType getObjectType() {
-        return null;
+    public Boolean isSliced() {
+        return isSliced;
+    }
+    public void setSliced(boolean isSliced) {
+        this.isSliced = isSliced;
     }
 
     @Override
     public double getXlocation() {
         return XLocation;
     }
+
     public void setXLocation (double XLocation) {
         this.XLocation = XLocation;
     }
@@ -77,59 +69,13 @@ public abstract class Sprite implements GameObject {
         this.YLocation = YLocation;
     }
 
-    @Override
-    public int getMaxHeight() {
-        return 0;
-    }
-
-    @Override
-    public int getInitialVelocity() {
-        return initialVelocity;
-    }
-
-    @Override
-    public int getFallingVelocity() {
-        return 0;
-    }
-
-    @Override
-    public Boolean isSliced() {
-        return isSliced;
-    }
-    public void setSliced(boolean isSliced)
-    {
-        this.isSliced = isSliced;
-    }
 
     @Override
     public Boolean hasMovedOffScreen() {
         return hasFallenOff;
     }
-
-    @Override
-    public void slice() {
-        this.isSliced = true;
-    }
-
-    @Override
-    public void move(double time) {
-
-    }
-
-    @Override
-    public BufferedImage[] getBufferedImages() {
-        return new BufferedImage[0];
-    }
-
-    @Override
-    public boolean intersect(double x, double y) {
-        return (x >= getXlocation() && x <= getXlocation() + width)
-                && (y >= getYlocation() && y <= getYlocation() + height);
-    }
-
-    public void render(GraphicsContext gc)
-    {
-        gc.drawImage(image,getXlocation(),getYlocation());
+    public void setHasFallenOff(boolean hasFallenOff) {
+        this.hasFallenOff = hasFallenOff;
     }
 
     public double getAngleRad() {
@@ -140,7 +86,21 @@ public abstract class Sprite implements GameObject {
         this.angleRad = angleRad;
     }
 
-    public void setHasFallenOff(boolean hasFallenOff) {
-        this.hasFallenOff = hasFallenOff;
+    @Override
+    public void slice() {
+        this.isSliced = true;
     }
+
+    @Override
+    public boolean intersect(double x, double y) {
+        return (x >= getXlocation() && x <= getXlocation() + width)
+                && (y >= getYlocation() && y <= getYlocation() + height);
+    }
+
+    @Override
+    public void render(GraphicsContext gc)
+    {
+        gc.drawImage(image,getXlocation(),getYlocation());
+    }
+
 }

@@ -1,6 +1,6 @@
 package fruitNinja.models.fruits;
 
-import fruitNinja.models.Sprite;
+import fruitNinja.models.gameObjects.Sprite;
 
 public abstract class Fruit extends Sprite {
     private String imageAfterSlicing;

@@ -1,12 +1,10 @@
-package fruitNinja.models.gameModes.events;
+package fruitNinja.utils.events;
 
 import fruitNinja.animations.Projectile;
-import fruitNinja.models.Sprite;
 import fruitNinja.models.fruits.Fruit;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MouseEvents implements EventHandler<MouseEvent> {

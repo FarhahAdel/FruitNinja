@@ -1,7 +1,7 @@
 package fruitNinja.animations;
 
 import fruitNinja.models.fruits.Fruit;
-import fruitNinja.models.gameModes.events.MouseEvents;
+import fruitNinja.utils.events.MouseEvents;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -10,7 +10,7 @@ import javafx.scene.canvas.GraphicsContext;
 import java.util.*;
 
 public class ProjectileShooter {
-    //private Projectile projectile;
+
     private double currentTime = 0;
     private final Canvas canvas;
 
@@ -95,45 +95,4 @@ public class ProjectileShooter {
             fruit.setHasFallenOff(true);
         }
     }
-
-
-    /*
-    public void throwFruit(Fruit fruit){
-        setStartingPoint(fruit);
-
-        projectile = new Projectile(new Point2D(fruit.getXlocation(),fruit.getYlocation()),
-                new Point2D(575*Math.cos(fruit.getAngleRad()),575*Math.sin(fruit.getAngleRad())),fruit.getAngleRad());
-
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        fruit.render(gc);
-
-        AnimationTimer animationTimer = new AnimationTimer() {
-            @Override
-            public void handle(long l) {
-                boolean done = doHandle(fruit);
-                gc.clearRect(0, 0, 1280, 720);
-                fruit.render(gc);
-                if(done) this.stop();
-            }
-        };
-
-        animationTimer.start();
-    }
-    */
-    /*
-    private boolean doHandle(Fruit fruit){
-        currentTime += 0.016;
-        Point2D currentVelocity = projectile.getCurrentVelocity(currentTime);
-        Point2D currentPosition = projectile.getCurrentPosition(currentVelocity,currentTime);
-        fruit.setXLocation(currentPosition.getX());
-        fruit.setYLocation(currentPosition.getY());
-
-        if(fruit.getYlocation()>760){
-            currentTime=0;
-            return true;
-        }
-        return false;
-    }
-    */
-    //public Projectile getProjectile() { return projectile; }
 }

@@ -1,14 +1,12 @@
 package fruitNinja.views.pages;
 
 import fruitNinja.models.gameModes.*;
+import fruitNinja.models.gameModes.Stratgies.GameStrategy;
+import fruitNinja.models.gameModes.StrategyType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;

@@ -7,13 +7,13 @@ public class Projectile {
 
     private final Point2D initialPosition;
     private final Point2D initialVelocity;
-    private final double angleRad;
 
     public Projectile(Point2D initialPosition,Point2D initialVelocity, double angleRad){
         this.initialPosition = initialPosition;
         this.initialVelocity = initialVelocity;
-        this.angleRad = angleRad;
     }
+
+    // Returns the current velocity of the projectile
 
     public Point2D getCurrentVelocity(double time){
         double Vx = initialVelocity.getX();
@@ -22,6 +22,7 @@ public class Projectile {
         return new Point2D(Vx,Vy);
     }
 
+    // Returns the current position of the projectile
 
     public Point2D getCurrentPosition(Point2D velocityAtPoint, double time){
         double x = initialPosition.getX() + velocityAtPoint.getX()*time;

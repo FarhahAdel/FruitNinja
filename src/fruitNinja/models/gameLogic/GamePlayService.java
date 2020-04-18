@@ -1,27 +1,21 @@
-package fruitNinja.models.gameModes;
+package fruitNinja.models.gameLogic;
 
 import fruitNinja.models.Difficulty;
 import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.fruits.FruitFactory;
 import fruitNinja.models.fruits.FruitType;
 import fruitNinja.models.fruits.ordinary.OrdinaryFruitType;
-import fruitNinja.models.fruits.special.SpecialFruit;
 import fruitNinja.models.fruits.special.SpecialFruitType;
 import fruitNinja.utils.Utils;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
-import java.lang.reflect.Array;
+
 import java.util.ArrayList;
-import java.util.TimerTask;
+
 
 public class GamePlayService {
 
     private Utils utils;
     private FruitFactory fruitFactory;
-    private int wave = 1;
-    private GameStrategy gameStrategy;
-
 
     public GamePlayService()
     {
@@ -48,16 +42,6 @@ public class GamePlayService {
         return fruits;
     }
 
-    public void throwFruits(ArrayList<Fruit> fruits, Difficulty difficulty)
-    {
-
-    }
-
-    public void throwSpecialFruit(Fruit fruit)
-    {
-
-    }
-
     private Fruit generateRandomFruit()
     {
         String randomFruitName = utils.randomValueFromEnum(OrdinaryFruitType.class).toString();
@@ -69,18 +53,4 @@ public class GamePlayService {
         String randomFruitName =  utils.randomValueFromEnum(SpecialFruitType.class).toString();
         return fruitFactory.createFruit(randomFruitName, FruitType.SPECIAL);
     }
-
-    public void showGameOver()
-    {
-
-    }
-
-    public int getWave() {
-        return wave;
-    }
-
-    public void setWave(int wave) {
-        this.wave = wave;
-    }
-    public void incWave() {this.wave += 1;};
 }

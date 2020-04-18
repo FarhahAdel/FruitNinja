@@ -1,4 +1,4 @@
-package fruitNinja.models;
+package fruitNinja.models.gameObjects;
 
 public enum GameObjectType {
     FRUIT,
