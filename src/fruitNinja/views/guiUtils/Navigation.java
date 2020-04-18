@@ -1,6 +1,8 @@
 package fruitNinja.views.guiUtils;
 
+import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
+import fruitNinja.views.pages.GameController;
 import fruitNinja.views.pages.MainDashboardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -76,6 +78,15 @@ public class Navigation {
     public void showRegisterPage(Stage stage)
     {
         showPageWithoutController("../pages/RegisterPage.fxml", "Register", stage);
+    }
+
+    public void showGamePage(Stage stage, StrategyType strategyType)
+    {
+
+        GameController gameController = new GameController(strategyType);
+        //showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
+        showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
+
     }
 
     public void showLoginPage(Stage stage)

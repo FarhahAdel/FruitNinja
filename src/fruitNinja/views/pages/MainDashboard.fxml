@@ -21,7 +21,7 @@
                 <Image url="@../images/fruit-ninja-logo.png" />
             </image>
         </ImageView>
-        <Button fx:id="ArcadeButton" layoutX="469.0" layoutY="245.0" mnemonicParsing="false" onAction="#ArcadeMode" prefHeight="210.0" prefWidth="224.0" style="-fx-background-color: transparent;" visible="false">
+        <Button fx:id="arcadeButton" layoutX="469.0" layoutY="245.0" mnemonicParsing="false" onAction="#arcadeMode" prefHeight="210.0" prefWidth="224.0" style="-fx-background-color: transparent;" visible="false">
             <graphic>
                 <ImageView fitHeight="302.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -30,7 +30,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="ZenButton" layoutX="904.0" layoutY="239.0" mnemonicParsing="false" onAction="#ZenMode" style="-fx-background-color: transparent;" visible="false">
+        <Button fx:id="zenButton" layoutX="904.0" layoutY="239.0" mnemonicParsing="false" onAction="#zenMode" style="-fx-background-color: transparent;" visible="false">
             <graphic>
                 <ImageView fitHeight="373.0" fitWidth="325.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -39,7 +39,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="ClassicButton" layoutX="79.0" layoutY="311.0" mnemonicParsing="false" onAction="#ClassicMode" prefHeight="168.0" prefWidth="203.0" style="-fx-background-color: transparent;" styleClass="focused" visible="false">
+        <Button fx:id="classicButton" layoutX="79.0" layoutY="311.0" mnemonicParsing="false" onAction="#classicMode" prefHeight="168.0" prefWidth="203.0" style="-fx-background-color: transparent;" styleClass="focused" visible="false">
             <graphic>
                 <ImageView fitHeight="156.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -48,14 +48,14 @@
                 </ImageView>
             </graphic>
         </Button>
-        <ProgressBar fx:id="LevelBar" layoutX="149.0" layoutY="105.0" prefHeight="18.0" prefWidth="191.0" progress="0.48" style="-fx-accent: Purple; -fx-background-color: burlywood;" />
-        <Label fx:id="LevelNum" layoutX="188.0" layoutY="60.0" prefHeight="51.0" prefWidth="118.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: White; -fx-font-size: 35px; -fx-font-weight: Bold;" text="Level " textAlignment="CENTER" textFill="WHITE">
+        <ProgressBar fx:id="levelBar" layoutX="149.0" layoutY="105.0" prefHeight="18.0" prefWidth="191.0" progress="0.48" style="-fx-accent: Purple; -fx-background-color: burlywood;" />
+        <Label fx:id="levelNum" layoutX="188.0" layoutY="60.0" prefHeight="51.0" prefWidth="118.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: White; -fx-font-size: 35px; -fx-font-weight: Bold;" text="Level " textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-        <Label fx:id="Level" layoutX="38.0" layoutY="97.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: Whie; -fx-font-size: 35px; -fx-font-weight: Bold;" textFill="WHITE" />
-        <Button fx:id="NewGameButton" layoutX="508.0" layoutY="259.0" mnemonicParsing="false" onAction="#NewGame" prefHeight="210.0" prefWidth="224.0" style="-fx-background-color: transparent;">
+        <Label fx:id="level" layoutX="109.0" layoutY="86.0" prefHeight="51.0" prefWidth="27.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: Whie; -fx-font-size: 35px; -fx-font-weight: Bold;" textFill="WHITE" />
+        <Button fx:id="newGameButton" layoutX="508.0" layoutY="259.0" mnemonicParsing="false" onAction="#newGame" prefHeight="210.0" prefWidth="224.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="301.0" fitWidth="282.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -64,7 +64,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="LeaderBoardButton" layoutX="79.0" layoutY="469.0" mnemonicParsing="false" onAction="#LeaderBoard" style="-fx-background-color: transparent;" styleClass="focused">
+        <Button fx:id="leaderBoardButton" layoutX="79.0" layoutY="469.0" mnemonicParsing="false" onAction="#leaderBoard" style="-fx-background-color: transparent;" styleClass="focused">
             <graphic>
                 <ImageView fitHeight="188.0" fitWidth="211.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -73,7 +73,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="BackButton" layoutX="994.0" layoutY="469.0" mnemonicParsing="false" onAction="#Back" style="-fx-background-color: transparent;">
+        <Button fx:id="backButton" layoutX="994.0" layoutY="469.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="219.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -82,7 +82,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button fx:id="ExitButton" layoutX="12.0" layoutY="151.0" mnemonicParsing="false" onAction="#Exit" style="-fx-background-color: DarkRed;" visible="false">
+        <Button fx:id="exitButton" layoutX="12.0" layoutY="151.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: DarkRed;" visible="false">
             <graphic>
                 <ImageView fitHeight="24.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -94,6 +94,6 @@
                 <DropShadow />
             </effect>
         </Button>
-      <Label fx:id="PlayerName" layoutX="108.0" layoutY="345.0" prefHeight="30.0" prefWidth="109.0" style="-fx-rotate: 45; -fx-text-fill: White; -fx-font-weight: Bold; -fx-font-family: 'Gang of Three';" />
+      <Label fx:id="playerName" layoutX="108.0" layoutY="345.0" prefHeight="36.0" prefWidth="170.0" style="-fx-rotate: 25; -fx-text-fill: White; -fx-font-weight: Bold; -fx-font-family: 'Gang of Three'; -fx-font-size: 18;" />
     </children>
 </AnchorPane>

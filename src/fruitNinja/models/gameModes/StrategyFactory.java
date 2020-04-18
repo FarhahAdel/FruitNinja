@@ -1,6 +1,13 @@
 package fruitNinja.models.gameModes;
 
+import fruitNinja.models.gameModes.Stratgies.*;
+
 public class StrategyFactory {
+
+    public GameStrategy createStrategy(StrategyType strategyType)
+    {
+        return createStrategy(strategyType.toString());
+    }
 
     public GameStrategy createStrategy(String name)
     {

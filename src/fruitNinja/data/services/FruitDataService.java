@@ -11,7 +11,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.util.ArrayList;
 
-public class FruitService extends BaseService<FruitData>{
+public class FruitDataService extends BaseService<FruitData>{
     @Override
     public ArrayList<FruitData> readData() {
         JAXBContext jaxbContext= null;
