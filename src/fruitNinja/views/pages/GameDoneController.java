@@ -20,7 +20,7 @@ public class GameDoneController implements Initializable {
     private Navigation navigation = new Navigation();
 
     @FXML
-    private void handlePlayAgainActionButton(ActionEvent actionEvent) {
+    public void handlePlayAgainActionButton(ActionEvent actionEvent) {
         navigateToGameWindow();
     }
     @FXML
@@ -40,7 +40,7 @@ public class GameDoneController implements Initializable {
     private void navigateToGameWindow(){
         Stage stage;
         stage = (Stage)playAgainBtn.getScene().getWindow();
-        //navigation.showPageWithoutController("../pages/GameWindow.fxml", "Login", 1200, 700, stage);
+       // navigation.showMainDashboardPage(stage);
 
     }
 

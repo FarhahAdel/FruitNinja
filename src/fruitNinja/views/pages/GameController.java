@@ -7,13 +7,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class GameController implements Initializable {
-    /*
+
     @FXML
     private Button pauseButton;
     @FXML
@@ -23,7 +25,7 @@ public class GameController implements Initializable {
     @FXML
     private Label livesLabel;
 
-     */
+
     @FXML
     private Canvas canvas;
 
@@ -39,7 +41,8 @@ public class GameController implements Initializable {
 
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         PauseDialogController pauseDialog = new PauseDialogController();
-        //pauseDialog.show(scoreLabel.getScene().getWindow());
+        pauseDialog.show(scoreLabel.getScene().getWindow());
+
     }
 
     @Override
