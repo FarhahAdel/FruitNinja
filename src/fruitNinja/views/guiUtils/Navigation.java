@@ -1,6 +1,5 @@
 package fruitNinja.views.guiUtils;
 
-import fruitNinja.models.gameModes.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
 import fruitNinja.views.pages.GameController;
@@ -83,8 +82,11 @@ public class Navigation {
 
     public void showGamePage(Stage stage, StrategyType strategyType)
     {
+
         GameController gameController = new GameController(strategyType);
-        showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
+        //showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
+        showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
+
     }
 
     public void showLoginPage(Stage stage)

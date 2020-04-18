@@ -8,16 +8,15 @@ public class Utils {
 
     public int generateRandomIntBasedOnDifficulty(Difficulty difficulty)
     {
-        int max;
-        switch (difficulty){
-            case EASY: max = 2; break;
-            case MEDIUM: max = 4; break;
-            case HARD: max = 5; break;
-            default: max = 3; break;
+        Random random = new Random();
+        int min = 3;
+        switch (difficulty)
+        {
+            case MEDIUM: min += random.nextInt(1) + 1;  break; // 4 OR 5
+            case HARD: min += random.nextInt(1) + 2; break; // 5 OR 6
         }
 
-        Random random = new Random();
-        return random.nextInt(max) + 1;
+        return min;
     }
 
     public <T extends Enum<?>> T randomValueFromEnum(Class<T> en)

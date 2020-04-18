@@ -1,5 +1,8 @@
 package fruitNinja.models.gameModes;
 
+import fruitNinja.models.gameModes.Stratgies.GameStrategy;
+import javafx.scene.canvas.Canvas;
+
 public class ModeContext {
     GameStrategy gameStrategy;
 
@@ -8,8 +11,8 @@ public class ModeContext {
         gameStrategy = strategy;
     }
 
-    public void startGame()
+    public void startGame(Canvas canvas)
     {
-        gameStrategy.initGame();
+        gameStrategy.initGame(canvas);
     }
 }

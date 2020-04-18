@@ -1,8 +1,7 @@
-package fruitNinja.models.gameModes.timerTasks;
+package fruitNinja.utils.timerTasks;
 
 import fruitNinja.models.fruits.Fruit;
-import fruitNinja.models.fruits.special.SpecialFruit;
-import fruitNinja.models.gameModes.GamePlayService;
+import fruitNinja.models.gameLogic.GamePlayService;
 
 import java.util.TimerTask;
 
@@ -19,6 +18,6 @@ public class SpecialFruitGeneration extends TimerTask {
     @Override
     public void run() {
         Fruit fruit = gamePlayService.generateRandomSpecialFruit();
-        gamePlayService.throwSpecialFruit(fruit);
+        //gamePlayService.throwSpecialFruit(fruit);
     }
 }

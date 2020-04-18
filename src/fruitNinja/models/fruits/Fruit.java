@@ -1,8 +1,8 @@
 package fruitNinja.models.fruits;
 
-import fruitNinja.models.GameItem;
+import fruitNinja.models.gameObjects.Sprite;
 
-public abstract class Fruit extends GameItem {
+public abstract class Fruit extends Sprite {
     private String imageAfterSlicing;
     private FruitType fruitType;
 
@@ -20,5 +20,12 @@ public abstract class Fruit extends GameItem {
 
     public void setFruitType(FruitType fruitType) {
         this.fruitType = fruitType;
+    }
+
+    @Override
+    public void slice()
+    {
+        setImage(getImageAfterSlicing());
+        setSliced(true);
     }
 }

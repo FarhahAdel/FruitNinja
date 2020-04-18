@@ -1,17 +1,17 @@
 package fruitNinja.models.fruits;
 
-import fruitNinja.data.services.FruitService;
+import fruitNinja.data.services.FruitDataService;
 
 
 public class modelsImages {
-    FruitService fruitService = new FruitService();
+    FruitDataService fruitDataService = new FruitDataService();
     OrdinaryFruitFactory fruitFactory=new OrdinaryFruitFactory();
     public modelsImages() {
     }
 
     public void setImages() {
 
-        for (FruitData fruitData:fruitService.readData()){
+        for (FruitData fruitData: fruitDataService.readData()){
             switch (fruitData.getFruitname()){
                 case "banana":
                    // Banana.setImage(fruitData.getPicture());
