@@ -24,9 +24,9 @@ public class GamePlayActions {
         this.projectileShooter = new ProjectileShooter();
     }
 
-    public void throwFruits(ArrayList<Sprite> fruits)
+    public void throwFruits(ArrayList<Sprite> sprites)
     {
-        HashMap<Sprite, Projectile> spriteProjectileHashMap = associateProjectiles(fruits);
+        HashMap<Sprite, Projectile> spriteProjectileHashMap = associateProjectiles(sprites);
 
         MouseEvents mouseEvents = new MouseEvents(spriteProjectileHashMap);
         canvas.setOnMouseDragged(mouseEvents);
