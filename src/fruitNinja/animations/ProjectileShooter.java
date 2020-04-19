@@ -26,15 +26,8 @@ public class ProjectileShooter {
         fruit.setXLocation(random.nextInt(1280));
         fruit.setYLocation(750);
 
-        if(fruit.getXlocation() < (float) 1280/2){
-            fruit.setAngleRad(Math.toRadians(random.nextInt(90 - 45) + 45));
-        }
-        else if (fruit.getXlocation() > (float) 1280/2){
-            fruit.setAngleRad(Math.toRadians(random.nextInt(135 - 90) + 90));
-        }
-        else{
-            fruit.setAngleRad(Math.toRadians(180));
-        }
+        setAngle(fruit);
+
     }
 
     public void throwFruits(ArrayList<Fruit> fruits)
@@ -94,5 +87,30 @@ public class ProjectileShooter {
         if(fruit.getYlocation() > 760){
             fruit.setHasFallenOff(true);
         }
+    }
+
+    private void setAngle(Fruit fruit){
+        Random random = new Random();
+
+        if(fruit.getXlocation() < (float) 1280/2){
+
+            if(fruit.getXlocation() < (float) 1280/4){
+                fruit.setAngleRad(Math.toRadians(random.nextInt(90 - 70) + 70));
+            }
+            else{
+                fruit.setAngleRad(Math.toRadians(random.nextInt(90-85)+85));
+            }
+
+        }
+        else{
+            if(fruit.getXlocation() < (float) 1280/2 + (float) 1280/4){
+                fruit.setAngleRad(Math.toRadians(random.nextInt(95 - 90) + 90));
+            }
+            else{
+                fruit.setAngleRad(Math.toRadians(random.nextInt(110 - 90) + 90));
+            }
+        }
+
+
     }
 }
