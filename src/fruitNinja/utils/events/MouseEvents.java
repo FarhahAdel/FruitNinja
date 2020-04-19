@@ -2,6 +2,7 @@ package fruitNinja.utils.events;
 
 import fruitNinja.animations.Projectile;
 import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.gameObjects.Sprite;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 
@@ -9,8 +10,8 @@ import java.util.HashMap;
 
 public class MouseEvents implements EventHandler<MouseEvent> {
 
-    private HashMap<Fruit, Projectile> spritesMap;
-    public MouseEvents(HashMap<Fruit, Projectile> spritesMap)
+    private HashMap<Sprite, Projectile> spritesMap;
+    public MouseEvents(HashMap<Sprite, Projectile> spritesMap)
     {
         this.spritesMap = spritesMap;
     }
