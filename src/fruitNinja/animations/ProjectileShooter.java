@@ -26,15 +26,8 @@ public class ProjectileShooter {
         sprite.setXLocation(random.nextInt(1280));
         sprite.setYLocation(750);
 
-        if(sprite.getXlocation() < (float) 1280/2){
-            sprite.setAngleRad(Math.toRadians(random.nextInt(90 - 45) + 45));
-        }
-        else if (sprite.getXlocation() > (float) 1280/2){
-            sprite.setAngleRad(Math.toRadians(random.nextInt(135 - 90) + 90));
-        }
-        else{
-            sprite.setAngleRad(Math.toRadians(180));
-        }
+        setAngle(sprite);
+
     }
 
     public void moveProjectile(Sprite sprite, Projectile projectile)
@@ -56,5 +49,30 @@ public class ProjectileShooter {
 
     public void setCurrentTime(double currentTime) {
         this.currentTime = currentTime;
+    }
+
+    private void setAngle(Sprite sprite){
+        Random random = new Random();
+
+        if(sprite.getXlocation() < (float) 1280/2){
+
+            if(sprite.getXlocation() < (float) 1280/4){
+                sprite.setAngleRad(Math.toRadians(random.nextInt(90 - 70) + 70));
+            }
+            else{
+                sprite.setAngleRad(Math.toRadians(random.nextInt(90-85)+85));
+            }
+
+        }
+        else{
+            if(sprite.getXlocation() < (float) 1280/2 + (float) 1280/4){
+                sprite.setAngleRad(Math.toRadians(random.nextInt(95 - 90) + 90));
+            }
+            else{
+                sprite.setAngleRad(Math.toRadians(random.nextInt(110 - 90) + 90));
+            }
+        }
+
+
     }
 }
