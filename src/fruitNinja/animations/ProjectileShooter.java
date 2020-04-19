@@ -1,6 +1,7 @@
 package fruitNinja.animations;
 
 import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.utils.events.MouseEvents;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
@@ -12,102 +13,63 @@ import java.util.*;
 public class ProjectileShooter {
 
     private double currentTime = 0;
-    private final Canvas canvas;
 
-    public ProjectileShooter(Canvas canvas){
-        this.canvas = canvas;
+    public ProjectileShooter(){
+
     }
 
-    private void setStartingPoint(Fruit fruit){
+    public void setStartingPoint(Sprite sprite){
         Random random = new Random();
 
         // MAX RANGE RULE TO BE USED TO LIMIT FALLING OFF SIDES
 
-        fruit.setXLocation(random.nextInt(1280));
-        fruit.setYLocation(750);
+        sprite.setXLocation(random.nextInt(1280));
+        sprite.setYLocation(750);
 
-        setAngle(fruit);
-
-    }
-
-    public void throwFruits(ArrayList<Fruit> fruits)
-    {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-
-        HashMap<Fruit, Projectile> fruitProjectileHashMap = new HashMap<>();
-        for (Fruit fruit:fruits)
-        {
-            setStartingPoint(fruit);
-
-            Projectile projectile = new Projectile(new Point2D(fruit.getXlocation(),fruit.getYlocation()),
-                    new Point2D(575*Math.cos(fruit.getAngleRad()),575*Math.sin(fruit.getAngleRad())),fruit.getAngleRad());
-
-            fruitProjectileHashMap.put(fruit, projectile);
-        }
-
-        MouseEvents mouseEvents = new MouseEvents(fruitProjectileHashMap);
-        canvas.setOnMouseDragged(mouseEvents);
-
-        AnimationTimer animationTimer = new AnimationTimer() {
-            @Override
-            public void handle(long l) {
-                gc.clearRect(0, 0 , 1280, 720);
-                fruitProjectileHashMap.forEach((k,v) -> {
-                    moveProjectile(k, v);
-                });
-
-                fruitProjectileHashMap.entrySet().removeIf(entry -> entry.getKey().hasMovedOffScreen());
-
-                fruitProjectileHashMap.forEach((k,v) -> {
-                    if (!k.hasMovedOffScreen()) k.render(gc);
-                });
-
-                if (fruitProjectileHashMap.isEmpty()) {
-                    currentTime = 0;
-                    this.stop();
-                }
-
-            }
-        };
-
-        animationTimer.start();
-
+        setAngle(sprite);
 
     }
 
-
-    private void moveProjectile(Fruit fruit, Projectile projectile)
+    public void moveProjectile(Sprite sprite, Projectile projectile)
     {
         currentTime += 0.016;
         Point2D currentVelocity = projectile.getCurrentVelocity(currentTime);
         Point2D currentPosition = projectile.getCurrentPosition(currentVelocity,currentTime);
-        fruit.setXLocation(currentPosition.getX());
-        fruit.setYLocation(currentPosition.getY());
+        sprite.setXLocation(currentPosition.getX());
+        sprite.setYLocation(currentPosition.getY());
 
-        if(fruit.getYlocation() > 760){
-            fruit.setHasFallenOff(true);
+        if(sprite.getYlocation() > 760){
+            sprite.setHasFallenOff(true);
         }
     }
 
-    private void setAngle(Fruit fruit){
+    public double getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(double currentTime) {
+        this.currentTime = currentTime;
+    }
+
+    private void setAngle(Sprite sprite){
         Random random = new Random();
 
-        if(fruit.getXlocation() < (float) 1280/2){
+        if(sprite.getXlocation() < (float) 1280/2){
 
-            if(fruit.getXlocation() < (float) 1280/4){
-                fruit.setAngleRad(Math.toRadians(random.nextInt(90 - 70) + 70));
+            if(sprite.getXlocation() < (float) 1280/4){
+                sprite.setAngleRad(Math.toRadians(random.nextInt(90 - 70) + 70));
             }
             else{
-                fruit.setAngleRad(Math.toRadians(random.nextInt(90-85)+85));
+                sprite.setAngleRad(Math.toRadians(random.nextInt(90-85)+85));
             }
 
         }
         else{
-            if(fruit.getXlocation() < (float) 1280/2 + (float) 1280/4){
-                fruit.setAngleRad(Math.toRadians(random.nextInt(95 - 90) + 90));
+            if(sprite.getXlocation() < (float) 1280/2 + (float) 1280/4){
+                sprite.setAngleRad(Math.toRadians(random.nextInt(95 - 90) + 90));
             }
             else{
-                fruit.setAngleRad(Math.toRadians(random.nextInt(110 - 90) + 90));
+                sprite.setAngleRad(Math.toRadians(random.nextInt(110 - 90) + 90));
             }
         }
 

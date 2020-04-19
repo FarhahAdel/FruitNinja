@@ -1,5 +1,7 @@
 package fruitNinja.models.gameModes.Stratgies;
 
+import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.fruits.ordinary.Apple;
 import fruitNinja.utils.timerTasks.Round;
 import javafx.scene.canvas.Canvas;
 
