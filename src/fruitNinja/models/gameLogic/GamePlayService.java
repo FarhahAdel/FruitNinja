@@ -15,6 +15,8 @@ import fruitNinja.utils.Utils;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 
@@ -36,25 +38,19 @@ public class GamePlayService {
         else if (wave > 5) return Difficulty.MEDIUM;
         else return Difficulty.EASY;
     }
-
-
     public ArrayList<Sprite> generateWave(Difficulty difficulty)
-    {
-        int n = utils.generateRandomIntBasedOnDifficulty(difficulty);
+        {
+        int nFruits = utils.generateRandomFruitNumBasedOnDifficulty(difficulty);
+        int nBombs=utils.generateRandomBombNumBasedOnDifficulty(difficulty);
         ArrayList<Sprite> sprites = new ArrayList<>();
-
-        for (int i = 0; i < n; i++){
-            Random random = new Random();
-            double y=random.nextDouble();
-            if (0 < y && y < 0.80)
-                sprites.add(generateRandomFruit());
-            if (0.80<y && y< 1.0)
-                sprites.add(generateRandomBomb());
-        }
-
-
+        for (int i = 0; i < nFruits; i++)
+            sprites.add(generateRandomFruit());
+        for(int i=0;i<nBombs;i++)
+            sprites.add(generateRandomBomb());
+        Collections.shuffle(sprites);
         return sprites;
     }
+
 
     private Fruit generateRandomFruit()
     {
