@@ -19,7 +19,7 @@ public class Navigation {
     private final int width = 1280;
     private final int height = 720;
 
-    private Player loggedInPlayer;
+    private static Player loggedInPlayer;
     private Alerts alerts;
 
     public Navigation()
@@ -81,17 +81,19 @@ public class Navigation {
         showPageWithoutController("../pages/RegisterPage.fxml", "Register", stage);
     }
 
-    public void showGamePage(Stage stage, StrategyType strategyType)
+    public void showGamePage(Stage stage, StrategyType strategyType,Player currentPlayer)
     {
 
-        GameController gameController = new GameController(strategyType);
+        GameController gameController = new GameController(strategyType,currentPlayer);
+
         showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
         //showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
 
     }
-    public void showGameDonePage(Stage stage)
+    public void showGameDonePage(Stage stage,Player currentPlayer)
     {
-        GameDoneController gameDoneController = new GameDoneController();
+        GameDoneController gameDoneController = new GameDoneController(currentPlayer);
+        //setLoggedInPlayer(currentPlayer);
         showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneController);
     }
 
@@ -100,7 +102,10 @@ public class Navigation {
         showPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
-    public void setLoggedInPlayer(Player loggedInPlayer) {
-        this.loggedInPlayer = loggedInPlayer;
+    public static void setLoggedInPlayer(Player loggedInPlayer) {
+        Navigation.loggedInPlayer = loggedInPlayer;
+    }
+    public static Player getLoggedInPlayer(){
+        return Navigation.loggedInPlayer;
     }
 }

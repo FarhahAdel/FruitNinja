@@ -3,6 +3,7 @@ package fruitNinja.views.pages;
 import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.users.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -17,7 +18,7 @@ import java.util.ResourceBundle;
 public class GameController implements Initializable {
 
     @FXML
-    private Button pauseButton;
+    public Button pauseButton;
     @FXML
     private Label scoreLabel;
     @FXML
@@ -26,16 +27,19 @@ public class GameController implements Initializable {
     private Label livesLabel;
 
 
+
     @FXML
     private Canvas canvas;
 
 
     private StrategyFactory strategyFactory = new StrategyFactory();
+    private Player player;
     private StrategyType strategyType;
 
-    public GameController(StrategyType strategyType)
+    public GameController(StrategyType strategyType, Player player)
     {
         this.strategyType = strategyType;
+        this.player=player;
     }
 
 
