@@ -2,6 +2,7 @@ package fruitNinja.models.gameModes.Stratgies;
 
 import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.fruits.ordinary.Apple;
+import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.utils.timerTasks.Round;
 import javafx.scene.canvas.Canvas;
 
@@ -14,6 +15,8 @@ public class ClassicStrategy implements GameStrategy {
     private Timer timer;
     private TimerTask timerTask;
 
+    private StrategyType strategyType = StrategyType.CLASSIC;
+
     public ClassicStrategy()
     {
         timer = new Timer();
@@ -24,7 +27,7 @@ public class ClassicStrategy implements GameStrategy {
 
         // THIS WHOLE METHOD TO BE CHANGED
 
-        timerTask = new Round(canvas);
+        timerTask = new Round(canvas, strategyType);
         int x = 4500; // X TO BE CHANGED UPON THE LAST FRUIT IS DOWN
         timer.schedule(timerTask, 500, x);
     }

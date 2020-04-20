@@ -1,5 +1,6 @@
 package fruitNinja.models.fruits;
 
+import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameObjects.Sprite;
 
 public abstract class Fruit extends Sprite {

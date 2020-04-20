@@ -17,7 +17,7 @@ public class SpecialFruitGeneration extends TimerTask {
 
     @Override
     public void run() {
-        Fruit fruit = gamePlayService.generateRandomSpecialFruit();
+        //Fruit fruit = gamePlayService.generateRandomSpecialFruit();
         //gamePlayService.throwSpecialFruit(fruit);
     }
 }

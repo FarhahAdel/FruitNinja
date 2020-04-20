@@ -9,6 +9,7 @@ import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,10 +19,14 @@ public class GamePlayActions {
     private Canvas canvas;
     private ProjectileShooter projectileShooter;
 
-    public GamePlayActions(Canvas canvas)
+    public GamePlayActions()
+    {
+        this.projectileShooter = new ProjectileShooter();
+    }
+
+    public void setCanvas(Canvas canvas)
     {
         this.canvas = canvas;
-        this.projectileShooter = new ProjectileShooter();
     }
 
     public void throwFruits(ArrayList<Sprite> sprites)

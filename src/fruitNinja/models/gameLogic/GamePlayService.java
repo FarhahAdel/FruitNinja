@@ -9,8 +9,13 @@ import fruitNinja.models.fruits.FruitFactory;
 import fruitNinja.models.fruits.FruitType;
 import fruitNinja.models.fruits.ordinary.OrdinaryFruitType;
 import fruitNinja.models.fruits.special.SpecialFruitType;
+import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameObjects.GameObjectType;
 import fruitNinja.models.gameObjects.Sprite;
+import fruitNinja.models.wave.WaveBuilder;
+import fruitNinja.models.wave.WaveBuilderFactory;
+import fruitNinja.models.wave.WaveDirector;
+import fruitNinja.utils.RandomObjectGenerator;
 import fruitNinja.utils.Utils;
 
 
@@ -23,49 +28,34 @@ import java.util.Random;
 public class GamePlayService {
 
     private Utils utils;
-    private FruitFactory fruitFactory;
-    private BombFactory bombFactory;
+
+    private RandomObjectGenerator randomObjectGenerator = new RandomObjectGenerator();
+
     public GamePlayService()
     {
         utils = new Utils();
-        fruitFactory = new FruitFactory();
-        bombFactory = new BombFactory();
+
     }
 
-    public Difficulty getDifficultyByWaveNumber(int wave)
-    {
-        if (wave > 10) return Difficulty.HARD;
-        else if (wave > 5) return Difficulty.MEDIUM;
-        else return Difficulty.EASY;
-    }
-    public ArrayList<Sprite> generateWave(Difficulty difficulty)
-        {
+    /*
+    public ArrayList<Sprite> generateWave(Difficulty difficulty) {
         int nFruits = utils.generateRandomFruitNumBasedOnDifficulty(difficulty);
         int nBombs=utils.generateRandomBombNumBasedOnDifficulty(difficulty);
         ArrayList<Sprite> sprites = new ArrayList<>();
         for (int i = 0; i < nFruits; i++)
-            sprites.add(generateRandomFruit());
+            sprites.add(randomObjectGenerator.generateRandomFruit());
         for(int i=0;i<nBombs;i++)
-            sprites.add(generateRandomBomb());
+            sprites.add(randomObjectGenerator.generateRandomBomb());
         Collections.shuffle(sprites);
         return sprites;
     }
+    */
 
-
-    private Fruit generateRandomFruit()
-    {
-        String randomFruitName = utils.randomValueFromEnum(OrdinaryFruitType.class).toString();
-        return fruitFactory.createFruit(randomFruitName, FruitType.ORDINARY);
+    public ArrayList<Sprite> generateWave(StrategyType strategyType, Difficulty difficulty) {
+        WaveBuilderFactory waveBuilderFactory =  new WaveBuilderFactory();
+        WaveBuilder waveBuilder = waveBuilderFactory.createWaveBuilder(strategyType);
+        WaveDirector waveDirector = new WaveDirector(waveBuilder, difficulty);
+        waveDirector.constructWave();
+        return waveDirector.getWave().getWaveObjects();
     }
-
-    public Fruit generateRandomSpecialFruit()
-    {
-        String randomFruitName =  utils.randomValueFromEnum(SpecialFruitType.class).toString();
-        return fruitFactory.createFruit(randomFruitName, FruitType.SPECIAL);
-    }
-    public Bomb generateRandomBomb(){
-        String randomBombName = utils.randomValueFromEnum(BombType.class).toString();
-        return bombFactory.createBomb(randomBombName);
-    }
-
 }

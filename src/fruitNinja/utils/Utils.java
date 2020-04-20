@@ -30,6 +30,15 @@ public class Utils {
 
         return min;
     }
+
+
+    public Difficulty getDifficultyByWaveNumber(int wave)
+    {
+        if (wave > 10) return Difficulty.HARD;
+        else if (wave > 5) return Difficulty.MEDIUM;
+        else return Difficulty.EASY;
+    }
+
     public <T extends Enum<?>> T randomValueFromEnum(Class<T> en)
     {
         Random random = new Random();
