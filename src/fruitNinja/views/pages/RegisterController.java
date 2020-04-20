@@ -42,7 +42,7 @@ public class RegisterController {
         }
 
         Stage stage = (Stage)signUpBtn.getScene().getWindow();
-        navigation.setLoggedInPlayer(player);
+      Navigation.setLoggedInPlayer(player);
         navigation.showMainDashboardPage(stage);
     }
 

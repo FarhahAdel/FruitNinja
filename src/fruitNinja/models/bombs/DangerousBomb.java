@@ -5,8 +5,7 @@ public class DangerousBomb extends Bomb{
     private final int timeMinimizing = 10;
     private final int lifeMinimizing = 1;
     public DangerousBomb() {
-        setImage("/fruitNinja/views/images/bomb.png");
-        //setImageAfterSlicing("/fruitNinja/views/images/AppleSliced.png");
+        setImage("/fruitNinja/views/images/DangerousBomb.png");
     }
 
 }

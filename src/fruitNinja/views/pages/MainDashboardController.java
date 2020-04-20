@@ -130,6 +130,6 @@ public class MainDashboardController implements Initializable {
     private void navigateToGame(StrategyType strategyType)
     {
         Stage stage = (Stage)classicButton.getScene().getWindow();
-        navigation.showGamePage(stage, strategyType);
+        navigation.showGamePage(stage, strategyType,player);
     }
 }

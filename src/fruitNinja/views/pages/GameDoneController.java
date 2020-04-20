@@ -1,5 +1,6 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.models.users.Player;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,25 +17,37 @@ public class GameDoneController implements Initializable {
     public Label highScoreValue;
     public Button playAgainBtn;
     public Button mainMenuBtn;
+    private Player player;
 
     private Navigation navigation = new Navigation();
+
+    public GameDoneController(Player player){
+        this.player=player;
+//        navigation.setLoggedInPlayer(player);
+//        System.out.println(player.getUsername()+"in gamekhaea");
+    }
 
     @FXML
     public void handlePlayAgainActionButton(ActionEvent actionEvent) {
         navigateToGameWindow();
     }
-    @FXML
-    public void handleMainMenuActionButton(ActionEvent actionEvent) {
-        navigateToMainDashboardWindow();
-    }
 
-    private void navigateToMainDashboardWindow(){
+    public void handleMainMenuActionButton(ActionEvent actionEvent) {
         Stage stage;
         stage = (Stage)mainMenuBtn.getScene().getWindow();
-       // navigation.showPageWithoutController("../pages/MainDashboard.fxml", "Login", 1200, 700, stage);
-
-
+        //navigation.setLoggedInPlayer(player);
+        //System.out.println(player.getUsername());
+       // navigation.setLoggedInPlayer(player);
+        navigation.showMainDashboardPage(stage);
     }
+
+//    private void navigateToMainDashboardWindow(){
+//        Stage stage;
+//        stage = (Stage)mainMenuBtn.getScene().getWindow();
+//        navigation.showMainDashboardPage(stage,player);
+//
+//
+//    }
 
 
     private void navigateToGameWindow(){
