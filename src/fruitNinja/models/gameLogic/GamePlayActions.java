@@ -2,6 +2,7 @@ package fruitNinja.models.gameLogic;
 
 import fruitNinja.animations.Projectile;
 import fruitNinja.animations.ProjectileShooter;
+import fruitNinja.models.Difficulty;
 import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.utils.events.MouseEvents;
@@ -24,9 +25,9 @@ public class GamePlayActions {
         this.projectileShooter = new ProjectileShooter();
     }
 
-    public void throwFruits(ArrayList<Sprite> sprites)
+    public void throwFruits(ArrayList<Sprite> sprites, Difficulty difficulty)
     {
-        HashMap<Sprite, Projectile> spriteProjectileHashMap = associateProjectiles(sprites);
+        HashMap<Sprite, Projectile> spriteProjectileHashMap = associateProjectiles(sprites, difficulty);
 
         MouseEvents mouseEvents = new MouseEvents(spriteProjectileHashMap);
         canvas.setOnMouseDragged(mouseEvents);
@@ -42,7 +43,7 @@ public class GamePlayActions {
         animationTimer.start();
     }
 
-    private HashMap<Sprite, Projectile> associateProjectiles(ArrayList<Sprite> sprites)
+    private HashMap<Sprite, Projectile> associateProjectiles(ArrayList<Sprite> sprites, Difficulty difficulty)
     {
         HashMap<Sprite, Projectile> projectileHashMap = new HashMap<>();
 
@@ -51,7 +52,7 @@ public class GamePlayActions {
             projectileShooter.setStartingPoint(sprite);
 
             Projectile projectile = new Projectile(new Point2D(sprite.getXlocation(),sprite.getYlocation()),
-                    new Point2D(575*Math.cos(sprite.getAngleRad()),575*Math.sin(sprite.getAngleRad())),sprite.getAngleRad());
+                    difficulty,sprite.getAngleRad());
 
             projectileHashMap.put(sprite, projectile);
         }
