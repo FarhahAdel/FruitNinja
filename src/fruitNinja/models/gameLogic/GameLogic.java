@@ -26,7 +26,7 @@ public class GameLogic {
         int wave = gameState.getWave();
         Difficulty difficulty = utils.getDifficultyByWaveNumber(wave);
         ArrayList<Sprite> sprites = gamePlayService.generateWave(strategyType ,difficulty);
-        gamePlayActions.throwFruits(sprites); // DIFFICULTY TO BE PASSED TO THROW FRUITS
+        gamePlayActions.throwFruits(sprites, difficulty); // DIFFICULTY TO BE PASSED TO THROW FRUITS
         // TODO: LISTEN FOR MOUSE CLICKS (AND IT'S EFFECTS)
         gameState.incWave();
     }
