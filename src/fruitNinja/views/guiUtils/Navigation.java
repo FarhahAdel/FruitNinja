@@ -129,4 +129,7 @@ public class Navigation {
         showGridPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
+    public void showGameChoosePage(Stage stage){
+        showAnchorPageWithoutController("../pages/GameChoose.fxml", "Choose Game", stage);
+    }
 }
