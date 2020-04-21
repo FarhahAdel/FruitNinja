@@ -11,6 +11,7 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -40,7 +41,7 @@ public class GameController implements Initializable {
     private Canvas canvas;
 
     private Navigation navigation;
-    private static  int STARTTIME ;
+    private  int STARTTIME ;
     private Timeline timeline;
     private  IntegerProperty timeSeconds;
     private StrategyFactory strategyFactory = new StrategyFactory();
@@ -48,43 +49,47 @@ public class GameController implements Initializable {
     private StrategyType strategyType;
     public void startTimer(){
         switch (strategyType){
-        case CLASSIC:
-            STARTTIME=60;
-            timeSeconds = new SimpleIntegerProperty(STARTTIME);
-            break;
+            case ZEN:
+                STARTTIME=90;
+                break;
+            case ARCADE:
+                STARTTIME=60;
+                break;
         }
+        timeSeconds = new SimpleIntegerProperty(STARTTIME);
 
     }
     private void updateTime() {
         // updates and checks seconds
+        timerLabel.setText(String.valueOf(timeSeconds.get()));
         int seconds = timeSeconds.get();
-        timeSeconds.set(seconds-1);
-        if (timeSeconds.get()<=0) {
+        timeSeconds.set(seconds - 1);
+        if (timeSeconds.get() < 0) {
             timeline.stop();
-//            Stage stage=(Stage) scoreLabel.getScene().getWindow();
-//            navigation.showGameDonePage(stage,player);
-
-
+            gameDone();
         }
-
-
     }
-
 
     public void updateTimer(){
         livesLabel.setVisible(false);
-        //button.setDisable(true); // prevent starting multiple times
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> updateTime()));
-        timeline.setCycleCount(Animation.INDEFINITE); // repeat over and over again
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt->updateTime()));
+        timeline.setCycleCount(Timeline.INDEFINITE); // repeat over and over again
         timeSeconds.set(STARTTIME);
         timeline.play();
-    }
 
+    }
     public GameController(StrategyType strategyType, Player player)
     {
         this.strategyType = strategyType;
         this.player=player;
     }
+    public void gameDone(){
+//        Stage stage=(Stage)pauseButton.getScene().getWindow();
+//        navigation.showGameDonePage(stage,this.player);
+        System.out.println("Game over.....");
+    }
+
+
 
 
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
@@ -96,11 +101,12 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         startGame(strategyType);
-        startTimer();
-        updateTimer();
-        timerLabel.textProperty().bind(timeSeconds.asString());
+        if (!strategyType.equals(StrategyType.CLASSIC)) {
+            startTimer();
+            updateTimer();
+           // timerLabel.textProperty().bind(timeSeconds.asString());
+        }
     }
-
     private void startGame(StrategyType strategyType)
     {
         GameStrategy strategy = strategyFactory.createStrategy(strategyType);

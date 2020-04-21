@@ -21,8 +21,10 @@ public class GameDoneController implements Initializable {
 
     private Navigation navigation = new Navigation();
 
-    public GameDoneController(Player player){
-        this.player=player;
+    public GameDoneController(Player player) {
+        this.player = player;
+        navigation.setLoggedInPlayer(player);
+    }
 //        navigation.setLoggedInPlayer(player);
 //        System.out.println(player.getUsername());
 
@@ -38,7 +40,7 @@ public class GameDoneController implements Initializable {
         //navigation.setLoggedInPlayer(player);
         //System.out.println(player.getUsername());
        // navigation.setLoggedInPlayer(player);
-        navigation.showMainDashboardPage(stage);
+        navigation.showMainDashboardPage(stage,navigation.getLoggedInPlayer());
     }
 
 //    private void navigateToMainDashboardWindow(){
