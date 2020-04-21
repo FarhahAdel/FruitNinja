@@ -17,20 +17,27 @@ public class Utils {
         }
         return min;
     }
+
     public int generateRandomBombNumBasedOnDifficulty(Difficulty difficulty)
     {
-        Random random = new Random();
         int min = 0;
         switch (difficulty)
         {
-            case EASY: min+=random.nextInt(1); break; // 0 OR 1
-            case MEDIUM: min += random.nextInt(1) + 1;  break; // 1 OR 2
-            case HARD: min += random.nextInt(1) + 1; break; // 1 OR 2
+            case EASY: min = (int)((Math.random()*(1-0+1))); break; // 0 OR 1
+            case MEDIUM: min = (int)((Math.random()*(2-1+1))+1);  break; // 1 OR 2
+            case HARD: min = (int)((Math.random()*(2-1+1))+1); break; // 1 OR 2
         }
 
         return min;
     }
 
+    public boolean generateSpecialFruit()
+    {
+        int n = (int)((Math.random()*(6-1+1))+1); //random num from 1 to 6
+        if (n==1)
+            return true;
+        return false;
+    }
 
     public Difficulty getDifficultyByWaveNumber(int wave)
     {

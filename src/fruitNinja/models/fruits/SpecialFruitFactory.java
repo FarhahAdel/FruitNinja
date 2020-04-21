@@ -1,6 +1,7 @@
 package fruitNinja.models.fruits;
 
 import fruitNinja.models.fruits.special.DoubleScore;
+import fruitNinja.models.fruits.special.Freeze;
 import fruitNinja.models.fruits.special.Frenzy;
 
 class SpecialFruitFactory {
@@ -15,6 +16,9 @@ class SpecialFruitFactory {
 
             case "doublescore":
                 fruit = new DoubleScore();
+                break;
+            case"freeze":
+                fruit=new Freeze();
                 break;
             default:
                 throw new Error("Unknown fruit type");

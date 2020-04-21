@@ -3,13 +3,11 @@ package fruitNinja.models.bombs;
 public class BombFactory {
     public Bomb createBomb(String bombType){
         Bomb bomb;
-        switch(bombType){
+        switch(bombType.toLowerCase()){
             case "fatal":
-            case "FATAL":
                 bomb = new FatalBomb();
                 break;
             case "dangerous":
-            case "DANGEROUS":
                 bomb = new DangerousBomb();
                 break;
             default:
