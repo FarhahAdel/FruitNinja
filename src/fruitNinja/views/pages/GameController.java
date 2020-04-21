@@ -4,22 +4,16 @@ import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
+import fruitNinja.utils.events.Timer;
 import fruitNinja.views.guiUtils.Navigation;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,56 +35,35 @@ public class GameController implements Initializable {
     private Canvas canvas;
 
     private Navigation navigation;
-    private  int STARTTIME ;
-    private Timeline timeline;
-    private  IntegerProperty timeSeconds;
+    private Timer timer;
     private StrategyFactory strategyFactory = new StrategyFactory();
     private Player player;
     private StrategyType strategyType;
-    public void startTimer(){
-        switch (strategyType){
-            case ZEN:
-                STARTTIME=90;
-                break;
-            case ARCADE:
-                STARTTIME=60;
-                break;
-        }
-        timeSeconds = new SimpleIntegerProperty(STARTTIME);
+    public void countdownStart() {
+        timer = new Timer(strategyType, timerLabel);
+        timerLabel.setText(String.valueOf(timer.getSTARTTIME()));
 
-    }
-    private void updateTime() {
-        // updates and checks seconds
-        timerLabel.setText(String.valueOf(timeSeconds.get()));
-        int seconds = timeSeconds.get();
-        timeSeconds.set(seconds - 1);
-        if (timeSeconds.get() < 0) {
-            timeline.stop();
-            gameDone();
-        }
-    }
 
-    public void updateTimer(){
-        livesLabel.setVisible(false);
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt->updateTime()));
-        timeline.setCycleCount(Timeline.INDEFINITE); // repeat over and over again
-        timeSeconds.set(STARTTIME);
-        timeline.play();
-
+        timer.startTimer();
+        timer.updateTimer();
+        //to call sth after game is over
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        //todo transfer score and open game done
+                        System.out.println("gameover");
+                        System.out.println(timer.getSTARTTIME());
+                    }
+                },
+                timer.getSTARTTIME()*1000
+        );
     }
     public GameController(StrategyType strategyType, Player player)
     {
         this.strategyType = strategyType;
         this.player=player;
     }
-    public void gameDone(){
-//        Stage stage=(Stage)pauseButton.getScene().getWindow();
-//        navigation.showGameDonePage(stage,this.player);
-        System.out.println("Game over.....");
-    }
-
-
-
 
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         PauseDialogController pauseDialog = new PauseDialogController(player);
@@ -102,17 +75,18 @@ public class GameController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         startGame(strategyType);
         if (!strategyType.equals(StrategyType.CLASSIC)) {
-            startTimer();
-            updateTimer();
-           // timerLabel.textProperty().bind(timeSeconds.asString());
+            livesLabel.setVisible(false);
+            countdownStart();
         }
+        else
+            timerLabel.setVisible(false);
     }
+
     private void startGame(StrategyType strategyType)
     {
         GameStrategy strategy = strategyFactory.createStrategy(strategyType);
         ModeContext modeContext = new ModeContext();
         modeContext.setGameStrategy(strategy);
-
         modeContext.startGame(canvas);
     }
 }

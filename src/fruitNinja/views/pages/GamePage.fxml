@@ -10,7 +10,7 @@
     <Button fx:id="pauseButton" onAction="#pauseButtonClicked" text="||" GridPane.rowIndex="0"  GridPane.valignment="TOP" />
     <Label text="score:" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="TOP" />
     <Label fx:id="scoreLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP"/>
-    <Label fx:id="timerLabel" text="0:00" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+    <Label fx:id="timerLabel" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
     <Label fx:id="livesLabel" text="X X X" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
 
 

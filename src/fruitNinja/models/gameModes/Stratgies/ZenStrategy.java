@@ -11,6 +11,7 @@ public class ZenStrategy implements GameStrategy {
     private Timer timer;
     private TimerTask timerTask;
 
+
     private StrategyType strategyType = StrategyType.ZEN;
 
     public ZenStrategy()
