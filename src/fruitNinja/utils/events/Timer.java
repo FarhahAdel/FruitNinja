@@ -1,6 +1,7 @@
 package fruitNinja.utils.events;
 
 import fruitNinja.models.gameModes.StrategyType;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
@@ -26,6 +27,18 @@ public class Timer {
         this.label = label;
 
     }
+    public void pauseTimer(boolean state){
+        if(state)
+            timeline.pause();
+        else
+            timeline.play();
+    }
+    public boolean isPaused() {
+         return timeline.getStatus().equals(Animation.Status.PAUSED);
+
+    }
+
+
 
     public void startTimer() {
         switch (strategyType) {
