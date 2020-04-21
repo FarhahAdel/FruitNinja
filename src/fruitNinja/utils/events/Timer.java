@@ -30,9 +30,11 @@ public class Timer {
     public void startTimer() {
         switch (strategyType) {
             case ZEN:
+                label.setText("90");
                 STARTTIME = 90;
                 break;
             case ARCADE:
+                label.setText("60");
                 STARTTIME = 10;
                 break;
         }
@@ -50,7 +52,6 @@ public class Timer {
 
     private void updateTime() {
         // updates and checks seconds
-        //timerLabel.setText(String.valueOf(timeSeconds.get()));
         label.textProperty().bind(timeSeconds.asString());
         seconds = timeSeconds.get();
         timeSeconds.set(seconds - 1);
@@ -60,21 +61,18 @@ public class Timer {
 
         }
     }
-    private Timeline timeline2;
-    public boolean timerFinished(){
-        timeline2 = new Timeline(new KeyFrame(Duration.seconds(10), evt->setOver(true)));
-        timeline2.setCycleCount(1);
-        timeline2.play();
-        return true;
-    }
+//    private Timeline timeline2;
+//    public boolean timerFinished(){
+//        timeline2 = new Timeline(new KeyFrame(Duration.seconds(10), evt->setOver(true)));
+//        timeline2.setCycleCount(1);
+//        timeline2.play();
+//        return true;
+//    }
     public void updateTimer(){
         timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt->updateTime()));
         timeline.setCycleCount(Timeline.INDEFINITE); // repeat over and over again
         timeSeconds.set(STARTTIME);
         timeline.play();
 
-    }
-    public boolean timerOver(){
-        return isOver();
     }
 }
