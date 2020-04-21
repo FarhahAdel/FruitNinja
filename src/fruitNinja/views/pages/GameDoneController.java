@@ -24,8 +24,8 @@ public class GameDoneController implements Initializable {
     public GameDoneController(Player player){
         this.player=player;
 //        navigation.setLoggedInPlayer(player);
-//        System.out.println(player.getUsername()+"in gamekhaea");
-    }
+//        System.out.println(player.getUsername());
+
 
     @FXML
     public void handlePlayAgainActionButton(ActionEvent actionEvent) {

@@ -42,8 +42,8 @@ public class RegisterController {
         }
 
         Stage stage = (Stage)signUpBtn.getScene().getWindow();
-      Navigation.setLoggedInPlayer(player);
-        navigation.showMainDashboardPage(stage);
+      navigation.setLoggedInPlayer(player);
+        navigation.showMainDashboardPage(stage,navigation.getLoggedInPlayer());
     }
 
     public void handleSignInActionButton(ActionEvent actionEvent) {

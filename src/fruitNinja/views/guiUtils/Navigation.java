@@ -19,7 +19,7 @@ public class Navigation {
     private final int width = 1280;
     private final int height = 720;
 
-    private static Player loggedInPlayer;
+    private  Player loggedInPlayer;
     private Alerts alerts;
 
     public Navigation()
@@ -70,9 +70,9 @@ public class Navigation {
         }
     }
 
-    public void showMainDashboardPage(Stage stage)
+    public void showMainDashboardPage(Stage stage,Player player)
     {
-        MainDashboardController controller = new MainDashboardController(loggedInPlayer);
+        MainDashboardController controller = new MainDashboardController(player);
         showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, controller);
     }
 
@@ -102,10 +102,11 @@ public class Navigation {
         showPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
-    public static void setLoggedInPlayer(Player loggedInPlayer) {
-        Navigation.loggedInPlayer = loggedInPlayer;
+    public Player getLoggedInPlayer() {
+        return loggedInPlayer;
     }
-    public static Player getLoggedInPlayer(){
-        return Navigation.loggedInPlayer;
+
+    public void setLoggedInPlayer(Player loggedInPlayer) {
+        this.loggedInPlayer = loggedInPlayer;
     }
 }

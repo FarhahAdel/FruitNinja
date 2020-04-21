@@ -17,15 +17,18 @@ import java.util.Optional;
 
 public class PauseDialogController {
     public  Button quitBtn;
-    public Player player;
     Navigation navigation=new Navigation();
 
-//        public PauseDialogController(Player player) {
-//            this.player=player;
-//            navigation.setLoggedInPlayer(player);
-//            navigation.setLoggedInPlayer(player);
-//        System.out.println(player.getUsername()+"inconstructor pause page");
-//    }
+    public PauseDialogController(Player player) {
+        this.player = player;
+        navigation.setLoggedInPlayer(player);
+        System.out.println(navigation.getLoggedInPlayer().getUsername());
+    }
+
+    public Player player;
+
+
+
 
 
     public PauseDialogController() {
@@ -38,13 +41,18 @@ public class PauseDialogController {
         stage.initModality(Modality.APPLICATION_MODAL);
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.initOwner(window);
+        System.out.println(navigation.getLoggedInPlayer().getUsername());
         stage.setScene(scene);
         stage.show();
+
         }
 
+
     public void quitBtnClicked(ActionEvent actionEvent) {
+        Navigation navigation1=navigation;
             Stage stage = (Stage)quitBtn.getScene().getWindow();
-        navigation.showGameDonePage(stage,Navigation.getLoggedInPlayer());
+            System.out.println(navigation1.getLoggedInPlayer().getUsername());
+            navigation.showGameDonePage(stage,navigation1.getLoggedInPlayer());
     }
 
     public void restartBtnClicked(ActionEvent actionEvent) {

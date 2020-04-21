@@ -42,7 +42,7 @@ public class LoginController {
 
         Stage stage = (Stage)signUpBtn.getScene().getWindow();
         navigation.setLoggedInPlayer(player);
-        navigation.showMainDashboardPage(stage);
+        navigation.showMainDashboardPage(stage,navigation.getLoggedInPlayer());
     }
 
     public void handleSignUpActionButton(ActionEvent actionEvent) {
