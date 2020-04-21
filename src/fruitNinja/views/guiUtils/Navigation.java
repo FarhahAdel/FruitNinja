@@ -19,7 +19,6 @@ public class Navigation {
     private final int width = 1280;
     private final int height = 720;
 
-    private  Player loggedInPlayer;
     private Alerts alerts;
 
     public Navigation()
@@ -27,12 +26,25 @@ public class Navigation {
         alerts = new Alerts();
     }
 
-    private void showPageWithoutController(String fileName, String title, Stage stage){
+    private void showGridPageWithoutController(String fileName, String title, Stage stage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
             GridPane grid = loader.load();
             stage.setTitle(title);
             Scene sc = new Scene(grid, width, height);
+            stage.setScene(sc);
+            stage.show();
+        } catch (IOException ex) {
+            alerts.showErrorAlert("Data Error", "Something wrong happened!");
+        }
+    }
+
+    private void showAnchorPageWithoutController(String fileName, String title, Stage stage){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
+            AnchorPane anchor = loader.load();
+            stage.setTitle(title);
+            Scene sc = new Scene(anchor, width, height);
             stage.setScene(sc);
             stage.show();
         } catch (IOException ex) {
@@ -70,43 +82,38 @@ public class Navigation {
         }
     }
 
-    public void showMainDashboardPage(Stage stage,Player player)
+    public void showMainDashboardPage(Stage stage)
     {
-        MainDashboardController controller = new MainDashboardController(player);
-        showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, controller);
+        //MainDashboardController controller = new MainDashboardController(player);
+        //showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, controller);
+
+        showAnchorPageWithoutController("../pages/MainDashboard.fxml", "Dashboard", stage);
+
     }
 
     public void showRegisterPage(Stage stage)
     {
-        showPageWithoutController("../pages/RegisterPage.fxml", "Register", stage);
+        showGridPageWithoutController("../pages/RegisterPage.fxml", "Register", stage);
     }
 
-    public void showGamePage(Stage stage, StrategyType strategyType,Player currentPlayer)
+    public void showGamePage(Stage stage, StrategyType strategyType)
     {
-
-        GameController gameController = new GameController(strategyType,currentPlayer);
+        GameController gameController = new GameController(strategyType);
 
         showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
         //showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
 
     }
-    public void showGameDonePage(Stage stage,Player currentPlayer)
+    public void showGameDonePage(Stage stage)
     {
-        GameDoneController gameDoneController = new GameDoneController(currentPlayer);
+        //GameDoneController gameDoneController = new GameDoneController(currentPlayer);
         //setLoggedInPlayer(currentPlayer);
-        showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneController);
+        showGridPageWithoutController("../pages/GameDone.fxml", "Game done", stage);
     }
 
     public void showLoginPage(Stage stage)
     {
-        showPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
+        showGridPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
-    public Player getLoggedInPlayer() {
-        return loggedInPlayer;
-    }
-
-    public void setLoggedInPlayer(Player loggedInPlayer) {
-        this.loggedInPlayer = loggedInPlayer;
-    }
 }

@@ -2,6 +2,7 @@ package fruitNinja.views.pages;
 
 import fruitNinja.data.repositories.PlayerRepository;
 import fruitNinja.models.users.Player;
+import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.views.guiUtils.Alerts;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
@@ -41,9 +42,11 @@ public class RegisterController {
             return;
         }
 
+        PlayerSingleton.setPlayerSingleton(player);
+
         Stage stage = (Stage)signUpBtn.getScene().getWindow();
-      navigation.setLoggedInPlayer(player);
-        navigation.showMainDashboardPage(stage,navigation.getLoggedInPlayer());
+        navigation.showMainDashboardPage(stage);
+
     }
 
     public void handleSignInActionButton(ActionEvent actionEvent) {
