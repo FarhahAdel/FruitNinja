@@ -3,6 +3,7 @@ package fruitNinja.data.repositories;
 import fruitNinja.data.services.PlayerService;
 import fruitNinja.data.services.Service;
 import fruitNinja.models.users.Player;
+import fruitNinja.models.users.PlayerSingleton;
 
 import java.util.ArrayList;
 

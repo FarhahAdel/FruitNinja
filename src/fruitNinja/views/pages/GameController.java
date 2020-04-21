@@ -4,6 +4,7 @@ import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
+import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -46,13 +47,24 @@ public class GameController implements Initializable {
     private StrategyFactory strategyFactory = new StrategyFactory();
     private Player player;
     private StrategyType strategyType;
+
+
+    public GameController(StrategyType strategyType)
+    {
+        this.strategyType = strategyType;
+        this.player= PlayerSingleton.getInstance();
+    }
+
     public void startTimer(){
         switch (strategyType){
         case CLASSIC:
             STARTTIME=60;
             timeSeconds = new SimpleIntegerProperty(STARTTIME);
             break;
+
         }
+
+
 
     }
     private void updateTime() {
@@ -61,10 +73,8 @@ public class GameController implements Initializable {
         timeSeconds.set(seconds-1);
         if (timeSeconds.get()<=0) {
             timeline.stop();
-//            Stage stage=(Stage) scoreLabel.getScene().getWindow();
-//            navigation.showGameDonePage(stage,player);
-
-
+            Stage stage=(Stage) scoreLabel.getScene().getWindow();
+            navigation.showGameDonePage(stage);
         }
 
 
@@ -80,15 +90,8 @@ public class GameController implements Initializable {
         timeline.play();
     }
 
-    public GameController(StrategyType strategyType, Player player)
-    {
-        this.strategyType = strategyType;
-        this.player=player;
-    }
-
-
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
-        PauseDialogController pauseDialog = new PauseDialogController(player);
+        PauseDialogController pauseDialog = new PauseDialogController();
         pauseDialog.show(scoreLabel.getScene().getWindow());
 
     }

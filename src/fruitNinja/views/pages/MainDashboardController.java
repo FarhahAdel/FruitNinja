@@ -2,6 +2,7 @@ package fruitNinja.views.pages;
 
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
+import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.utils.Utils;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
@@ -57,10 +58,10 @@ public class MainDashboardController implements Initializable {
     private Navigation navigation;
     private Utils utils;
 
-    public MainDashboardController(Player player)
+    public MainDashboardController()
     {
-        this.player = player;
         this.navigation = new Navigation();
+        this.player = PlayerSingleton.getInstance();
         this.utils = new Utils();
     }
 
@@ -130,6 +131,6 @@ public class MainDashboardController implements Initializable {
     private void navigateToGame(StrategyType strategyType)
     {
         Stage stage = (Stage)classicButton.getScene().getWindow();
-        navigation.showGamePage(stage, strategyType,player);
+        navigation.showGamePage(stage, strategyType);
     }
 }

@@ -1,6 +1,7 @@
 package fruitNinja.views.pages;
 
 import fruitNinja.models.users.Player;
+import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -17,21 +18,12 @@ import java.util.Optional;
 
 public class PauseDialogController {
     public  Button quitBtn;
+    private Player player;
+
     Navigation navigation=new Navigation();
 
-    public PauseDialogController(Player player) {
-        this.player = player;
-        navigation.setLoggedInPlayer(player);
-        System.out.println(navigation.getLoggedInPlayer().getUsername());
-    }
-
-    public Player player;
-
-
-
-
-
     public PauseDialogController() {
+        this.player = PlayerSingleton.getInstance();
     }
 
     public void show(Window window) throws IOException {
@@ -41,7 +33,6 @@ public class PauseDialogController {
         stage.initModality(Modality.APPLICATION_MODAL);
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.initOwner(window);
-        System.out.println(navigation.getLoggedInPlayer().getUsername());
         stage.setScene(scene);
         stage.show();
 
@@ -51,8 +42,7 @@ public class PauseDialogController {
     public void quitBtnClicked(ActionEvent actionEvent) {
         Navigation navigation1=navigation;
             Stage stage = (Stage)quitBtn.getScene().getWindow();
-            System.out.println(navigation1.getLoggedInPlayer().getUsername());
-            navigation.showGameDonePage(stage,navigation1.getLoggedInPlayer());
+            navigation.showGameDonePage(stage);
     }
 
     public void restartBtnClicked(ActionEvent actionEvent) {

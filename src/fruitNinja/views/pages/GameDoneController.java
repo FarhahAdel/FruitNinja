@@ -1,6 +1,7 @@
 package fruitNinja.views.pages;
 
 import fruitNinja.models.users.Player;
+import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,10 +22,9 @@ public class GameDoneController implements Initializable {
 
     private Navigation navigation = new Navigation();
 
-    public GameDoneController(Player player){
-        this.player=player;
-//        navigation.setLoggedInPlayer(player);
-//        System.out.println(player.getUsername());
+    public GameDoneController() {
+        this.player = PlayerSingleton.getInstance();
+    }
 
 
     @FXML
@@ -38,7 +38,7 @@ public class GameDoneController implements Initializable {
         //navigation.setLoggedInPlayer(player);
         //System.out.println(player.getUsername());
        // navigation.setLoggedInPlayer(player);
-        navigation.showMainDashboardPage(stage);
+        //navigation.showMainDashboardPage(stage);
     }
 
 //    private void navigateToMainDashboardWindow(){
