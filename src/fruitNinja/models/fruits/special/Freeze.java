@@ -6,5 +6,6 @@ package fruitNinja.models.fruits.special;
 public class Freeze extends SpecialFruit {
     public Freeze(){
         setImage("/fruitNinja/views/images/Freeze_Banana.png");
+        setImageAfterSlicing("/fruitNinja/views/images/freezeSliced.png");
     }
 }
