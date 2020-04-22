@@ -1,45 +1,49 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.models.gameLogic.GamePlayActions;
+import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.utils.events.Timer;
+import fruitNinja.utils.pause.PauseLogic;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.Window;
 
 import java.io.IOException;
 
 public class PauseDialogController {
-    private Timer timer;
     public  Button quitBtn;
     private Player player;
+    private Game gameState;
 
     Navigation navigation=new Navigation();
 
-    public PauseDialogController() {
+    public PauseDialogController(Game gameState) {
         this.player = PlayerSingleton.getInstance();
-
+        this.gameState = gameState;
     }
-//    public PauseDialogController( Timer timer){
-//        this.timer = timer;
-//
-//    }
+
     Stage stage = new Stage();
 
 
 
     public void show(Window window) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("PauseDialog.fxml"));
-        Scene scene = new Scene(root,700,600);
-
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PauseDialog.fxml"));
+        loader.setController(this);
+        GridPane grid = loader.load();
+        Scene scene = new Scene(grid,700,600);
         stage.initModality(Modality.APPLICATION_MODAL);
-        //stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.initOwner(window);
         stage.setScene(scene);
         stage.show();
@@ -57,12 +61,10 @@ public class PauseDialogController {
     }
 
     public void resumeBtnClicked(ActionEvent actionEvent) {
+        GamePlayActions.isPaused = false;
         Stage stage1 =(Stage)quitBtn.getScene().getWindow();
         stage1.close();
-
-       // System.out.println(timer.getSTARTTIME());
-        //timer.resumeTimer();
-        System.out.println("in resume 3la dma3'na");
+        gameState.clickPlay();
     }
 
 }

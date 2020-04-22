@@ -3,6 +3,8 @@ package fruitNinja.views.pages;
 import fruitNinja.guiUpdate.ControlsUpdater;
 import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.guiUpdate.UpdateScoreListener;
+import fruitNinja.models.gameLogic.GamePlayActions;
+import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
@@ -43,6 +45,7 @@ public class GameController implements Initializable {
     private StrategyFactory strategyFactory = new StrategyFactory();
     private Player player;
     private StrategyType strategyType;
+    private Game gameState = new Game(timer);
 
 
     public GameController(StrategyType strategyType)
@@ -73,10 +76,12 @@ public class GameController implements Initializable {
     }
     PauseDialogController pauseDialog ;
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
-        timer.pauseTimer(true);
-       pauseDialog = new PauseDialogController();
+        gameState.clickPause();
+        GamePlayActions.isPaused = true;
+
+        pauseDialog = new PauseDialogController(gameState);
         pauseDialog.show(scoreLabel.getScene().getWindow());
-       // timer.resumeTimer(); //will resume timer while window in opened
+
     }
 
 

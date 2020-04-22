@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GamePlayActions {
+    public static AnimationTimer animationTimer;
+    public static boolean isPaused = false;
 
     private Canvas canvas;
     private ProjectileShooter projectileShooter;
@@ -36,15 +38,15 @@ public class GamePlayActions {
         MouseEvents mouseEvents = new MouseEvents(spriteProjectileHashMap);
         canvas.setOnMouseDragged(mouseEvents);
 
-        AnimationTimer animationTimer = new AnimationTimer() {
+        animationTimer = new AnimationTimer() {
             @Override
             public void handle(long l) {
                 boolean done = updateSpritesMovement(spriteProjectileHashMap);
                 if (!done) this.stop();
             }
         };
-
-        animationTimer.start();
+        if(!isPaused)
+            animationTimer.start();
     }
 
     private HashMap<Sprite, Projectile> associateProjectiles(ArrayList<Sprite> sprites, Difficulty difficulty)

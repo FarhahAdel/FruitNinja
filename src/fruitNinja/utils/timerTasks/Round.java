@@ -8,6 +8,7 @@ import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameLogic.GamePlayService;
 import fruitNinja.models.gameLogic.GameState;
 import fruitNinja.models.gameModes.StrategyType;
+import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 
 import java.util.ArrayList;

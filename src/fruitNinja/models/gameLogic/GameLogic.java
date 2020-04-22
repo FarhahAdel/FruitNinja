@@ -23,6 +23,7 @@ public class GameLogic {
 
     public void startRound(GameState gameState, GamePlayActions gamePlayActions)
     {
+        if(GamePlayActions.isPaused) return;
         int wave = gameState.getWave();
         Difficulty difficulty = utils.getDifficultyByWaveNumber(wave);
         ArrayList<Sprite> sprites = gamePlayService.generateWave(strategyType ,difficulty);
