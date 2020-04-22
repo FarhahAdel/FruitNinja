@@ -12,5 +12,6 @@ public class ControlsUpdater {
     {
         eventManager.notify("sliceOrdinary", String.valueOf(amount));
     }
+    public void updateTimer(String time) { eventManager.notify("updateTimer", String.valueOf(time));}
 
 }

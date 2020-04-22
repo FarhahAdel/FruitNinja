@@ -13,9 +13,8 @@ public class ClassicStrategy implements GameStrategy {
 
     private int life = 3;
     private Timer timer;
-    private TimerTask timerTask;
 
-    private StrategyType strategyType = StrategyType.CLASSIC;
+    private final StrategyType strategyType = StrategyType.CLASSIC;
 
     public ClassicStrategy()
     {
@@ -24,11 +23,16 @@ public class ClassicStrategy implements GameStrategy {
 
     @Override
     public void initGame(Canvas canvas) {
-
-        // THIS WHOLE METHOD TO BE CHANGED
-
-        timerTask = new Round(canvas, strategyType);
+        // TODO: THIS WHOLE METHOD TO BE CHANGED
+        TimerTask timerTask = new Round(canvas, strategyType);
         int x = 4500; // X TO BE CHANGED UPON THE LAST FRUIT IS DOWN
         timer.schedule(timerTask, 500, x);
     }
+
+    @Override
+    public void startTimer() {
+
+    }
+
+
 }

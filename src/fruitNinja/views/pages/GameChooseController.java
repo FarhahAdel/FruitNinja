@@ -20,11 +20,11 @@ public class GameChooseController {
     }
 
     public void zenMode(ActionEvent actionEvent) {
-        navigateToGame(StrategyType.CLASSIC);
+        navigateToGame(StrategyType.ZEN);
     }
 
     public void classicMode(ActionEvent actionEvent) {
-        navigateToGame(StrategyType.ZEN);
+        navigateToGame(StrategyType.CLASSIC);
     }
 
     public void exit(ActionEvent actionEvent) {
