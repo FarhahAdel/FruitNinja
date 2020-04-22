@@ -22,18 +22,6 @@ import java.util.ResourceBundle;
 public class MainDashboardController implements Initializable {
 
     @FXML
-    private Button arcadeButton;
-
-    @FXML
-    private Button zenButton;
-
-    @FXML
-    private Button classicButton;
-
-    @FXML
-    private Button exitButton;
-
-    @FXML
     private ProgressBar levelBar;
 
     @FXML
@@ -54,16 +42,9 @@ public class MainDashboardController implements Initializable {
     @FXML
     private Label playerName;
 
-    private Player player;
-    private Navigation navigation;
-    private Utils utils;
-
-    public MainDashboardController()
-    {
-        this.navigation = new Navigation();
-        this.player = PlayerSingleton.getInstance();
-        this.utils = new Utils();
-    }
+    private Player player = PlayerSingleton.getInstance();
+    private Navigation navigation = new Navigation();
+    private Utils utils = new Utils();
 
     @FXML
     void back(ActionEvent event) {
@@ -71,47 +52,13 @@ public class MainDashboardController implements Initializable {
     }
 
     @FXML
-    void arcadeMode(ActionEvent event) {
-        navigateToGame(StrategyType.ARCADE);
-
-    }
-
-    @FXML
-    void classicMode(ActionEvent event) {
-        navigateToGame(StrategyType.CLASSIC);
-    }
-
-
-    @FXML
-    void zenMode(ActionEvent event) {
-        navigateToGame(StrategyType.ZEN);
-    }
-
-    @FXML
     void leaderBoard(ActionEvent event) {
-
+        //TODO
     }
 
     @FXML
     void newGame(ActionEvent event) {
-        zenButton.setVisible(true);
-        classicButton.setVisible(true);
-        arcadeButton.setVisible(true);
-        exitButton.setVisible(true);
-        leaderBoardButton.setVisible(false);
-        newGameButton.setVisible(false);
-        backButton.setVisible(false);
-    }
-
-    @FXML
-    void exit(ActionEvent event) {
-        zenButton.setVisible(false);
-        classicButton.setVisible(false);
-        arcadeButton.setVisible(false);
-        exitButton.setVisible(false);
-        leaderBoardButton.setVisible(true);
-        newGameButton.setVisible(true);
-        backButton.setVisible(true);
+        navigation.showGameChoosePage((Stage) backButton.getScene().getWindow());
     }
 
     @Override
@@ -126,11 +73,5 @@ public class MainDashboardController implements Initializable {
         levelBar.setProgress(percentage);
         level.setText(String.valueOf(player.getLevel()));
         playerName.setText("Player: "+player.getFullName());
-    }
-
-    private void navigateToGame(StrategyType strategyType)
-    {
-        Stage stage = (Stage)classicButton.getScene().getWindow();
-        navigation.showGamePage(stage, strategyType);
     }
 }

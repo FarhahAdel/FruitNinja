@@ -40,6 +40,19 @@ public class Navigation {
         }
     }
 
+//    private void showAnchorPageWithoutController(String fileName, String title, Stage stage){
+//        try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
+//            AnchorPane anchor = loader.load();
+//            stage.setTitle(title);
+//            Scene sc = new Scene(anchor, width, height);
+//            stage.setScene(sc);
+//            stage.show();
+//        } catch (IOException ex) {
+//            alerts.showErrorAlert("Data Error", "Something wrong happened!");
+//        }
+//    }
+
     private void showAnchorPageWithoutController(String fileName, String title, Stage stage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
@@ -120,4 +133,7 @@ public class Navigation {
         showGridPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
     }
 
+    public void showGameChoosePage(Stage stage){
+        showAnchorPageWithoutController("../pages/GameChoose.fxml", "Choose Game", stage);
+    }
 }

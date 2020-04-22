@@ -10,13 +10,17 @@ import java.util.TimerTask;
 public class ArcadeStrategy implements GameStrategy {
     private Timer timer;
     private TimerTask timerTask;
-
+    private final int time=60;
     private StrategyType strategyType = StrategyType.ARCADE;
 
     public ArcadeStrategy()
     {
         timer = new Timer();
     }
+    public int getTime() {
+        return time;
+    }
+
 
     @Override
     public void initGame(Canvas canvas) {

@@ -10,6 +10,11 @@ import java.util.TimerTask;
 public class ZenStrategy implements GameStrategy {
     private Timer timer;
     private TimerTask timerTask;
+    private final int time=90;
+
+    public int getTime() {
+        return time;
+    }
 
     private StrategyType strategyType = StrategyType.ZEN;
 

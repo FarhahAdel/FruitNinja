@@ -1,27 +1,18 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.guiUpdate.ControlsUpdater;
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
-import fruitNinja.guiUpdate.UpdateScoreListener;
 import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
+import fruitNinja.utils.events.Timer;
 import fruitNinja.views.guiUtils.Navigation;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,9 +35,8 @@ public class GameController implements Initializable {
     private Canvas canvas;
 
     private Navigation navigation;
-    private static  int STARTTIME ;
-    private Timeline timeline;
-    private  IntegerProperty timeSeconds;
+
+    Timer timer;
     private StrategyFactory strategyFactory = new StrategyFactory();
     private Player player;
     private StrategyType strategyType;
@@ -58,55 +48,43 @@ public class GameController implements Initializable {
         this.player= PlayerSingleton.getInstance();
     }
 
-    public void startTimer(){
-        switch (strategyType){
-        case CLASSIC:
-            STARTTIME=60;
-            timeSeconds = new SimpleIntegerProperty(STARTTIME);
-            break;
-
-        }
 
 
-
+    public void countdownStart() {
+        timer = new Timer(strategyType, timerLabel);
+        //timerLabel.setText(String.valueOf(timer.getSTARTTIME()));
+        timer.startTimer();
+        timer.updateTimer();
+        //to call sth after game is over
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        //todo transfer score and open game done
+//                        System.out.println("gameover");
+//                        System.out.println(timer.getSTARTTIME());
+                    }
+                },
+                timer.getSTARTTIME()*1000
+        );
     }
-    private void updateTime() {
-        // updates and checks seconds
-        int seconds = timeSeconds.get();
-        timeSeconds.set(seconds-1);
-        if (timeSeconds.get()<=0) {
-            timeline.stop();
-            Stage stage=(Stage) scoreLabel.getScene().getWindow();
-            navigation.showGameDonePage(stage);
-        }
-
-
-    }
-
-
-    public void updateTimer(){
-        livesLabel.setVisible(false);
-        //button.setDisable(true); // prevent starting multiple times
-        timeline = new Timeline(new KeyFrame(Duration.seconds(1), evt -> updateTime()));
-        timeline.setCycleCount(Animation.INDEFINITE); // repeat over and over again
-        timeSeconds.set(STARTTIME);
-        timeline.play();
-    }
-
+    PauseDialogController pauseDialog ;
     public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
-        PauseDialogController pauseDialog = new PauseDialogController();
+        timer.pauseTimer(true);
+       pauseDialog = new PauseDialogController();
         pauseDialog.show(scoreLabel.getScene().getWindow());
-
+       // timer.resumeTimer(); //will resume timer while window in opened
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         startGame(strategyType);
-        startTimer();
-        updateTimer();
-        timerLabel.textProperty().bind(timeSeconds.asString());
-
-        setSubscribers();
+        if(!strategyType.equals(StrategyType.CLASSIC)) {
+            livesLabel.setVisible(false);
+            countdownStart();
+        }
+        else timerLabel.setVisible(false);
     }
 
     private void startGame(StrategyType strategyType)
@@ -116,12 +94,5 @@ public class GameController implements Initializable {
         modeContext.setGameStrategy(strategy);
 
         modeContext.startGame(canvas);
-    }
-
-    private void setSubscribers()
-    {
-        ControlsUpdater controlsUpdater = new ControlsUpdater();
-        controlsUpdater.eventManager.subscribe("sliceOrdinary", new UpdateScoreListener(scoreLabel));
-        ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }
