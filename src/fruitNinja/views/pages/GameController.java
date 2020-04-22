@@ -1,5 +1,8 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.guiUpdate.ControlsUpdater;
+import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
+import fruitNinja.guiUpdate.UpdateScoreListener;
 import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
@@ -102,6 +105,8 @@ public class GameController implements Initializable {
         startTimer();
         updateTimer();
         timerLabel.textProperty().bind(timeSeconds.asString());
+
+        setSubscribers();
     }
 
     private void startGame(StrategyType strategyType)
@@ -111,5 +116,12 @@ public class GameController implements Initializable {
         modeContext.setGameStrategy(strategy);
 
         modeContext.startGame(canvas);
+    }
+
+    private void setSubscribers()
+    {
+        ControlsUpdater controlsUpdater = new ControlsUpdater();
+        controlsUpdater.eventManager.subscribe("sliceOrdinary", new UpdateScoreListener(scoreLabel));
+        ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }

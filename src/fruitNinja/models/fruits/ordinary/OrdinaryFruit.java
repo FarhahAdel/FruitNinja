@@ -1,5 +1,6 @@
 package fruitNinja.models.fruits.ordinary;
 
+import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.fruits.Fruit;
 
 public class OrdinaryFruit extends Fruit {
@@ -11,5 +12,6 @@ public class OrdinaryFruit extends Fruit {
     {
         setImage(getImageAfterSlicing());
         setSliced(true);
+        ControlsUpdaterSingleton.getInstance().sliceOrdinaryFruit(points);
     }
 }

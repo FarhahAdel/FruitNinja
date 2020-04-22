@@ -36,6 +36,7 @@ public class Navigation {
             stage.show();
         } catch (IOException ex) {
             alerts.showErrorAlert("Data Error", "Something wrong happened!");
+            ex.printStackTrace();
         }
     }
 
@@ -49,6 +50,7 @@ public class Navigation {
             stage.show();
         } catch (IOException ex) {
             alerts.showErrorAlert("Data Error", "Something wrong happened!");
+            ex.printStackTrace();
         }
     }
 
@@ -64,6 +66,7 @@ public class Navigation {
             stage.show();
         } catch (IOException ex) {
             alerts.showErrorAlert("Data Error", "Something wrong happened!");
+            ex.printStackTrace();
         }
     }
 
@@ -79,6 +82,7 @@ public class Navigation {
             stage.show();
         } catch (IOException ex) {
             alerts.showErrorAlert("Data Error", "Something wrong happened!");
+            ex.printStackTrace();
         }
     }
 
