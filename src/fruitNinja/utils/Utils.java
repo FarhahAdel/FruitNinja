@@ -57,4 +57,7 @@ public class Utils {
     {
         return (int) Math.pow(2, level + 7);
     }
+
+    public void startCustomTimer()
+    {}
 }

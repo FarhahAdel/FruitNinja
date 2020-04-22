@@ -3,14 +3,12 @@ package fruitNinja.views.pages;
 import fruitNinja.guiUpdate.ControlsUpdater;
 import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.guiUpdate.UpdateScoreListener;
+import fruitNinja.guiUpdate.UpdateTimerListener;
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.users.Player;
-import fruitNinja.models.users.PlayerSingleton;
-import fruitNinja.utils.events.Timer;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,74 +32,42 @@ public class GameController implements Initializable {
     @FXML
     private Label livesLabel;
 
-
-
     @FXML
     private Canvas canvas;
 
     private Navigation navigation;
 
-    Timer timer;
     private StrategyFactory strategyFactory = new StrategyFactory();
-    private Player player;
     private StrategyType strategyType;
-    private Game gameState = new Game(timer);
+    private Game gameState = new Game();
 
 
     public GameController(StrategyType strategyType)
     {
         this.strategyType = strategyType;
-        this.player= PlayerSingleton.getInstance();
     }
-
-
-
-    public void countdownStart() {
-        timer = new Timer(strategyType, timerLabel);
-        //timerLabel.setText(String.valueOf(timer.getSTARTTIME()));
-        timer.startTimer();
-        timer.updateTimer();
-        //to call sth after game is over
-        new java.util.Timer().schedule(
-                new java.util.TimerTask() {
-                    @Override
-                    public void run() {
-                        //todo transfer score and open game done
-//                        System.out.println("gameover");
-//                        System.out.println(timer.getSTARTTIME());
-                    }
-                },
-                timer.getSTARTTIME()*1000
-        );
-    }
-    PauseDialogController pauseDialog ;
-    public void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
-        gameState.clickPause();
-        GamePlayActions.isPaused = true;
-
-        pauseDialog = new PauseDialogController(gameState);
-        pauseDialog.show(scoreLabel.getScene().getWindow());
-
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        startGame(strategyType);
-        if(!strategyType.equals(StrategyType.CLASSIC)) {
-            livesLabel.setVisible(false);
-            countdownStart();
-        }
-        else timerLabel.setVisible(false);
         setSubscribers();
+        startGame(strategyType);
+    }
+
+    @FXML
+    private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
+        gameState.clickPause();
+        GamePlayActions.isPaused = true;
+
+        PauseDialogController pauseDialog;
+
+        pauseDialog = new PauseDialogController(gameState);
+        pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 
     private void startGame(StrategyType strategyType)
     {
         GameStrategy strategy = strategyFactory.createStrategy(strategyType);
-        ModeContext modeContext = new ModeContext();
-        modeContext.setGameStrategy(strategy);
-
+        ModeContext modeContext = new ModeContext(strategy);
         modeContext.startGame(canvas);
     }
 
@@ -109,6 +75,7 @@ public class GameController implements Initializable {
     {
         ControlsUpdater controlsUpdater = new ControlsUpdater();
         controlsUpdater.eventManager.subscribe("sliceOrdinary", new UpdateScoreListener(scoreLabel));
+        controlsUpdater.eventManager.subscribe("updateTimer", new UpdateTimerListener(timerLabel));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }

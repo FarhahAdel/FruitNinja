@@ -4,15 +4,16 @@ import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import javafx.scene.canvas.Canvas;
 
 public class ModeContext {
-    GameStrategy gameStrategy;
+    private GameStrategy gameStrategy;
 
-    public void setGameStrategy(GameStrategy strategy)
+    public ModeContext(GameStrategy gameStrategy)
     {
-        gameStrategy = strategy;
+        this.gameStrategy = gameStrategy;
     }
 
     public void startGame(Canvas canvas)
     {
         gameStrategy.initGame(canvas);
+        gameStrategy.startTimer();
     }
 }

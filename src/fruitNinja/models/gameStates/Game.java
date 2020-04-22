@@ -1,15 +1,13 @@
 package fruitNinja.models.gameStates;
 
-import fruitNinja.utils.events.Timer;
 import fruitNinja.utils.pause.PauseLogic;
 
 public class Game {
     private PauseLogic pauseLogic = new PauseLogic();
     private State state;
-    Timer timer;
-    public Game(Timer timer){
+
+    public Game(){
         this.state = new PlayingState(this);
-        this.timer = timer;
     }
 
 

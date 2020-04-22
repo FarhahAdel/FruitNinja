@@ -4,7 +4,6 @@ import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
-import fruitNinja.utils.events.Timer;
 import fruitNinja.utils.pause.PauseLogic;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
