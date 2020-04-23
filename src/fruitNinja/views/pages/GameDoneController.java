@@ -1,5 +1,9 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
+import fruitNinja.guiUpdate.UpdateScoreListener;
+import fruitNinja.models.gameLogic.GamePlayActions;
+import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.views.guiUtils.Navigation;
@@ -19,6 +23,8 @@ public class GameDoneController implements Initializable {
     public Button playAgainBtn;
     public Button mainMenuBtn;
     private Player player;
+    private StrategyType strategyType;
+
 
     private Navigation navigation = new Navigation();
 
@@ -29,12 +35,18 @@ public class GameDoneController implements Initializable {
 
     @FXML
     public void handlePlayAgainActionButton(ActionEvent actionEvent) {
-        navigateToGameWindow();
+        Stage stage=(Stage)playAgainBtn.getScene().getWindow();
+        navigation.showGameChoosePage(stage);
+        //navigation.showGamePage(stage,strategyType);
+        //navigateToGameWindow();
+        GamePlayActions.isPaused=false;
     }
 
     public void handleMainMenuActionButton(ActionEvent actionEvent) {
         Stage stage;
         stage = (Stage)mainMenuBtn.getScene().getWindow();
+        navigation.showMainDashboardPage(stage);
+        GamePlayActions.isPaused=false;
         //navigation.setLoggedInPlayer(player);
         //System.out.println(player.getUsername());
        // navigation.setLoggedInPlayer(player);

@@ -23,12 +23,12 @@
             </image>
         </ImageView>
         <ProgressBar fx:id="levelBar" layoutX="149.0" layoutY="105.0" prefHeight="18.0" prefWidth="191.0" progress="0.48" style="-fx-accent: Purple; -fx-background-color: burlywood;" />
-        <Label fx:id="levelNum" layoutX="188.0" layoutY="60.0" prefHeight="51.0" prefWidth="118.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: White; -fx-font-size: 35px; -fx-font-weight: Bold;" text="Level " textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="levelNum" layoutX="188.0" layoutY="60.0" prefHeight="51.0" prefWidth="118.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: White; -fx-font-size: 35px; -fx-font-weight: Bold;" text="Level " textAlignment="CENTER" >
             <font>
                 <Font size="24.0" />
             </font>
         </Label>
-        <Label fx:id="level" layoutX="109.0" layoutY="86.0" prefHeight="51.0" prefWidth="27.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: white; -fx-font-size: 35px; -fx-font-weight: Bold;" textFill="WHITE" />
+        <Label fx:id="level" layoutX="109.0" layoutY="86.0" prefHeight="51.0" prefWidth="27.0" style="-fx-font-family: 'Gang of Three'; -fx-text-fill: white; -fx-font-size: 35px; -fx-font-weight: Bold;"  />
         <Button fx:id="newGameButton" layoutX="508.0" layoutY="259.0" mnemonicParsing="false" onAction="#newGame" prefHeight="210.0" prefWidth="224.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="301.0" fitWidth="282.0" pickOnBounds="true" preserveRatio="true">
