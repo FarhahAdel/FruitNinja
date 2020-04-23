@@ -14,18 +14,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main extends Application {
-    AudioController audioController = new AudioController();
     @Override
     public void start(Stage primaryStage) throws Exception{
-        settAudio();
         Parent root = FXMLLoader.load(getClass().getResource("views/pages/LoginPage.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 1280, 720));
         primaryStage.show();
-    }
-
-    public void settAudio() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        audioController.start("start");
     }
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         Font font = Font.loadFont(Main.class.getResourceAsStream("./views/fonts/go3v2.ttf"), 14);
