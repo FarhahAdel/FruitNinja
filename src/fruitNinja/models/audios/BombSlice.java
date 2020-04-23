@@ -1,5 +1,7 @@
 package fruitNinja.models.audios;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 /**
@@ -13,7 +15,7 @@ public class BombSlice implements Command {
     }
 
     @Override
-    public void execute() throws IOException {
+    public void execute() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         audio.bombSlice();
     }
 
