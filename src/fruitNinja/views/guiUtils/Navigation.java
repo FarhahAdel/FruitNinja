@@ -121,11 +121,11 @@ public class Navigation {
         //showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
 
     }
-    public void showGameDonePage(Stage stage)
+    public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
-        //GameDoneController gameDoneController = new GameDoneController(currentPlayer);
+        GameDoneController gameDoneController = new GameDoneController(strategyType);
         //setLoggedInPlayer(currentPlayer);
-        showGridPageWithoutController("../pages/GameDone.fxml", "Game done", stage);
+        showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage,gameDoneController);
     }
 
     public void showLoginPage(Stage stage)

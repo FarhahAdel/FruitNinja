@@ -58,11 +58,12 @@ public class GameController implements Initializable {
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         gameState.clickPause();
         GamePlayActions.isPaused = true;
+        PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
 
 
         PauseDialogController pauseDialog;
 
-        pauseDialog = new PauseDialogController(gameState);
+        pauseDialog = new PauseDialogController(gameState,strategyType);
         pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 

@@ -3,6 +3,7 @@ package fruitNinja.views.pages;
 import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.guiUpdate.UpdateScoreListener;
 import fruitNinja.models.gameLogic.GamePlayActions;
+import fruitNinja.models.gameLogic.GameState;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
@@ -26,10 +27,17 @@ public class GameDoneController implements Initializable {
     private StrategyType strategyType;
 
 
+    public GameDoneController(StrategyType strategyType) {
+        this.strategyType = strategyType;
+    }
+
+
     private Navigation navigation = new Navigation();
 
     public GameDoneController() {
         this.player = PlayerSingleton.getInstance();
+       // scoreValue.setText();
+
     }
 
 
@@ -37,6 +45,7 @@ public class GameDoneController implements Initializable {
     public void handlePlayAgainActionButton(ActionEvent actionEvent) {
         Stage stage=(Stage)playAgainBtn.getScene().getWindow();
         navigation.showGameChoosePage(stage);
+        System.out.println(strategyType.name());
         //navigation.showGamePage(stage,strategyType);
         //navigateToGameWindow();
         GamePlayActions.isPaused=false;
@@ -73,6 +82,7 @@ public class GameDoneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setScoreValue();
         setHighScoreValue();
+        scoreValue.setText(String.valueOf(PlayerSingleton.getInstance().getCurrentScore()));
     }
     private void setScoreValue(){
         scoreValue.setText("you are doing well");

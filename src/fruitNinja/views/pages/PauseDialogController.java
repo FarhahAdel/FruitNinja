@@ -1,6 +1,8 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.Controller;
 import fruitNinja.models.gameLogic.GamePlayActions;
+import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
@@ -24,12 +26,14 @@ public class PauseDialogController {
     public  Button quitBtn;
     private Player player;
     private Game gameState;
+    private StrategyType strategyType;
 
     Navigation navigation=new Navigation();
 
-    public PauseDialogController(Game gameState) {
+    public PauseDialogController(Game gameState, StrategyType strategyType) {
         this.player = PlayerSingleton.getInstance();
         this.gameState = gameState;
+        this.strategyType=strategyType;
     }
 
     Stage stage = new Stage();
@@ -46,14 +50,14 @@ public class PauseDialogController {
         stage.initOwner(window);
         stage.setScene(scene);
         stage.show();
+    }
 
-        }
 
+    public void quitBtnClicked(ActionEvent actionEvent) throws IOException {
 
-    public void quitBtnClicked(ActionEvent actionEvent) {
-            Stage stage = (Stage)quitBtn.getScene().getWindow();
+        Stage stage = (Stage)quitBtn.getScene().getWindow();
             stage.close();
-            navigation.showGameDonePage(stage);
+            navigation.showGameDonePage(stage,strategyType);
     }
 
     public void restartBtnClicked(ActionEvent actionEvent){
