@@ -1,5 +1,6 @@
 package fruitNinja.models.bombs;
 
+import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.audios.AudioController;
 import fruitNinja.models.gameObjects.Sprite;
 
@@ -9,19 +10,19 @@ import java.io.IOException;
 
 public abstract class Bomb extends Sprite {
     private BombType bombType;
-    private AudioController audioController = new AudioController();
+    private final AudioController audioController = new AudioController();
+    public Bomb(BombType bombType){
+        this.bombType = bombType;
+    }
+    @Override
     public void slice()
     {
         try {
             audioController.start("bomb");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
+        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
             e.printStackTrace();
         }
         setSliced(true);
-
+        ControlsUpdaterSingleton.getInstance().sliceFatalBomb();
     }
 }

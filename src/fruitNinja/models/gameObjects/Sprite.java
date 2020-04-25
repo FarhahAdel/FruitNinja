@@ -8,7 +8,7 @@ public abstract class Sprite implements GameObject {
     private double XLocation;
     private double YLocation;
     private double angleRad = Math.toRadians(70); // DEFAULT VALUE
-    private boolean isSliced;
+    private boolean isSliced = false;
     private boolean hasFallenOff;
     private double width;
     private double height;

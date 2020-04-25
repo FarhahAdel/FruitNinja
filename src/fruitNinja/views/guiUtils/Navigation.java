@@ -1,10 +1,8 @@
 package fruitNinja.views.guiUtils;
 
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.users.Player;
 import fruitNinja.views.pages.GameController;
 import fruitNinja.views.pages.GameDoneController;
-import fruitNinja.views.pages.MainDashboardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -116,8 +114,10 @@ public class Navigation {
     public void showGamePage(Stage stage, StrategyType strategyType)
     {
         GameController gameController = new GameController(strategyType);
+        gameController.setStage(stage);
 
         showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
+
         //showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
 
     }
