@@ -16,5 +16,8 @@ public class ControlsUpdater {
     public void sliceFatalBomb(){
         eventManager.notify("sliceFatal","");
     }
+    public void sliceDangerousBomb(int amount){
+        eventManager.notify("sliceDangerous",String.valueOf(amount));
+    }
 
 }

@@ -1,6 +1,5 @@
 package fruitNinja.models.bombs;
 
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.audios.AudioController;
 import fruitNinja.models.gameObjects.Sprite;
 
@@ -23,6 +22,5 @@ public abstract class Bomb extends Sprite {
             e.printStackTrace();
         }
         setSliced(true);
-        ControlsUpdaterSingleton.getInstance().sliceFatalBomb();
     }
 }

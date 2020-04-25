@@ -1,5 +1,7 @@
 package fruitNinja.models.bombs;
 
+import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
+
 public class DangerousBomb extends Bomb{
     private final int scoreMinimizing = 10;
     private final int timeMinimizing = 10;
@@ -9,4 +11,9 @@ public class DangerousBomb extends Bomb{
         setImage("/fruitNinja/views/images/DangerousBomb.png");
     }
 
+    @Override
+    public void slice() {
+        super.slice();
+        ControlsUpdaterSingleton.getInstance().sliceDangerousBomb(scoreMinimizing);
+    }
 }
