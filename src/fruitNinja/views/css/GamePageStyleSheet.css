@@ -8,7 +8,7 @@ root{
 .label{
     -fx-font-family: 'Gang of Three';
     -fx-font-size: 30px;
-    -fx-text-fill: black;
+    -fx-text-fill: white;
 }
 #livesLabel{
     -fx-text-fill: red;
