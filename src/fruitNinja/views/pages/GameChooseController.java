@@ -7,15 +7,18 @@ import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.utils.Utils;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class GameChooseController {
+public class GameChooseController implements Initializable {
     public Button classicButton;
 
     private Navigation navigation = new Navigation();
@@ -49,5 +52,18 @@ public class GameChooseController {
     public void settAudio() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
         audioController = new AudioController();
         audioController.start("start");
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        try {
+            settAudio();
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 }
