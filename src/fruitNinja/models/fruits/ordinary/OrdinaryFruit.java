@@ -1,6 +1,6 @@
 package fruitNinja.models.fruits.ordinary;
 
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.audios.AudioController;
 import fruitNinja.models.fruits.Fruit;
 
@@ -18,11 +18,7 @@ public class OrdinaryFruit extends Fruit {
         setImage(getImageAfterSlicing());
         try {
             audioController.start("fruit");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
         setSliced(true);

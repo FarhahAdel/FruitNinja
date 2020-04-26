@@ -1,9 +1,7 @@
 package fruitNinja.utils.events;
 
-import fruitNinja.guiUpdate.ControlsUpdater;
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
-import fruitNinja.models.gameModes.StrategyType;
-import javafx.animation.Animation;
+import fruitNinja.models.guiUpdate.ControlsUpdater;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;

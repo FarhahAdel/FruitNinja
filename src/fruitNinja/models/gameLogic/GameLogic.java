@@ -1,8 +1,6 @@
 package fruitNinja.models.gameLogic;
 
-import fruitNinja.animations.ProjectileShooter;
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.utils.Utils;
@@ -27,7 +25,7 @@ public class GameLogic {
         int wave = gameState.getWave();
         Difficulty difficulty = utils.getDifficultyByWaveNumber(wave);
         ArrayList<Sprite> sprites = gamePlayService.generateWave(strategyType ,difficulty);
-        gamePlayActions.throwFruits(sprites, difficulty); // DIFFICULTY TO BE PASSED TO THROW FRUITS
+        gamePlayActions.throwFruits(sprites, difficulty);
         // TODO: LISTEN FOR MOUSE CLICKS (AND IT'S EFFECTS)
         gameState.incWave();
     }

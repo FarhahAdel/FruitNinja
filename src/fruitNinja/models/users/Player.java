@@ -19,7 +19,14 @@ public class Player {
     private int level;
     @XmlElement(name="experience")
     private int experience;
+    private int currentScore;
+    public int getCurrentScore() {
+        return currentScore;
+    }
 
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
+    }
     public Player()
     {
 

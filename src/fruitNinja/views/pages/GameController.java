@@ -1,9 +1,6 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.guiUpdate.ControlsUpdater;
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
-import fruitNinja.guiUpdate.UpdateScoreListener;
-import fruitNinja.guiUpdate.UpdateTimerListener;
+import fruitNinja.models.guiUpdate.*;
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.gameModes.*;
@@ -17,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,9 +30,12 @@ public class GameController implements Initializable {
     private Label timerLabel;
     @FXML
     private Label livesLabel;
+    @FXML
+    private Label comboLabel;
 
     @FXML
     private Canvas canvas;
+    private Stage stage ;
 
     private Navigation navigation;
 
@@ -42,6 +43,9 @@ public class GameController implements Initializable {
     private StrategyType strategyType;
     private Game gameState = new Game();
 
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
 
     public GameController(StrategyType strategyType)
     {
@@ -58,11 +62,12 @@ public class GameController implements Initializable {
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         gameState.clickPause();
         GamePlayActions.isPaused = true;
+        PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
 
 
         PauseDialogController pauseDialog;
 
-        pauseDialog = new PauseDialogController(gameState);
+        pauseDialog = new PauseDialogController(gameState,strategyType);
         pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 
@@ -78,6 +83,9 @@ public class GameController implements Initializable {
         ControlsUpdater controlsUpdater = new ControlsUpdater();
         controlsUpdater.eventManager.subscribe("sliceOrdinary", new UpdateScoreListener(scoreLabel));
         controlsUpdater.eventManager.subscribe("updateTimer", new UpdateTimerListener(timerLabel));
+        controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener(this.stage,this.strategyType));
+        controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(scoreLabel));
+        controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(comboLabel));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }

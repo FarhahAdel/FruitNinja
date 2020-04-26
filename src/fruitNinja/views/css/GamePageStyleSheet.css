@@ -10,6 +10,9 @@ root{
     -fx-font-size: 30px;
     -fx-text-fill: black;
 }
+#livesLabel{
+    -fx-text-fill: red;
+}
 #pauseButton{
     -fx-background-color: #6d3c1a;
     -fx-background-radius: 8px;

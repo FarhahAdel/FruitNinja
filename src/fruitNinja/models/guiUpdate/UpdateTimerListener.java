@@ -1,4 +1,4 @@
-package fruitNinja.guiUpdate;
+package fruitNinja.models.guiUpdate;
 
 import javafx.scene.control.Label;
 
