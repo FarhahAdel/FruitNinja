@@ -7,6 +7,7 @@ import fruitNinja.models.gameModes.*;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.PlayerSingleton;
+import fruitNinja.models.users.Score;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,17 +56,18 @@ public class GameController implements Initializable {
         setSubscribers();
         startGame(strategyType);
     }
-
+    Score score;
     @FXML
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         gameState.clickPause();
         GamePlayActions.isPaused = true;
+        score=new Score(strategyType,scoreLabel.getText());
         PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
 
 
         PauseDialogController pauseDialog;
 
-        pauseDialog = new PauseDialogController(gameState,strategyType);
+        pauseDialog = new PauseDialogController(gameState,strategyType,score);
         pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 

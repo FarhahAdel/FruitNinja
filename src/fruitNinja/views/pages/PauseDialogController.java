@@ -6,6 +6,7 @@ import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
+import fruitNinja.models.users.Score;
 import fruitNinja.utils.pause.PauseLogic;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
@@ -27,11 +28,12 @@ public class PauseDialogController {
     private Player player;
     private Game gameState;
     private StrategyType strategyType;
+    private Score score;
 
     Navigation navigation=new Navigation();
 
-    public PauseDialogController(Game gameState, StrategyType strategyType) {
-        this.player = PlayerSingleton.getInstance();
+    public PauseDialogController(Game gameState, StrategyType strategyType, Score score) {
+        this.score=score;
         this.gameState = gameState;
         this.strategyType=strategyType;
     }
@@ -50,6 +52,8 @@ public class PauseDialogController {
         stage.initOwner(window);
         stage.setScene(scene);
         stage.show();
+        System.out.println(score.getArcadeScore());
+        System.out.println(score.getUsername());
     }
 
 

@@ -2,22 +2,30 @@ package fruitNinja.models.users;
 
 import fruitNinja.models.gameModes.StrategyType;
 
-import static fruitNinja.models.gameModes.StrategyType.ZEN;
+import javax.xml.bind.annotation.*;
 
+@XmlRootElement(name="score")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Score {
+    @XmlElement(name="strategy")
     StrategyType strategyType;
-    String userName=PlayerSingleton.getInstance().getUsername();
+    @XmlElement(name="username")
+    private String username;
+    @XmlTransient
     private String score;
+    @XmlElement(name="zen Score")
     private String zenScore;
+    @XmlElement(name = "classic Score")
     private String classicScore;
+    @XmlElement(name = "arcade Score")
     private String arcadeScore;
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getScore() {
@@ -55,9 +63,10 @@ public class Score {
     public Score(StrategyType strategyType, String score) {
         this.strategyType = strategyType;
         this.score=score;
-        chooseclass(strategyType,score);
+        this.username=PlayerSingleton.getInstance().getUsername();
+        chooseStrategy(strategyType,score);
     }
-    public void chooseclass(StrategyType strategyType,String score){
+    public void chooseStrategy(StrategyType strategyType,String score){
         switch (strategyType){
             case ZEN:
                 zenScore=score;
@@ -68,7 +77,6 @@ public class Score {
             case CLASSIC:
                 classicScore=score;
                 break;
-
         }
     }
 }
