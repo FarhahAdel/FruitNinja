@@ -1,6 +1,6 @@
 package fruitNinja.models.bombs;
 
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 
 public class DangerousBomb extends Bomb{
     private final int scoreMinimizing = 10;

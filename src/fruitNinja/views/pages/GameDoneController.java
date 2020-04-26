@@ -1,9 +1,6 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
-import fruitNinja.guiUpdate.UpdateScoreListener;
 import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameLogic.GameState;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
