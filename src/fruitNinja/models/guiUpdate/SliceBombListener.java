@@ -1,4 +1,4 @@
-package fruitNinja.guiUpdate;
+package fruitNinja.models.guiUpdate;
 
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.views.guiUtils.Navigation;

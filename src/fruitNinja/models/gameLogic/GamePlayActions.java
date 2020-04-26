@@ -3,9 +3,9 @@ package fruitNinja.models.gameLogic;
 import fruitNinja.animations.Projectile;
 import fruitNinja.animations.ProjectileShooter;
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.gameObjects.Sprite;
-import fruitNinja.utils.events.MouseEvents;
+import fruitNinja.utils.events.MouseDraggedEvent;
+import fruitNinja.utils.events.MouseReleaseEvent;
 import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
 import javafx.scene.canvas.Canvas;
@@ -35,8 +35,11 @@ public class GamePlayActions {
     {
         HashMap<Sprite, Projectile> spriteProjectileHashMap = associateProjectiles(sprites, difficulty);
 
-        MouseEvents mouseEvents = new MouseEvents(spriteProjectileHashMap);
-        canvas.setOnMouseDragged(mouseEvents);
+        MouseDraggedEvent mouseDraggedEvent = new MouseDraggedEvent(spriteProjectileHashMap);
+        MouseReleaseEvent mouseReleaseEvent = new MouseReleaseEvent(mouseDraggedEvent);
+
+        canvas.setOnMouseDragged(mouseDraggedEvent);
+        canvas.setOnMouseReleased(mouseReleaseEvent);
 
         animationTimer = new AnimationTimer() {
             @Override

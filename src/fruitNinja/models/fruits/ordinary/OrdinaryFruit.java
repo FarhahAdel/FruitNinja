@@ -1,6 +1,6 @@
 package fruitNinja.models.fruits.ordinary;
 
-import fruitNinja.guiUpdate.ControlsUpdaterSingleton;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.audios.AudioController;
 import fruitNinja.models.fruits.Fruit;
 

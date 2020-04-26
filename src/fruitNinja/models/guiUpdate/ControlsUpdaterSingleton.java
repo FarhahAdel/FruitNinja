@@ -1,6 +1,5 @@
-package fruitNinja.guiUpdate;
+package fruitNinja.models.guiUpdate;
 
-import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
 
 public class ControlsUpdaterSingleton {

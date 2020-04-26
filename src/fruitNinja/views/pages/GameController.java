@@ -1,6 +1,6 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.guiUpdate.*;
+import fruitNinja.models.guiUpdate.*;
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.gameModes.*;
@@ -31,6 +31,8 @@ public class GameController implements Initializable {
     private Label timerLabel;
     @FXML
     private Label livesLabel;
+    @FXML
+    private Label comboLabel;
 
     @FXML
     private Canvas canvas;
@@ -85,6 +87,7 @@ public class GameController implements Initializable {
         controlsUpdater.eventManager.subscribe("updateTimer", new UpdateTimerListener(timerLabel));
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener(this.stage,this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(scoreLabel));
+        controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(comboLabel));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }

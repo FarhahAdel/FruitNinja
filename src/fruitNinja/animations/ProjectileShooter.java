@@ -1,12 +1,7 @@
 package fruitNinja.animations;
 
-import fruitNinja.models.fruits.Fruit;
 import fruitNinja.models.gameObjects.Sprite;
-import fruitNinja.utils.events.MouseEvents;
-import javafx.animation.AnimationTimer;
 import javafx.geometry.Point2D;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 
 import java.util.*;
 

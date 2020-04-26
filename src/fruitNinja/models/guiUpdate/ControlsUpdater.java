@@ -1,4 +1,4 @@
-package fruitNinja.guiUpdate;
+package fruitNinja.models.guiUpdate;
 
 public class ControlsUpdater {
     public EventManager eventManager;
@@ -19,5 +19,5 @@ public class ControlsUpdater {
     public void sliceDangerousBomb(int amount){
         eventManager.notify("sliceDangerous",String.valueOf(amount));
     }
-
+    public void comboSliced(int amount) { eventManager.notify("sliceCombo", String.valueOf(amount));}
 }

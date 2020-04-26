@@ -48,7 +48,6 @@ public class ClassicWaveBuilder implements WaveBuilder {
     @Override
     public void buildBombs() {
         int n = utils.generateRandomBombNumBasedOnDifficulty(wave.getDifficulty());
-        System.out.println(n);
         ArrayList<Bomb> bombs = new ArrayList<>();
 
         for (int i = 0; i < n; i++)

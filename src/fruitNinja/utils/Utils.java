@@ -1,8 +1,11 @@
 package fruitNinja.utils;
 
 import fruitNinja.models.Difficulty;
+import javafx.scene.control.Label;
 
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Utils {
 
@@ -58,6 +61,15 @@ public class Utils {
         return (int) Math.pow(2, level + 7);
     }
 
-    public void startCustomTimer()
-    {}
+    public void showLabelForCertainTime(Label label, long time)
+    {
+        label.setVisible(true);
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                label.setVisible(false);
+            }
+        }, time);
+    }
 }

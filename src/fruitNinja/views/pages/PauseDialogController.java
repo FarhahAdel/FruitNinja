@@ -48,7 +48,7 @@ public class PauseDialogController {
         GridPane grid = loader.load();
         Scene scene = new Scene(grid,700,600);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.initStyle(StageStyle.UNDECORATED);
+        //stage.initStyle(StageStyle.UNDECORATED);
         stage.initOwner(window);
         stage.setScene(scene);
         stage.show();
