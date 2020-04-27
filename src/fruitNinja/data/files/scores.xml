@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<scores>
+    <score>
+        <username>omar</username>
+        <zenScore>30</zenScore>
+        <classicScore>18</classicScore>
+        <arcadeScore>29</arcadeScore>
+    </score>
+    <score>
+        <username>john</username>
+        <zenScore>0</zenScore>
+        <classicScore>0</classicScore>
+        <arcadeScore>16</arcadeScore>
+    </score>
+</scores>

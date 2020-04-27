@@ -1,9 +1,11 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.data.repositories.ScoreRepository;
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
+import fruitNinja.models.users.Score;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,7 +32,8 @@ public class GameDoneController implements Initializable {
 
 
     private Navigation navigation = new Navigation();
-
+    Score score;
+    ScoreRepository scoreRepository=new ScoreRepository();
     public GameDoneController() {
         this.player = PlayerSingleton.getInstance();
        // scoreValue.setText();
@@ -42,7 +45,6 @@ public class GameDoneController implements Initializable {
     public void handlePlayAgainActionButton(ActionEvent actionEvent) {
         Stage stage=(Stage)playAgainBtn.getScene().getWindow();
         navigation.showGameChoosePage(stage);
-        System.out.println(strategyType.name());
         //navigation.showGamePage(stage,strategyType);
         //navigateToGameWindow();
         GamePlayActions.isPaused=false;
@@ -79,14 +81,13 @@ public class GameDoneController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setScoreValue();
         setHighScoreValue();
-        scoreValue.setText(String.valueOf(PlayerSingleton.getInstance().getCurrentScore()));
     }
     private void setScoreValue(){
-        scoreValue.setText("you are doing well");
+        scoreValue.setText(String.valueOf(PlayerSingleton.getInstance().getCurrentScore()));
     }
     private void setHighScoreValue()
     {
-        highScoreValue.setText("holaa");
+        highScoreValue.setText(scoreRepository.getHighScore(strategyType,PlayerSingleton.getInstance().getUsername()));
     }
 
 

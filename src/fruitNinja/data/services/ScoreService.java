@@ -12,6 +12,11 @@ import javax.xml.bind.Unmarshaller;
 import java.util.ArrayList;
 
 public class ScoreService extends BaseService<Score> {
+    public ScoreService()
+    {
+        super();
+    }
+
     @Override
     public ArrayList<Score> readData() {
         JAXBContext jaxbContext= null;
@@ -19,7 +24,7 @@ public class ScoreService extends BaseService<Score> {
         try {
             jaxbContext = JAXBContext.newInstance(Scores.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            Scores scores= (Scores) unmarshaller.unmarshal(getPlayersFile());
+            Scores scores= (Scores) unmarshaller.unmarshal(getScoresFile());
             _scores = scores.getScores();
         } catch (JAXBException e) {
             e.printStackTrace();
@@ -36,14 +41,26 @@ public class ScoreService extends BaseService<Score> {
        scores.setScores(scoresList);
 
        try {
-            JAXBContext jaxbContext = JAXBContext.newInstance(Scores.class);
+            JAXBContext jaxbContext=JAXBContext.newInstance(Scores.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.marshal(scores, getPlayersFile());
+            jaxbMarshaller.marshal(scores, getScoresFile());
        } catch (JAXBException e) {
             e.printStackTrace();
        }
     }
+   public void updateData(ArrayList<Score> data){
+        Scores scores= new Scores();
+        scores.setScores(data);
+       try {
+           JAXBContext jaxbContext=JAXBContext.newInstance(Scores.class);
+           Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+           jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+           jaxbMarshaller.marshal(scores, getScoresFile());
+       } catch (JAXBException e) {
+           e.printStackTrace();
+       }
+   }
 
 
 }

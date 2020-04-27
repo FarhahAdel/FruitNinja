@@ -1,5 +1,6 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.data.repositories.ScoreRepository;
 import fruitNinja.models.guiUpdate.*;
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameStates.Game;
@@ -37,6 +38,7 @@ public class GameController implements Initializable {
     @FXML
     private Canvas canvas;
     private Stage stage ;
+    private ScoreRepository scoreRepository=new ScoreRepository();
 
     private Navigation navigation;
 
@@ -63,12 +65,10 @@ public class GameController implements Initializable {
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         gameState.clickPause();
         GamePlayActions.isPaused = true;
+        scoreRepository.addScore(scoreLabel.getText(),PlayerSingleton.getInstance().getUsername(),strategyType);
         score=new Score(strategyType,scoreLabel.getText());
         PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
-
-
         PauseDialogController pauseDialog;
-
         pauseDialog = new PauseDialogController(gameState,strategyType,score);
         pauseDialog.show(scoreLabel.getScene().getWindow());
     }

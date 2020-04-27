@@ -7,18 +7,18 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name="score")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Score {
-    @XmlElement(name="strategy")
+    @XmlTransient
     StrategyType strategyType;
     @XmlElement(name="username")
     private String username;
     @XmlTransient
     private String score;
-    @XmlElement(name="zen Score")
-    private String zenScore;
-    @XmlElement(name = "classic Score")
-    private String classicScore;
-    @XmlElement(name = "arcade Score")
-    private String arcadeScore;
+    @XmlElement(name="zenScore")
+    private String zenScore="0";
+    @XmlElement(name = "classicScore")
+    private String classicScore="0";
+    @XmlElement(name = "arcadeScore")
+    private String arcadeScore="0";
 
     public String getUsername() {
         return username;
@@ -60,11 +60,14 @@ public class Score {
         this.arcadeScore = arcadeScore;
     }
 
+    public Score() {
+    }
+
     public Score(StrategyType strategyType, String score) {
         this.strategyType = strategyType;
         this.score=score;
         this.username=PlayerSingleton.getInstance().getUsername();
-        chooseStrategy(strategyType,score);
+        chooseStrategy(strategyType,this.score);
     }
     public void chooseStrategy(StrategyType strategyType,String score){
         switch (strategyType){
@@ -78,6 +81,37 @@ public class Score {
                 classicScore=score;
                 break;
         }
+    }
+    @XmlTransient
+    private String scoreType;
+    public void scoreUponStrategy(String score,StrategyType strategyType)
+    { switch (strategyType){
+        case ZEN:
+            setZenScore(score);
+            break;
+        case ARCADE:
+            setArcadeScore(score);
+            break;
+        case CLASSIC:
+           setClassicScore(score);
+            break;
+    }
+
+    }
+    public String scoreStrategy(StrategyType strategyType){
+
+        switch (strategyType){
+            case ZEN:
+                scoreType=getZenScore();
+                break;
+            case ARCADE:
+                scoreType=getArcadeScore();
+                break;
+            case CLASSIC:
+                scoreType=getClassicScore();
+                break;
+        }
+        return scoreType;
     }
 }
 

@@ -52,16 +52,14 @@ public class PauseDialogController {
         stage.initOwner(window);
         stage.setScene(scene);
         stage.show();
-        System.out.println(score.getArcadeScore());
-        System.out.println(score.getUsername());
     }
 
 
     public void quitBtnClicked(ActionEvent actionEvent) throws IOException {
 
         Stage stage = (Stage)quitBtn.getScene().getWindow();
-            stage.close();
-            navigation.showGameDonePage(stage,strategyType);
+        stage.close();
+        navigation.showGameDonePage(stage,strategyType);
     }
 
     public void restartBtnClicked(ActionEvent actionEvent){
