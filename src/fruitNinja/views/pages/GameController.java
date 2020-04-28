@@ -69,7 +69,7 @@ public class GameController implements Initializable {
         score=new Score(strategyType,scoreLabel.getText());
         PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
         PauseDialogController pauseDialog;
-        pauseDialog = new PauseDialogController(gameState,strategyType,score);
+        pauseDialog = new PauseDialogController(gameState,strategyType,score,timerLabel.getText());
         pauseDialog.show(scoreLabel.getScene().getWindow());
     }
 

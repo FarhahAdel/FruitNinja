@@ -7,6 +7,7 @@ import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.models.users.Score;
+import fruitNinja.utils.events.CustomTimer;
 import fruitNinja.utils.pause.PauseLogic;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
@@ -29,13 +30,15 @@ public class PauseDialogController {
     private Game gameState;
     private StrategyType strategyType;
     private Score score;
+    private String time;
 
     Navigation navigation=new Navigation();
 
-    public PauseDialogController(Game gameState, StrategyType strategyType, Score score) {
+    public PauseDialogController(Game gameState, StrategyType strategyType, Score score,String time) {
         this.score=score;
         this.gameState = gameState;
         this.strategyType=strategyType;
+        this.time=time;
     }
 
     Stage stage = new Stage();
@@ -67,6 +70,8 @@ public class PauseDialogController {
 
     public void resumeBtnClicked(ActionEvent actionEvent) {
         GamePlayActions.isPaused = false;
+        CustomTimer customTimer=new CustomTimer(Integer.parseInt(time)-1);
+        customTimer.initCustomTimer();
         Stage stage1 =(Stage)quitBtn.getScene().getWindow();
         stage1.close();
         gameState.clickPlay();
