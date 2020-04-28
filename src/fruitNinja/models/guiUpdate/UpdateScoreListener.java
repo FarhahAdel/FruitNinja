@@ -1,5 +1,6 @@
 package fruitNinja.models.guiUpdate;
 
+import fruitNinja.models.users.PlayerSingleton;
 import javafx.scene.control.Label;
 
 public class UpdateScoreListener implements EventListener {
@@ -16,5 +17,6 @@ public class UpdateScoreListener implements EventListener {
         int scoreUpdate = Integer.parseInt(text);
         String newText = String.valueOf(Integer.parseInt(label.getText()) + scoreUpdate);
         label.setText(newText);
+        PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(newText));
     }
 }
