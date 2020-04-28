@@ -1,15 +1,17 @@
 package fruitNinja.views.pages;
 
 import fruitNinja.data.repositories.ScoreRepository;
-import fruitNinja.models.guiUpdate.*;
 import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameStates.Game;
-import fruitNinja.models.gameModes.*;
-import fruitNinja.models.gameModes.Stratgies.GameStrategy;
+import fruitNinja.models.gameModes.ModeContext;
+import fruitNinja.models.gameModes.StrategyFactory;
 import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.gameModes.Stratgies.GameStrategy;
+import fruitNinja.models.gameStates.Game;
+import fruitNinja.models.guiUpdate.*;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.models.users.Score;
 import fruitNinja.views.guiUtils.Navigation;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,8 +61,14 @@ public class GameController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSubscribers();
         startGame(strategyType);
+        listenToClose();
     }
-
+    private void listenToClose(){
+        this.stage.setOnCloseRequest(windowEvent -> {
+            Platform.exit();
+            System.exit(0);
+        });
+    }
 
     @FXML
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {

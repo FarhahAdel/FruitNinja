@@ -1,6 +1,5 @@
 package fruitNinja;
 
-import fruitNinja.models.audios.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,6 @@ import javafx.stage.Stage;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class Main extends Application {
     @Override
