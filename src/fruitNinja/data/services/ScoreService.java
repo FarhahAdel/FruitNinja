@@ -49,18 +49,22 @@ public class ScoreService extends BaseService<Score> {
             e.printStackTrace();
        }
     }
-   public void updateData(ArrayList<Score> data){
+
+    @Override
+    public void updateData(ArrayList<Score> data) {
         Scores scores= new Scores();
         scores.setScores(data);
-       try {
-           JAXBContext jaxbContext=JAXBContext.newInstance(Scores.class);
-           Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-           jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-           jaxbMarshaller.marshal(scores, getScoresFile());
-       } catch (JAXBException e) {
-           e.printStackTrace();
-       }
-   }
+        try {
+            JAXBContext jaxbContext=JAXBContext.newInstance(Scores.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            jaxbMarshaller.marshal(scores, getScoresFile());
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 }

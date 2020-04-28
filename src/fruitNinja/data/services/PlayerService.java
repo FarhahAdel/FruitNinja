@@ -1,6 +1,7 @@
 package fruitNinja.data.services;
 
 import fruitNinja.data.wrappers.Players;
+import fruitNinja.data.wrappers.Scores;
 import fruitNinja.models.users.Player;
 
 import javax.xml.bind.*;
@@ -39,6 +40,20 @@ public class PlayerService extends BaseService<Player> {
 
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(Players.class);
+            Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+            jaxbMarshaller.marshal(players, getPlayersFile());
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateData(ArrayList<Player> data) {
+        Players players =new Players();
+        players.setPlayers(data);
+        try {
+            JAXBContext jaxbContext=JAXBContext.newInstance(Players.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             jaxbMarshaller.marshal(players, getPlayersFile());

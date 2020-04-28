@@ -1,5 +1,6 @@
 package fruitNinja.views.pages;
 
+import fruitNinja.data.repositories.PlayerRepository;
 import fruitNinja.data.repositories.ScoreRepository;
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameModes.StrategyType;
@@ -76,11 +77,12 @@ public class GameDoneController implements Initializable {
        // navigation.showMainDashboardPage(stage);
 
     }
-
+    PlayerRepository playerRepository=new PlayerRepository();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setScoreValue();
         setHighScoreValue();
+        playerRepository.updateLevel();
     }
     private void setScoreValue(){
         scoreValue.setText(String.valueOf(PlayerSingleton.getInstance().getCurrentScore()));

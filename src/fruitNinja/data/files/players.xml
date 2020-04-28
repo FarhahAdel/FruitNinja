@@ -4,8 +4,8 @@
         <username>omar</username>
         <fullName>Omar Alaa</fullName>
         <password>omar123</password>
-        <level>2</level>
-        <experience>400</experience>
+        <level>3</level>
+        <experience>27</experience>
     </player>
     <player>
         <username>john</username>
