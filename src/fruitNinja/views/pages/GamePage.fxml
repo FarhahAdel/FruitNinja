@@ -12,7 +12,7 @@
     <Label fx:id="scoreLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP"/>
     <Label fx:id="timerLabel" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP"
             style="-fx-text-fill: white"/>
-    <Label fx:id="livesLabel" text="X X X" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+    <Label fx:id="livesLabel" text="" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
     <Label fx:id="comboLabel" text="" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
         style="-fx-fill: white"/>
 

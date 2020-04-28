@@ -4,6 +4,8 @@ import fruitNinja.animations.Projectile;
 import fruitNinja.animations.ProjectileShooter;
 import fruitNinja.models.Difficulty;
 import fruitNinja.models.gameObjects.Sprite;
+import fruitNinja.models.guiUpdate.ControlsUpdater;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.utils.events.MouseDraggedEvent;
 import fruitNinja.utils.events.MouseReleaseEvent;
 import javafx.animation.AnimationTimer;
