@@ -6,6 +6,7 @@ public interface GameObject {
     double getXlocation();
     double getYlocation();
     Boolean isSliced();
+    void fellOff();
     Boolean hasMovedOffScreen();
     void slice();
     boolean intersect(double x, double y);

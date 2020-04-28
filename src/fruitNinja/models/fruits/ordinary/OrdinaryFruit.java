@@ -12,6 +12,7 @@ public class OrdinaryFruit extends Fruit {
     private final int points = 1;
     private final int lifeMinimizing = 1;
     private AudioController audioController = new AudioController();
+
     @Override
     public void slice()
     {
@@ -23,5 +24,13 @@ public class OrdinaryFruit extends Fruit {
         }
         setSliced(true);
         ControlsUpdaterSingleton.getInstance().sliceOrdinaryFruit(points);
+    }
+
+    @Override
+    public void fellOff()
+    {
+        setHasFallenOff(true);
+        if (!isSliced())
+            ControlsUpdaterSingleton.getInstance().fruitFell(lifeMinimizing);
     }
 }

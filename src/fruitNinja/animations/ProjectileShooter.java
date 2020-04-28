@@ -34,7 +34,7 @@ public class ProjectileShooter {
         sprite.setYLocation(currentPosition.getY());
 
         if(sprite.getYlocation() > 760){
-            sprite.setHasFallenOff(true);
+            sprite.fellOff();
         }
     }
 

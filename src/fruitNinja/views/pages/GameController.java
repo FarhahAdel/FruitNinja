@@ -60,13 +60,14 @@ public class GameController implements Initializable {
         setSubscribers();
         startGame(strategyType);
     }
-    Score score;
+
+
     @FXML
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         gameState.clickPause();
         GamePlayActions.isPaused = true;
         scoreRepository.addScore(scoreLabel.getText(),PlayerSingleton.getInstance().getUsername(),strategyType);
-        score=new Score(strategyType,scoreLabel.getText());
+        Score score = new Score(strategyType,scoreLabel.getText());
         PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
         PauseDialogController pauseDialog;
         pauseDialog = new PauseDialogController(gameState,strategyType,score,timerLabel.getText());
@@ -88,6 +89,7 @@ public class GameController implements Initializable {
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener(this.stage,this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(scoreLabel));
         controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(comboLabel));
+        controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener(livesLabel));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }

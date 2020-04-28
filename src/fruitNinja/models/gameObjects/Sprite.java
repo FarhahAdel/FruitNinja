@@ -78,6 +78,12 @@ public abstract class Sprite implements GameObject {
         this.hasFallenOff = hasFallenOff;
     }
 
+    @Override
+    public void fellOff()
+    {
+        setHasFallenOff(true);
+    }
+
     public double getAngleRad() {
         return angleRad;
     }
