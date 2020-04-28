@@ -5,13 +5,13 @@
         <fullName>Omar Alaa</fullName>
         <password>omar123</password>
         <level>3</level>
-        <experience>27</experience>
+        <experience>66</experience>
     </player>
     <player>
         <username>john</username>
         <fullName>john doe</fullName>
         <password>john_doe</password>
         <level>1</level>
-        <experience>0</experience>
+        <experience>18</experience>
     </player>
 </players>
