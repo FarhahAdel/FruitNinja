@@ -24,6 +24,7 @@ public class ScoreRepository {
         if(!empty){
             scores = scoreService.readData();
         }
+       // else scores=null;
 
     }
 
@@ -39,6 +40,7 @@ public class ScoreRepository {
 
     public void addScore(String score, String username, StrategyType strategyType){
         boolean flag =false;
+        if(scores!=null){
         for(Score score1:scores) {
 
             if (username.equals(score1.getUsername())) {
@@ -53,6 +55,12 @@ public class ScoreRepository {
         if(!flag){
             scores.add(new Score(strategyType,score));
             scoreService.updateData(scores);
+        }}
+        else {
+            Score newScore = new Score(strategyType,score);
+            ArrayList<Score> scoresInit=new ArrayList<>();
+            scoresInit.add(newScore);
+            scoreService.updateData(scoresInit);
         }
     }
     public String getHighScore(StrategyType strategyType,String username){
