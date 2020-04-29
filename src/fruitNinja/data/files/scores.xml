@@ -3,13 +3,13 @@
     <score>
         <username>omar</username>
         <zenScore>30</zenScore>
-        <classicScore>25</classicScore>
+        <classicScore>24</classicScore>
         <arcadeScore>30</arcadeScore>
     </score>
     <score>
         <username>john</username>
         <zenScore>0</zenScore>
         <classicScore>12</classicScore>
-        <arcadeScore>23</arcadeScore>
+        <arcadeScore>16</arcadeScore>
     </score>
 </scores>

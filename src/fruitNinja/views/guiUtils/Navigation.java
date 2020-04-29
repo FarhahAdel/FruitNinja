@@ -138,10 +138,13 @@ public class Navigation {
     public void showGameChoosePage(Stage stage){
         showAnchorPageWithoutController("../pages/GameChoose.fxml", "Choose Game", stage);
     }
-    public void showGameOverPage(Stage stage){
+    public void showGameOverPage(Stage stage,StrategyType strategyType){
         showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished(event -> stage.hide());
+        delay.setOnFinished(event -> stage.close());
         delay.play();
+        PauseTransition delaySecond = new PauseTransition(Duration.seconds(3));
+        delaySecond.setOnFinished(event -> showGameDonePage(stage,strategyType));
+        delaySecond.play();
     }
 }
