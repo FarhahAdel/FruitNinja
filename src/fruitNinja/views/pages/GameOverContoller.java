@@ -16,15 +16,6 @@ public class GameOverContoller implements Initializable {
     AudioController audioController=new AudioController();
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            audioController.start("GameOver");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
-            e.printStackTrace();
-        }
-
+        audioController.start("GameOver");
     }
 }

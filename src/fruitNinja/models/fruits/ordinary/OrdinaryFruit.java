@@ -17,11 +17,7 @@ public class OrdinaryFruit extends Fruit {
     public void slice()
     {
         setImage(getImageAfterSlicing());
-        try {
-            audioController.start("fruit");
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
+        audioController.start("fruit");
         setSliced(true);
         ControlsUpdaterSingleton.getInstance().sliceOrdinaryFruit(points);
     }

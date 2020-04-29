@@ -52,11 +52,7 @@ public class GameChooseController {
 
     private void settAudio() {
         audioController = new AudioController();
-        try {
-            audioController.start("start");
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
+        audioController.start("start");
     }
 
     private void setEventHandlers()

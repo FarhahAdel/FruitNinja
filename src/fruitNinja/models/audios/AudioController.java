@@ -18,7 +18,7 @@ public class AudioController {
     public AudioController() {
     }
 
-    public Command start(String type) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    public Command start(String type) {
         switch (type.toLowerCase()) {
             case "bomb" :
                 command = new BombSlice(audio);
@@ -37,7 +37,11 @@ public class AudioController {
                 break;
         }
         invoker.setCommand(command);
-        invoker.play();
+        try {
+            invoker.play();
+        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
+            e.printStackTrace();
+        }
         return command;
     }
 

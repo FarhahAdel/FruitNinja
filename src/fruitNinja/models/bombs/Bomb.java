@@ -13,15 +13,10 @@ public abstract class Bomb extends Sprite {
     public Bomb(BombType bombType){
         this.bombType = bombType;
     }
-
     @Override
     public void slice()
     {
-        try {
-            audioController.start("bomb");
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-            e.printStackTrace();
-        }
+        audioController.start("bomb");
         setSliced(true);
     }
 }

@@ -61,11 +61,7 @@ public class LoginController {
 
     private void setAudio() {
         audioController = new AudioController();
-        try {
-            audioController.start("start");
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
-            e.printStackTrace();
-        }
+        audioController.start("start");
     }
 
     private void setEventHandlers()

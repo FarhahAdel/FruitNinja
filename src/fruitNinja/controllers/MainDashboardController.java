@@ -53,12 +53,8 @@ public class MainDashboardController {
     }
 
     private void setAudio() {
-        try {
-            audioController = new AudioController();
-            audioController.start("start");
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e){
-            e.printStackTrace();
-        }
+        audioController = new AudioController();
+        audioController.start("start");
     }
 
     private void setEventHandlers()
