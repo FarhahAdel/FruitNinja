@@ -70,8 +70,9 @@ public class PauseDialogController {
 
     public void resumeBtnClicked(ActionEvent actionEvent) {
         GamePlayActions.isPaused = false;
+        if(!strategyType.equals(StrategyType.CLASSIC)){
         CustomTimer customTimer=new CustomTimer(Integer.parseInt(time)-1);
-        customTimer.initCustomTimer();
+        customTimer.initCustomTimer();}
         Stage stage1 =(Stage)quitBtn.getScene().getWindow();
         stage1.close();
         gameState.clickPlay();

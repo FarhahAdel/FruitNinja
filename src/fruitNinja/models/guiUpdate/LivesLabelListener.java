@@ -13,6 +13,7 @@ public class LivesLabelListener implements EventListener {
 
     @Override
     public void update(String eventType, String data) {
-        label.setText(label.getText() + "X");
+        if(!label.getText().equals("XXX"))
+            label.setText(label.getText() + "X");
     }
 }
