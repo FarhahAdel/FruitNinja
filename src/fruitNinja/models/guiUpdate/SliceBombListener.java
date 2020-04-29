@@ -25,18 +25,9 @@ public class SliceBombListener implements EventListener{
     @Override
     public void update(String eventType, String data) {
         Navigation navigation = new Navigation();
-        showGameOver();
+        navigation.showGameOverPage(stage);
         PauseTransition delaySecond = new PauseTransition(Duration.seconds(3));
         delaySecond.setOnFinished(event ->  navigation.showGameDonePage(stage,strategyType));
         delaySecond.play();
     }
-    private void showGameOver(){
-        Navigation navigation = new Navigation();
-        navigation.showGameOverPage(stage);
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished(event -> stage.hide());
-        delay.play();
-    }
-
-
 }
