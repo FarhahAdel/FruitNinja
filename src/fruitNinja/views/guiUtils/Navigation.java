@@ -1,13 +1,15 @@
 package fruitNinja.views.guiUtils;
 
+import fruitNinja.controllers.*;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.views.pages.GameController;
-import fruitNinja.views.pages.GameDoneController;
+import fruitNinja.views.pages.*;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -131,7 +133,6 @@ public class Navigation {
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
         GameDoneController gameDoneController = new GameDoneController(strategyType);
-        //setLoggedInPlayer(currentPlayer);
         showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage,gameDoneController);
     }
 
@@ -147,6 +148,7 @@ public class Navigation {
         showPageAnchorWithCustomController("../pages/GameChoose.fxml", "Choose Game", stage, gameChooseView);
         GameChooseController gameChooseController = new GameChooseController(gameChooseView);
     }
+
     public void showGameOverPage(Stage stage,StrategyType strategyType){
         showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));

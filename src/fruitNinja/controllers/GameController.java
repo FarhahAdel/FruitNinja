@@ -31,6 +31,7 @@ public class GameController {
         this.strategyType = strategyType;
         setEventHandlers();
         setSubscribers();
+        setControls();
         startGame(strategyType);
     }
 
@@ -45,7 +46,7 @@ public class GameController {
         PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(gameView.getScoreLabel().getText()));
 
         PauseDialogController pauseDialog;
-        pauseDialog = new PauseDialogController(gameState,strategyType,score);
+        pauseDialog = new PauseDialogController(gameState,strategyType,score, gameView.getTimerLabel().getText());
 
         try {
             pauseDialog.show(gameView.getScoreLabel().getScene().getWindow());
@@ -61,6 +62,11 @@ public class GameController {
         modeContext.startGame(gameView.getCanvas());
     }
 
+    private void setControls()
+    {
+        gameView.getLivesLabel().setText("");
+    }
+
     private void setSubscribers()
     {
         ControlsUpdater controlsUpdater = new ControlsUpdater();
@@ -69,7 +75,7 @@ public class GameController {
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener((Stage) gameView.getScoreLabel().getScene().getWindow(),this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(gameView.getScoreLabel()));
         controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(gameView.getComboLabel()));
-        controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener(gameView.getLivesLabel()));
+        controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener((Stage)gameView.getScoreLabel().getScene().getWindow(), gameView.getLivesLabel()));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 
