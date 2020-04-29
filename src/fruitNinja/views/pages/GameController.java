@@ -97,7 +97,7 @@ public class GameController implements Initializable {
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener(this.stage,this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(scoreLabel));
         controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(comboLabel));
-        controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener(livesLabel));
+        controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener(this.stage,livesLabel));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 }
