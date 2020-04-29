@@ -3,11 +3,13 @@ package fruitNinja.views.guiUtils;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.views.pages.GameController;
 import fruitNinja.views.pages.GameDoneController;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -138,5 +140,8 @@ public class Navigation {
     }
     public void showGameOverPage(Stage stage){
         showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(event -> stage.hide());
+        delay.play();
     }
 }
