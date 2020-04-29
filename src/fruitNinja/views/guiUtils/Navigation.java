@@ -81,7 +81,7 @@ public class Navigation {
         }
     }
 
-    private void showPageAnchorWithCustomController(String fileName, String title, Stage stage, Object controllerClass)
+   private void showPageAnchorWithCustomController(String fileName, String title, Stage stage, Object controllerClass)
     {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
@@ -135,5 +135,8 @@ public class Navigation {
 
     public void showGameChoosePage(Stage stage){
         showAnchorPageWithoutController("../pages/GameChoose.fxml", "Choose Game", stage);
+    }
+    public void showGameOverPage(Stage stage){
+        showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
     }
 }
