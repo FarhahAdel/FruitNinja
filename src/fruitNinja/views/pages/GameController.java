@@ -74,7 +74,7 @@ public class GameController implements Initializable {
     private void pauseButtonClicked(ActionEvent actionEvent) throws IOException {
         gameState.clickPause();
         GamePlayActions.isPaused = true;
-        scoreRepository.addScore(scoreLabel.getText(),PlayerSingleton.getInstance().getUsername(),strategyType);
+       // scoreRepository.addScore(scoreLabel.getText(),PlayerSingleton.getInstance().getUsername(),strategyType);
         Score score = new Score(strategyType,scoreLabel.getText());
         PlayerSingleton.getInstance().setCurrentScore(Integer.parseInt(scoreLabel.getText()));
         PauseDialogController pauseDialog;

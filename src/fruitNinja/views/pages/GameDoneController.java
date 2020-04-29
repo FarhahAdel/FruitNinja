@@ -29,6 +29,7 @@ public class GameDoneController implements Initializable {
 
     public GameDoneController(StrategyType strategyType) {
         this.strategyType = strategyType;
+        scoreRepository.addScore(String.valueOf(PlayerSingleton.getInstance().getCurrentScore()),PlayerSingleton.getInstance().getUsername(),strategyType);
     }
 
 
