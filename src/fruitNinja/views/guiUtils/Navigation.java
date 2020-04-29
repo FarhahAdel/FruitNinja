@@ -1,8 +1,8 @@
 package fruitNinja.views.guiUtils;
 
+import fruitNinja.controllers.*;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.views.pages.GameController;
-import fruitNinja.views.pages.GameDoneController;
+import fruitNinja.views.pages.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -99,41 +99,51 @@ public class Navigation {
 
     public void showMainDashboardPage(Stage stage)
     {
-        //MainDashboardController controller = new MainDashboardController(player);
-        //showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, controller);
+        MainDashboardView mainDashboardView = new MainDashboardView();
+        showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, mainDashboardView);
+        MainDashboardController mainDashboardController = new MainDashboardController(mainDashboardView);
+    }
 
-        showAnchorPageWithoutController("../pages/MainDashboard.fxml", "Dashboard", stage);
-
+    public void showStartPage(Stage primaryStage) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../pages/LoginPage.fxml"));
+        LoginView loginView = new LoginView();
+        loader.setController(loginView);
+        GridPane grid = loader.load();
+        LoginController loginController = new LoginController(loginView);
+        primaryStage.setTitle("Login Page");
+        primaryStage.setScene(new Scene(grid, 1280, 720));
+        primaryStage.show();
     }
 
     public void showRegisterPage(Stage stage)
     {
-        showGridPageWithoutController("../pages/RegisterPage.fxml", "Register", stage);
+        RegisterView registerView = new RegisterView();
+        showPageGridWithCustomController("../pages/RegisterPage.fxml", "Register", stage, registerView);
+        RegisterController registerController = new RegisterController(registerView);
     }
 
     public void showGamePage(Stage stage, StrategyType strategyType)
     {
-        GameController gameController = new GameController(strategyType);
-        gameController.setStage(stage);
-
-        showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameController);
-
-        //showPageAnchorWithCustomController("../pages/GamePage2.fxml", "Game", stage, gameController);
-
+        GameView gameView = new GameView();
+        showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameView);
+        GameController gameController = new GameController(gameView, strategyType);
     }
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
         GameDoneController gameDoneController = new GameDoneController(strategyType);
-        //setLoggedInPlayer(currentPlayer);
         showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage,gameDoneController);
     }
 
     public void showLoginPage(Stage stage)
     {
-        showGridPageWithoutController("../pages/LoginPage.fxml", "Login",  stage);
+        LoginView loginView = new LoginView();
+        showPageGridWithCustomController("../pages/LoginPage.fxml", "Login",  stage, loginView);
+        LoginController loginController = new LoginController(loginView);
     }
 
     public void showGameChoosePage(Stage stage){
-        showAnchorPageWithoutController("../pages/GameChoose.fxml", "Choose Game", stage);
+        GameChooseView gameChooseView = new GameChooseView();
+        showPageAnchorWithCustomController("../pages/GameChoose.fxml", "Choose Game", stage, gameChooseView);
+        GameChooseController gameChooseController = new GameChooseController(gameChooseView);
     }
 }

@@ -11,8 +11,7 @@
 <?import java.net.URL?>
 <GridPane xmlns="http://javafx.com/javafx"
           xmlns:fx="http://javafx.com/fxml"
-          alignment="center" hgap="10" vgap="10"
-          fx:controller="fruitNinja.views.pages.LoginController">
+          alignment="center" hgap="10" vgap="10" >
 
     <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
 
@@ -34,8 +33,7 @@
 
     <HBox spacing="10" alignment="CENTER"
           GridPane.columnIndex="0" GridPane.rowIndex="4" GridPane.columnSpan="2">
-        <Button fx:id="signInBtn" text="Sign In"
-                onAction="#handleSubmitActionButton"/>
+        <Button fx:id="signInBtn" text="Sign In" />
     </HBox>
 
     <HBox spacing="10" alignment="BOTTOM_CENTER"
@@ -46,8 +44,7 @@
 
     <HBox spacing="10" alignment="CENTER"
           GridPane.columnIndex="0" GridPane.rowIndex="6" GridPane.columnSpan="2">
-        <Button fx:id="signUpBtn" text="Sign Up"
-                onAction="#handleSignUpActionButton"/>
+        <Button fx:id="signUpBtn" text="Sign Up"/>
     </HBox>
     <stylesheets>
         <URL value="@../css/LoginPageStyleSheet.css" />

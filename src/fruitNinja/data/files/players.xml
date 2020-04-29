@@ -6,6 +6,7 @@
         <password>omar123</password>
         <level>2</level>
         <experience>400</experience>
+        <currentScore>0</currentScore>
     </player>
     <player>
         <username>john</username>
@@ -13,5 +14,14 @@
         <password>john_doe</password>
         <level>1</level>
         <experience>0</experience>
+        <currentScore>0</currentScore>
+    </player>
+    <player>
+        <username>ahmed</username>
+        <fullName>ahmed alaa</fullName>
+        <password>ahmed123</password>
+        <level>1</level>
+        <experience>0</experience>
+        <currentScore>0</currentScore>
     </player>
 </players>
