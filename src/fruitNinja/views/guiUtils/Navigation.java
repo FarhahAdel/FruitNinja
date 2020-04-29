@@ -1,8 +1,8 @@
 package fruitNinja.views.guiUtils;
 
-import fruitNinja.controllers.*;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.views.pages.*;
+import fruitNinja.views.pages.GameController;
+import fruitNinja.views.pages.GameDoneController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -131,6 +131,7 @@ public class Navigation {
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
         GameDoneController gameDoneController = new GameDoneController(strategyType);
+        //setLoggedInPlayer(currentPlayer);
         showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage,gameDoneController);
     }
 
@@ -145,5 +146,14 @@ public class Navigation {
         GameChooseView gameChooseView = new GameChooseView();
         showPageAnchorWithCustomController("../pages/GameChoose.fxml", "Choose Game", stage, gameChooseView);
         GameChooseController gameChooseController = new GameChooseController(gameChooseView);
+    }
+    public void showGameOverPage(Stage stage,StrategyType strategyType){
+        showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(event -> stage.close());
+        delay.play();
+        PauseTransition delaySecond = new PauseTransition(Duration.seconds(3));
+        delaySecond.setOnFinished(event -> showGameDonePage(stage,strategyType));
+        delaySecond.play();
     }
 }

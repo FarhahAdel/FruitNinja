@@ -1,5 +1,6 @@
 package fruitNinja.utils.events;
 
+import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.guiUpdate.ControlsUpdater;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import javafx.animation.KeyFrame;
@@ -40,10 +41,13 @@ public class CustomTimer {
         controlsUpdater.updateTimer(String.valueOf(startingTime));
     }
 
-    private void updateTime() {
+    public void updateTime() {
         controlsUpdater.updateTimer(String.valueOf(timeSeconds.getValue()));
         int seconds = timeSeconds.get();
         timeSeconds.set(seconds - 1);
+        if(GamePlayActions.isPaused){
+            timeline.pause();
+        }
         if (timeSeconds.get() <= 0) {
             over= true;
             timeline.stop();

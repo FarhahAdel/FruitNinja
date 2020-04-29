@@ -5,4 +5,5 @@ import java.util.ArrayList;
 public interface Service<T> {
     ArrayList<T> readData();
     void writeData(T data);
+    void updateData(ArrayList<T> data);
 }

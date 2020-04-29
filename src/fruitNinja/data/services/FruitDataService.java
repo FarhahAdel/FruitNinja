@@ -45,4 +45,9 @@ public class FruitDataService extends BaseService<FruitData>{
         }
 
     }
+
+    @Override
+    public void updateData(ArrayList<FruitData> data) {
+
+    }
 }
