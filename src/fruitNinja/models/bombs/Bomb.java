@@ -13,6 +13,7 @@ public abstract class Bomb extends Sprite {
     public Bomb(BombType bombType){
         this.bombType = bombType;
     }
+
     @Override
     public void slice()
     {

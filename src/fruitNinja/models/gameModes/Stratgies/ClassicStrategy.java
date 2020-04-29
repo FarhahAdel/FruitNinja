@@ -32,5 +32,10 @@ public class ClassicStrategy implements GameStrategy {
 
     }
 
+    @Override
+    public void gameEndingCondition() {
+
+    }
+
 
 }

@@ -25,12 +25,7 @@ public class LoginController {
 
     public LoginController(LoginView loginView)
     {
-        try {
-            settAudio();
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException e) {
-            e.printStackTrace();
-        }
-
+        setAudio();
         this.loginView = loginView;
         setEventHandlers();
     }
@@ -64,9 +59,13 @@ public class LoginController {
     }
 
 
-    private void settAudio() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    private void setAudio() {
         audioController = new AudioController();
-        audioController.start("start");
+        try {
+            audioController.start("start");
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
+            e.printStackTrace();
+        }
     }
 
     private void setEventHandlers()

@@ -5,4 +5,5 @@ import javafx.scene.canvas.Canvas;
 public interface GameStrategy {
     void initGame(Canvas canvas);
     void startTimer();
+    void gameEndingCondition();
 }

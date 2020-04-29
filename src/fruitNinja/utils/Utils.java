@@ -1,10 +1,13 @@
 package fruitNinja.utils;
 
 import fruitNinja.models.Difficulty;
+import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 import java.util.Random;
 import java.util.Timer;
@@ -72,6 +75,18 @@ public class Utils {
             @Override
             public void run() {
                 label.setVisible(false);
+            }
+        }, time);
+    }
+
+    public void showGameOverAfterTime(int time, Stage stage, StrategyType strategyType)
+    {
+        Navigation navigation = new Navigation();
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                navigation.showGameOverPage(stage, strategyType);
             }
         }, time);
     }

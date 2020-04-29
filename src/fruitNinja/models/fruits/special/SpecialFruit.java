@@ -16,11 +16,7 @@ public class SpecialFruit extends Fruit {
         setImage(getImageAfterSlicing());
         try {
             audioController.start("special");
-        } catch (UnsupportedAudioFileException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (LineUnavailableException e) {
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
         setSliced(true);
