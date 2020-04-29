@@ -64,6 +64,10 @@ public class PauseDialogController {
     }
 
     public void restartBtnClicked(ActionEvent actionEvent){
+        stage = (Stage)quitBtn.getScene().getWindow();
+        stage.close();
+        this.stage = (Stage) window;
+        navigation.showGamePage(stage,strategyType);
     }
 
     public void resumeBtnClicked(ActionEvent actionEvent) {
