@@ -17,13 +17,22 @@ root {
     -fx-background-color: transparent;
     -fx-graphic: url("../images/LeaderZenBtn.png");
 }
+#zenButton:pressed{
+     -fx-graphic: url("../images/LeaderZenBtnClicked.png");
+}
 #arcadeButton{
     -fx-background-color: transparent;
     -fx-graphic: url("../images/LeaderArcadeBtn.png");
 }
+#arcadeButton:pressed{
+     -fx-graphic: url("../images/LeaderArcadeBtnClicked.png");
+}
 #classicButton{
     -fx-background-color: transparent;
-    -fx-graphic: url("../images/LeaderClassicBtnClicked.png");
+    -fx-graphic: url("../images/LeaderClassicBtn.png");
+}
+#classicButton:pressed{
+     -fx-graphic: url("../images/LeaderClassicBtnClicked.png");
 }
 .label{
     -fx-background-color: transparent;
