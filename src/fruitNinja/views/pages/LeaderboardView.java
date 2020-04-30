@@ -94,6 +94,6 @@ public class LeaderboardView{
     }
 
     public void setScores(Label scores) {
-        scores = scores;
+        this.scores = scores;
     }
 }

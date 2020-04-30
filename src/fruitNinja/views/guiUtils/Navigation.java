@@ -127,13 +127,13 @@ public class Navigation {
     public void showGamePage(Stage stage, StrategyType strategyType)
     {
         GameView gameView = new GameView();
-        showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameView);
+        showPageGridWithCustomController("../pages/GamePage.fxml", "GameState", stage, gameView);
         GameController gameController = new GameController(gameView, strategyType);
     }
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
         GameDoneView gameDoneView = new GameDoneView();
-        showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneView);
+        showPageGridWithCustomController("../pages/GameDone.fxml", "GameState done", stage, gameDoneView);
         GameDoneController gameDoneController = new GameDoneController(gameDoneView, strategyType);
     }
 
@@ -146,12 +146,12 @@ public class Navigation {
 
     public void showGameChoosePage(Stage stage){
         GameChooseView gameChooseView = new GameChooseView();
-        showPageAnchorWithCustomController("../pages/GameChoose.fxml", "Choose Game", stage, gameChooseView);
+        showPageAnchorWithCustomController("../pages/GameChoose.fxml", "Choose GameState", stage, gameChooseView);
         GameChooseController gameChooseController = new GameChooseController(gameChooseView);
     }
 
     public void showGameOverPage(Stage stage,StrategyType strategyType){
-        showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
+        showAnchorPageWithoutController("../pages/GameOverPage.fxml","GameState Over",stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> stage.close());
         delay.play();

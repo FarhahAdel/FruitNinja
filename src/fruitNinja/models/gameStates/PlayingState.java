@@ -1,7 +1,7 @@
 package fruitNinja.models.gameStates;
 
 public class PlayingState extends State{
-    public PlayingState(Game gameState) {
+    public PlayingState(GameState gameState) {
         super(gameState);
     }
 

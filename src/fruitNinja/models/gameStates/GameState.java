@@ -2,11 +2,11 @@ package fruitNinja.models.gameStates;
 
 import fruitNinja.utils.pause.PauseLogic;
 
-public class Game {
+public class GameState {
     private PauseLogic pauseLogic = new PauseLogic();
     private State state;
 
-    public Game(){
+    public GameState(){
         this.state = new PlayingState(this);
     }
 
