@@ -39,7 +39,7 @@ public class LivesLabelListener implements EventListener {
                isPaused=true;
 //               GamePlayActions.animationTimer.stop();
 //                this.stage.close();
-                label.setText("Game over");
+                label.setText("GameState over");
                 navigation.showGameDonePage(stage, StrategyType.CLASSIC);
 
             }

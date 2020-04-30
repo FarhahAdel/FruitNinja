@@ -9,11 +9,12 @@ public class Projectile {
     private final Point2D initialPosition;
     private final Point2D initialVelocity;
 
-    private final ProjectileUtilities projectileUtilities = new ProjectileUtilities();
-
     public Projectile(Point2D initialPosition, Difficulty difficulty, double angleRad){
         this.initialPosition = initialPosition;
+
+        ProjectileUtilities projectileUtilities = new ProjectileUtilities();
         double velocity = projectileUtilities.setVelocityBasedOnDifficulty(difficulty);
+
         initialVelocity = new Point2D(velocity*Math.cos(angleRad) , velocity*Math.sin(angleRad));
         acceleration = projectileUtilities.setAccelerationBasedOnDifficulty(difficulty);
     }
@@ -30,8 +31,8 @@ public class Projectile {
     // Returns the current position of the projectile
 
     public Point2D getCurrentPosition(Point2D velocityAtPoint, double time){
-        double x = initialPosition.getX() + velocityAtPoint.getX()*time;
-        double y = initialPosition.getY() - (time*initialVelocity.getY() - 0.5* acceleration *time*time);
+        double x = initialPosition.getX() + velocityAtPoint.getX() * time;
+        double y = initialPosition.getY() - (time * initialVelocity.getY() - 0.5 * acceleration *time*time);
 
         return new Point2D(x,y);
     }

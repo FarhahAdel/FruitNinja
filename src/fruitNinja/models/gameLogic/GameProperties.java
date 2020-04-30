@@ -2,7 +2,7 @@ package fruitNinja.models.gameLogic;
 
 import java.util.Timer;
 
-public class GameState {
+public class GameProperties {
 
     private int wave;
     private int life = 3;

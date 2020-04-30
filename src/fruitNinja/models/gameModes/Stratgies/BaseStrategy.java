@@ -17,7 +17,7 @@ public class BaseStrategy implements GameStrategy{
     }
     @Override
     public void initGame(Canvas canvas) {
-        TimerTask timerTask = new Round(canvas,strategyType);
+        TimerTask timerTask = new Round(canvas,strategyType,timer);
         int x = 4500;
         timer.schedule(timerTask,500,x);
     }
