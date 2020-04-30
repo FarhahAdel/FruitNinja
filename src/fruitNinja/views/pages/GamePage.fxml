@@ -10,18 +10,19 @@
     <Button fx:id="pauseButton" text="||" GridPane.rowIndex="0"  GridPane.valignment="TOP" />
     <Label text="score:" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="TOP" />
     <Label fx:id="scoreLabel" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP"/>
-    <Label fx:id="timerLabel" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP"
+    <Label fx:id="comboLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.halignment="CENTER" GridPane.valignment="TOP" style="-fx-fill: white"/>
+    <Label fx:id="timerLabel" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP"
             style="-fx-text-fill: white"/>
-    <Label fx:id="livesLabel" text="" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-    <Label fx:id="comboLabel" text="" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="TOP"
-        style="-fx-fill: white"/>
+    <Label fx:id="livesLabel" text="" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+
 
 
     <columnConstraints>
         <ColumnConstraints percentWidth="10" />
         <ColumnConstraints percentWidth="10" />
         <ColumnConstraints percentWidth="10" />
-        <ColumnConstraints percentWidth="70" />
+        <ColumnConstraints percentWidth="30" />
+        <ColumnConstraints percentWidth="40" />
     </columnConstraints>
     <stylesheets>
         <URL value="@../css/GamePageStyleSheet.css" />
