@@ -8,6 +8,7 @@ import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
 import fruitNinja.models.gameStates.Game;
 import fruitNinja.models.guiUpdate.*;
+import fruitNinja.models.guiUpdate.eventsListeners.*;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.models.users.Score;
 import fruitNinja.views.pages.GameView;

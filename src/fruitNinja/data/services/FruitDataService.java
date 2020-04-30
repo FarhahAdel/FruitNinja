@@ -1,9 +1,7 @@
 package fruitNinja.data.services;
 
 import fruitNinja.data.wrappers.Urls;
-import fruitNinja.data.wrappers.Players;
-import fruitNinja.models.fruits.FruitData;
-import fruitNinja.models.users.Player;
+import fruitNinja.models.gameObjects.fruits.FruitData;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

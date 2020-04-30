@@ -25,7 +25,7 @@ public class ZenStrategy implements GameStrategy {
     public void initGame(Canvas canvas) {
         setStage(canvas);
         TimerTask timerTask = new Round(canvas, strategyType);
-        int x = 4500; // X TO BE CHANGED UPON THE LAST FRUIT IS DOWN
+        int x = 4500;
         timer.schedule(timerTask, 500, x);
     }
 

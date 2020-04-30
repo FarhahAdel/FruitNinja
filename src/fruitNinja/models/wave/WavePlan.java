@@ -1,7 +1,7 @@
 package fruitNinja.models.wave;
 
-import fruitNinja.models.bombs.Bomb;
-import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.gameObjects.bombs.Bomb;
+import fruitNinja.models.gameObjects.fruits.Fruit;
 
 import java.util.ArrayList;
 

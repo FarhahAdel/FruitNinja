@@ -1,11 +1,10 @@
 package fruitNinja.models.wave;
 
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.bombs.Bomb;
-import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.gameObjects.bombs.Bomb;
+import fruitNinja.models.gameObjects.fruits.Fruit;
 import fruitNinja.models.gameObjects.Sprite;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Wave implements WavePlan {

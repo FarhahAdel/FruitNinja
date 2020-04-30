@@ -6,6 +6,7 @@ import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.utils.Utils;
 
 import java.util.ArrayList;
+import java.util.Timer;
 
 public class GameLogic {
 
@@ -21,12 +22,11 @@ public class GameLogic {
 
     public void startRound(GameState gameState, GamePlayActions gamePlayActions)
     {
-        if(GamePlayActions.isPaused) return;
+        if( GamePlayActions.isPaused)  return;
         int wave = gameState.getWave();
         Difficulty difficulty = utils.getDifficultyByWaveNumber(wave);
         ArrayList<Sprite> sprites = gamePlayService.generateWave(strategyType ,difficulty);
         gamePlayActions.throwFruits(sprites, difficulty);
-        // TODO: LISTEN FOR MOUSE CLICKS (AND IT'S EFFECTS)
         gameState.incWave();
     }
 }

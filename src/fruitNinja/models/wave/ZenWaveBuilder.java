@@ -1,8 +1,8 @@
 package fruitNinja.models.wave;
 
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.bombs.BombFactory;
-import fruitNinja.models.fruits.Fruit;
+import fruitNinja.models.gameObjects.bombs.BombFactory;
+import fruitNinja.models.gameObjects.fruits.Fruit;
 import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.utils.RandomObjectGenerator;
 import fruitNinja.utils.Utils;

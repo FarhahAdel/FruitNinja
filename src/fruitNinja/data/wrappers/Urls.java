@@ -1,5 +1,5 @@
 package fruitNinja.data.wrappers;
-import fruitNinja.models.fruits.FruitData;
+import fruitNinja.models.gameObjects.fruits.FruitData;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;

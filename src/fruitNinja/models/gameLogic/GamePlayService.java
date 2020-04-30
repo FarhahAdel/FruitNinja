@@ -1,16 +1,7 @@
 package fruitNinja.models.gameLogic;
 
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.bombs.Bomb;
-import fruitNinja.models.bombs.BombFactory;
-import fruitNinja.models.bombs.BombType;
-import fruitNinja.models.fruits.Fruit;
-import fruitNinja.models.fruits.FruitFactory;
-import fruitNinja.models.fruits.FruitType;
-import fruitNinja.models.fruits.ordinary.OrdinaryFruitType;
-import fruitNinja.models.fruits.special.SpecialFruitType;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.gameObjects.GameObjectType;
 import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.models.wave.WaveBuilder;
 import fruitNinja.models.wave.WaveBuilderFactory;
@@ -20,9 +11,6 @@ import fruitNinja.utils.Utils;
 
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Random;
 
 
 public class GamePlayService {
