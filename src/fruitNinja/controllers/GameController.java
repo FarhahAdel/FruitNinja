@@ -6,7 +6,7 @@ import fruitNinja.models.gameModes.ModeContext;
 import fruitNinja.models.gameModes.StrategyFactory;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
-import fruitNinja.models.gameStates.Game;
+import fruitNinja.models.gameStates.GameState;
 import fruitNinja.models.guiUpdate.ControlsUpdater;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.guiUpdate.eventsListeners.*;
@@ -24,7 +24,7 @@ public class GameController {
     private ScoreRepository scoreRepository = new ScoreRepository();
     private StrategyFactory strategyFactory = new StrategyFactory();
     private StrategyType strategyType;
-    private Game gameState = new Game();
+    private GameState gameState = new GameState();
 
     private GameView gameView;
 
