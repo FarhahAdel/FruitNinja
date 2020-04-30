@@ -6,7 +6,6 @@ import fruitNinja.models.gameObjects.Sprite;
 import fruitNinja.utils.Utils;
 
 import java.util.ArrayList;
-import java.util.Timer;
 
 public class GameLogic {
 

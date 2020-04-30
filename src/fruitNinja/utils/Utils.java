@@ -73,6 +73,8 @@ public class Utils {
             @Override
             public void run() {
                 label.setVisible(false);
+                timer.cancel();
+                timer.purge();
             }
         }, time);
     }
@@ -83,7 +85,9 @@ public class Utils {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                Platform.runLater(()->{navigation.showGameOverPage(stage, strategyType); });
+                Platform.runLater(()->{ navigation.showGameOverPage(stage, strategyType); });
+                timer.cancel();
+                timer.purge();
             }
         }, time );
     }

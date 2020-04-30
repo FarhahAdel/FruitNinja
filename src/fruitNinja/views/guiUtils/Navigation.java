@@ -1,6 +1,7 @@
 package fruitNinja.views.guiUtils;
 
 import fruitNinja.controllers.*;
+import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.views.pages.*;
 import javafx.animation.PauseTransition;
@@ -132,6 +133,7 @@ public class Navigation {
     }
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
+        GamePlayActions.isPaused = true;
         GameDoneView gameDoneView = new GameDoneView();
         showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneView);
         GameDoneController gameDoneController = new GameDoneController(gameDoneView, strategyType);
@@ -151,6 +153,7 @@ public class Navigation {
     }
 
     public void showGameOverPage(Stage stage,StrategyType strategyType){
+        GamePlayActions.isPaused = true;
         showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> stage.close());
