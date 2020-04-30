@@ -158,4 +158,9 @@ public class Navigation {
         delaySecond.setOnFinished(event -> showGameDonePage(stage,strategyType));
         delaySecond.play();
     }
+    public void showLeaderboardPage(Stage stage){
+        LeaderboardView leaderboardView = new LeaderboardView();
+        showPageAnchorWithCustomController("../pages/LeaderboardPage.fxml","Ranking",stage,leaderboardView);
+        LeaderboardController leaderboardController = new LeaderboardController(leaderboardView);
+    }
 }
