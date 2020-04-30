@@ -22,7 +22,7 @@ public class OrdinaryFruit extends Fruit {
     public void fellOff()
     {
         setHasFallenOff(true);
-        if (!isSliced())
+        if (!isSliced() )
             ControlsUpdaterSingleton.getInstance().fruitFell(lifeMinimizing);
     }
 }

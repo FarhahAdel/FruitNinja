@@ -56,7 +56,7 @@ public class PauseDialogController {
 
 
     public void quitBtnClicked(ActionEvent actionEvent) throws IOException {
-
+        GamePlayActions.isPaused = true;
         stage = (Stage)quitBtn.getScene().getWindow();
         stage.close();
         this.stage = (Stage) window;

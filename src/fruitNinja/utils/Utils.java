@@ -3,9 +3,7 @@ package fruitNinja.utils;
 import fruitNinja.models.Difficulty;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.views.guiUtils.Navigation;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.control.Button;
+import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -75,19 +73,22 @@ public class Utils {
             @Override
             public void run() {
                 label.setVisible(false);
+                timer.cancel();
+                timer.purge();
             }
         }, time);
     }
 
-    public void showGameOverAfterTime(int time, Stage stage, StrategyType strategyType)
-    {
+    public void showGameOverAfterTime(int time, Stage stage, StrategyType strategyType) {
         Navigation navigation = new Navigation();
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                navigation.showGameOverPage(stage, strategyType);
+                Platform.runLater(()->{ navigation.showGameOverPage(stage, strategyType); });
+                timer.cancel();
+                timer.purge();
             }
-        }, time);
+        }, time );
     }
 }

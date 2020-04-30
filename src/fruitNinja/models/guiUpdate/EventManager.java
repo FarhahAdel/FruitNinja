@@ -30,5 +30,7 @@ public class EventManager {
         }
     }
 
-
+    public HashMap<String, ArrayList<EventListener>> getListeners() {
+        return listeners;
+    }
 }

@@ -6,14 +6,16 @@ import fruitNinja.models.gameModes.ModeContext;
 import fruitNinja.models.gameModes.StrategyFactory;
 import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameModes.Stratgies.GameStrategy;
-import fruitNinja.models.gameStates.GameState;
-import fruitNinja.models.guiUpdate.*;
+import fruitNinja.models.gameStates.Game;
+import fruitNinja.models.guiUpdate.ControlsUpdater;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.guiUpdate.eventsListeners.*;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.models.users.Score;
 import fruitNinja.views.pages.GameView;
 import fruitNinja.views.pages.PauseDialogController;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 
@@ -22,7 +24,7 @@ public class GameController {
     private ScoreRepository scoreRepository = new ScoreRepository();
     private StrategyFactory strategyFactory = new StrategyFactory();
     private StrategyType strategyType;
-    private GameState gameState = new GameState();
+    private Game gameState = new Game();
 
     private GameView gameView;
 
@@ -34,6 +36,14 @@ public class GameController {
         setSubscribers();
         setControls();
         startGame(strategyType);
+        listenToClose();
+    }
+
+    private void listenToClose(){
+        Stage stage = (Stage) gameView.getScoreLabel().getScene().getWindow();
+        stage.setOnCloseRequest(windowEvent -> {
+            System.exit(0);
+        });
     }
 
     private void pause(){
@@ -60,7 +70,9 @@ public class GameController {
     {
         GameStrategy strategy = strategyFactory.createStrategy(strategyType);
         ModeContext modeContext = new ModeContext(strategy);
-        modeContext.startGame(gameView.getCanvas());
+            modeContext.startGame(gameView.getCanvas());
+
+
     }
 
     private void setControls()
@@ -76,7 +88,8 @@ public class GameController {
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener((Stage) gameView.getScoreLabel().getScene().getWindow(),this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(gameView.getScoreLabel()));
         controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(gameView.getComboLabel()));
-        controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener((Stage)gameView.getScoreLabel().getScene().getWindow(), gameView.getLivesLabel()));
+        if(strategyType.equals(StrategyType.CLASSIC))
+            controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener((Stage)gameView.getScoreLabel().getScene().getWindow(), gameView.getLivesLabel()));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 
