@@ -1,4 +1,4 @@
-#Fruit Ninja Clone
+# Fruit Ninja Clone
 
 > "The greatest fruit-slicing game in the world"
 
@@ -14,19 +14,19 @@ your computer.
 
 Fruit Ninja is a world-wide arcade game. The game idea is about slicing fruits that jumps out on your screen and slice them with style and combos while avoiding to slice the bombs.
 
-##Gameplay
+## Gameplay
 
 ### Players
 
 Users can create new accounts to have their scores saved at the game, and so that they can compete with eachother in the leaderboard scores
 
-###Modes
+### Modes
 
 The game consists of three modes Classic, Zen and Arcade
 
 ![Games Modes](https://i.imgur.com/Au2rbN3.png)
 
-####Classic
+#### Classic
 
 You start the game with 3 lives
 
