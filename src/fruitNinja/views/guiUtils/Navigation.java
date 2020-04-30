@@ -132,8 +132,9 @@ public class Navigation {
     }
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
-        GameDoneController gameDoneController = new GameDoneController(strategyType);
-        showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage,gameDoneController);
+        GameDoneView gameDoneView = new GameDoneView();
+        showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneView);
+        GameDoneController gameDoneController = new GameDoneController(gameDoneView, strategyType);
     }
 
     public void showLoginPage(Stage stage)

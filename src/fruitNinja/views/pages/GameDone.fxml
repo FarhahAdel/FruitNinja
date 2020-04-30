@@ -11,8 +11,8 @@
     <Label text="highScore"  GridPane.columnIndex="7" GridPane.rowIndex="5" />
     <Label fx:id="scoreValue" GridPane.columnIndex="5" GridPane.rowIndex="6" />
     <Label fx:id="highScoreValue" GridPane.columnIndex="7" GridPane.rowIndex="6" />
-    <Button fx:id="playAgainBtn" onAction="#handlePlayAgainActionButton"  GridPane.columnIndex="6" GridPane.rowIndex="8" />
-    <Button fx:id="mainMenuBtn" onAction="#handleMainMenuActionButton" GridPane.columnIndex="10" GridPane.rowIndex="15" />
+    <Button fx:id="playAgainBtn" GridPane.columnIndex="6" GridPane.rowIndex="8" />
+    <Button fx:id="mainMenuBtn" GridPane.columnIndex="10" GridPane.rowIndex="15" />
     <stylesheets>
         <URL value="@../css/GameDonePageStyleSheet.css" />
     </stylesheets>
