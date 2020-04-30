@@ -30,7 +30,17 @@ public class GameView {
     @FXML
     private Label livesLabel;
     @FXML
+    private Label highScoreLabel;
+    @FXML
     private Label comboLabel;
+
+    public Label getHighScoreLabel() {
+        return highScoreLabel;
+    }
+
+    public void setHighScoreLabel(Label highScoreLabel) {
+        this.highScoreLabel = highScoreLabel;
+    }
 
     @FXML
     private Canvas canvas;

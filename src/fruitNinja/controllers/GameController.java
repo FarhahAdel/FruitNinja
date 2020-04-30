@@ -68,6 +68,7 @@ public class GameController {
     private void setControls()
     {
         gameView.getLivesLabel().setText("");
+        gameView.getHighScoreLabel().setText(scoreRepository.getHighScore(strategyType,PlayerSingleton.getInstance().getUsername()));
     }
 
     private void setSubscribers()
