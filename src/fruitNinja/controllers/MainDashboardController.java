@@ -35,6 +35,8 @@ public class MainDashboardController {
 
     private void leaderBoard() {
         audioController.stop();
+        Stage stage = (Stage) mainDashboardView.getBackButton().getScene().getWindow();
+        navigation.showLeaderboardPage(stage);
     }
 
     private void newGame() {
