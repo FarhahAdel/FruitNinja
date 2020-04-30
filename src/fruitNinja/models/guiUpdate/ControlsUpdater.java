@@ -20,5 +20,8 @@ public class ControlsUpdater {
         eventManager.notify("sliceDangerous",String.valueOf(amount));
     }
     public void comboSliced(int amount) { eventManager.notify("sliceCombo", String.valueOf(amount));}
-    public void fruitFell(int lifeMinimizing) { eventManager.notify("fruitFellUnsliced", String.valueOf(lifeMinimizing));}
+    public void fruitFell(int lifeMinimizing) {
+        if(eventManager.getListeners().containsKey("fruitFellUnsliced"))
+            eventManager.notify("fruitFellUnsliced", String.valueOf(lifeMinimizing));
+    }
 }
