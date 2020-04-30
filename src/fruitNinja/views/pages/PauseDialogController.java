@@ -2,7 +2,7 @@ package fruitNinja.views.pages;
 
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.gameStates.Game;
+import fruitNinja.models.gameStates.GameState;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.Score;
 import fruitNinja.utils.events.CustomTimer;
@@ -22,14 +22,14 @@ import java.io.IOException;
 public class PauseDialogController {
     public  Button quitBtn;
     private Player player;
-    private Game gameState;
+    private GameState gameState;
     private StrategyType strategyType;
     private Score score;
     private String time;
 
     Navigation navigation=new Navigation();
 
-    public PauseDialogController(Game gameState, StrategyType strategyType, Score score,String time) {
+    public PauseDialogController(GameState gameState, StrategyType strategyType, Score score, String time) {
         this.score=score;
         this.gameState = gameState;
         this.strategyType=strategyType;
@@ -56,7 +56,7 @@ public class PauseDialogController {
 
 
     public void quitBtnClicked(ActionEvent actionEvent) throws IOException {
-
+        GamePlayActions.isPaused = true;
         stage = (Stage)quitBtn.getScene().getWindow();
         stage.close();
         this.stage = (Stage) window;

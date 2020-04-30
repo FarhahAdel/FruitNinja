@@ -17,27 +17,11 @@ public class GamePlayService {
 
     private Utils utils;
 
-    private RandomObjectGenerator randomObjectGenerator = new RandomObjectGenerator();
-
     public GamePlayService()
     {
         utils = new Utils();
 
     }
-
-    /*
-    public ArrayList<Sprite> generateWave(Difficulty difficulty) {
-        int nFruits = utils.generateRandomFruitNumBasedOnDifficulty(difficulty);
-        int nBombs=utils.generateRandomBombNumBasedOnDifficulty(difficulty);
-        ArrayList<Sprite> sprites = new ArrayList<>();
-        for (int i = 0; i < nFruits; i++)
-            sprites.add(randomObjectGenerator.generateRandomFruit());
-        for(int i=0;i<nBombs;i++)
-            sprites.add(randomObjectGenerator.generateRandomBomb());
-        Collections.shuffle(sprites);
-        return sprites;
-    }
-    */
 
     public ArrayList<Sprite> generateWave(StrategyType strategyType, Difficulty difficulty) {
         WaveBuilderFactory waveBuilderFactory =  new WaveBuilderFactory();

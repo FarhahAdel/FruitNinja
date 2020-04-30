@@ -1,17 +1,6 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.data.repositories.ScoreRepository;
-import fruitNinja.models.guiUpdate.*;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameStates.Game;
-import fruitNinja.models.gameModes.*;
-import fruitNinja.models.gameModes.Stratgies.GameStrategy;
-import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.users.PlayerSingleton;
-import fruitNinja.models.users.Score;
-import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;

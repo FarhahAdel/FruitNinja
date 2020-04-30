@@ -42,9 +42,10 @@ public class Leaderboard implements Comparable<Leaderboard> {
 
     @Override
     public int compareTo(Leaderboard leaderboard) {
-        int compare = Integer.compare(Integer.parseInt(leaderboard.score),Integer.parseInt(score));
+        int compare=leaderboard.getScore().compareTo(score);
         if (compare==0)
-            compare = Integer.compare(Integer.parseInt(leaderboard.userName),Integer.parseInt(userName));
+           // compare = Integer.compare(Integer.parseInt(leaderboard.userName),Integer.parseInt(userName));
+            compare=leaderboard.getUserName().compareTo(userName);
         return compare;
     }
    public List<Leaderboard> Sort(){

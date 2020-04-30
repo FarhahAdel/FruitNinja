@@ -1,8 +1,8 @@
 package fruitNinja.models.gameStates;
 
 public abstract class State {
-    Game gameState;
-    public State(Game gameState){
+    GameState gameState;
+    public State(GameState gameState){
         this.gameState = gameState;
     }
     public abstract void clickPause();
