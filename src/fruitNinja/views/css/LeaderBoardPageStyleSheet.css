@@ -23,7 +23,7 @@ root {
 }
 #classicButton{
     -fx-background-color: transparent;
-    -fx-graphic: url("../images/LeaderClassicBtn.png");
+    -fx-graphic: url("../images/LeaderClassicBtnClicked.png");
 }
 .label{
     -fx-background-color: transparent;
