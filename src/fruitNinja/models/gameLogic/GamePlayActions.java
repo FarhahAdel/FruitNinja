@@ -44,7 +44,7 @@ public class GamePlayActions {
         animationTimer = new AnimationTimer() {
             @Override
             public void handle(long l) {
-                boolean done = updateSpritesMovement(spriteProjectileHashMap);
+                boolean done = updateSpritesMovement(spriteProjectileHashMap, difficulty);
                 if (!done) this.stop();
             }
         };
@@ -70,13 +70,13 @@ public class GamePlayActions {
 
     }
 
-    private boolean updateSpritesMovement(HashMap<Sprite, Projectile> spriteProjectileHashMap)
+    private boolean updateSpritesMovement(HashMap<Sprite, Projectile> spriteProjectileHashMap, Difficulty difficulty)
     {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         gc.clearRect(0, 0 , 1280, 720);
         spriteProjectileHashMap.forEach((k,v) -> {
-            projectileShooter.moveProjectile(k, v);
+            projectileShooter.moveProjectile(k, v, difficulty);
         });
 
         spriteProjectileHashMap.entrySet().removeIf(entry -> entry.getKey().hasMovedOffScreen());
@@ -85,11 +85,6 @@ public class GamePlayActions {
             if (!k.hasMovedOffScreen()) k.render(gc);
         });
 
-        if (spriteProjectileHashMap.isEmpty()) {
-            projectileShooter.setCurrentTime(0);
-            return false;
-        }
-
-        return true;
+        return !spriteProjectileHashMap.isEmpty();
     }
 }

@@ -1,13 +1,12 @@
 package fruitNinja.animations;
 
+import fruitNinja.models.Difficulty;
 import fruitNinja.models.gameObjects.Sprite;
 import javafx.geometry.Point2D;
 
 import java.util.*;
 
 public class ProjectileShooter {
-
-    private double currentTime = 0;
 
     public ProjectileShooter(){
 
@@ -25,11 +24,16 @@ public class ProjectileShooter {
 
     }
 
-    public void moveProjectile(Sprite sprite, Projectile projectile)
+    public void moveProjectile(Sprite sprite, Projectile projectile, Difficulty difficulty)
     {
-        currentTime += 0.016;
+        ProjectileUtilities projectileUtilities = new ProjectileUtilities();
+        double timeInc = projectileUtilities.setTimeBasedOnDifficulty(difficulty);
+        double currentTime = projectile.getCurrentTime();
+        projectile.setCurrentTime(currentTime + timeInc);
+
         Point2D currentVelocity = projectile.getCurrentVelocity(currentTime);
         Point2D currentPosition = projectile.getCurrentPosition(currentVelocity,currentTime);
+
         sprite.setXLocation(currentPosition.getX());
         sprite.setYLocation(currentPosition.getY());
 
@@ -38,14 +42,11 @@ public class ProjectileShooter {
         }
     }
 
-    public double getCurrentTime() {
-        return currentTime;
-    }
-
+/*
     public void setCurrentTime(double currentTime) {
         this.currentTime = currentTime;
     }
-
+*/
     private void setAngle(Sprite sprite){
         Random random = new Random();
 
