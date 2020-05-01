@@ -173,7 +173,4 @@ List of the used Design patterns and why it was used
 - **Strategy** used to specific the run-time algorithm (aka the mode of the game) when the user chooses it, and change behaviour depending on the user preferred mode
 - **State** used to save the game state and to create ease in swapping between different states like the pausing state that have different behaviour in the game. And to allow us to the save the game state and reload it later.
 - **Singleton** used to create a one object of specific class that will be used through the program. we used it to create the profile for the player that contains his level and experience, and the controls updator that manages the events which are being subscribed to all around the application
-
-
-
-
+- **Command** used for playing background audio throughout the game and playing sounds when slicing fruits, special fruits or bombs.
