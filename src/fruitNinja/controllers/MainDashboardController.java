@@ -31,6 +31,8 @@ public class MainDashboardController {
 
     private void back() {
         audioController.stop();
+        Stage stage = (Stage) mainDashboardView.getBackButton().getScene().getWindow();
+        navigation.showLoginPage(stage);
     }
 
     private void leaderBoard() {

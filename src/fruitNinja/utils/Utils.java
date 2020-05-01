@@ -1,12 +1,7 @@
 package fruitNinja.utils;
 
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.views.guiUtils.Navigation;
-import javafx.application.Platform;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
 
 import java.util.Random;
 import java.util.Timer;
@@ -82,55 +77,5 @@ public class Utils {
 
     int counter = 0;
 
-    public void showGameOverAfterTime(int time, Stage stage, StrategyType strategyType) {
 
-
-        final Boolean[] wasPaused = {false};
-
-        final Timer[] currentTimer = {startTimer(stage, strategyType,time,null)};
-
-        Timer pauseChecker = new Timer();
-        pauseChecker.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if (GamePlayActions.isPaused){
-                    wasPaused[0] = true;
-                    currentTimer[0].cancel();
-                }
-                else if(wasPaused[0]){
-                    wasPaused[0] = false;
-                    currentTimer[0] = startTimer( stage, strategyType,time,pauseChecker);
-                }
-            }
-        },500L,500L);
     }
-
-
-
-    private Timer startTimer( Stage stage, StrategyType strategyType,int time,Timer pauseTimer){
-        Navigation navigation = new Navigation();
-        final Timer[] timer = {new Timer()};
-
-        timer[0].scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                if(counter == time) {
-                    Platform.runLater(() -> {
-                        navigation.showGameOverPage(stage, strategyType);
-                    });
-
-                    if(pauseTimer !=null){
-                        pauseTimer.cancel();
-                        pauseTimer.purge();
-                    }
-
-                    timer[0].cancel();
-                    timer[0].purge();
-                }
-                counter++;
-            }
-        }, 1000L, 1000L);
-
-        return timer[0];
-    }
-}

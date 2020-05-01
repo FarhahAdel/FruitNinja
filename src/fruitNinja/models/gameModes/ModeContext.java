@@ -17,7 +17,6 @@ public class ModeContext {
         if(!gameStrategy.getStrategyType().equals(StrategyType.CLASSIC)){
             TimerStrategy timerStrategy = (TimerStrategy) gameStrategy;
             timerStrategy.startCustomTimer();
-            timerStrategy.gameEndingCondition();
         }
     }
 }

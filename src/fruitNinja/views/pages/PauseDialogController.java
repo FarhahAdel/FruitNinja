@@ -52,6 +52,7 @@ public class PauseDialogController {
         stage.initOwner(window);
         stage.setScene(scene);
         stage.show();
+        stage.toFront();
     }
 
 
@@ -74,12 +75,14 @@ public class PauseDialogController {
 
     public void resumeBtnClicked(ActionEvent actionEvent) {
         GamePlayActions.isPaused = false;
+        stage =(Stage)quitBtn.getScene().getWindow();
+        stage.close();
+        this.stage = (Stage) window;
         if(!strategyType.equals(StrategyType.CLASSIC)){
-            CustomTimer customTimer=new CustomTimer(Integer.parseInt(time)-1);
+            CustomTimer customTimer=new CustomTimer(Integer.parseInt(time)-1,stage,strategyType);
             customTimer.initCustomTimer();
         }
-        Stage stage1 =(Stage)quitBtn.getScene().getWindow();
-        stage1.close();
+
         gameState.clickPlay();
     }
 
