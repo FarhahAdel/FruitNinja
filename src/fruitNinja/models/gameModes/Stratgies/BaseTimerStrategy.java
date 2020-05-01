@@ -27,7 +27,7 @@ public class BaseTimerStrategy extends BaseStrategy implements TimerStrategy {
     @Override
     public void gameEndingCondition() {
         Utils utils = new Utils();
-        utils.showGameOverAfterTime(time*1000, stage, super.strategyType);
+        utils.showGameOverAfterTime(time, stage, super.strategyType);
     }
 
     private void setStage(Canvas canvas) {
