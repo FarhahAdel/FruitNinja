@@ -15,11 +15,9 @@ import java.util.ArrayList;
 
 public class GamePlayService {
 
-    private Utils utils;
 
     public GamePlayService()
     {
-        utils = new Utils();
 
     }
 
