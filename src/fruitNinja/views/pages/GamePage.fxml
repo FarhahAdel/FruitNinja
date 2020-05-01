@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import java.net.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
-    <Canvas fx:id="canvas" height="720.0" width="1280.0" />
-    <VBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="TOP">
-        <children>
-            <Label text="score:"/>
-            <Label text="high:" />
-        </children>
-    </VBox>
-    <VBox spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP">
-        <children>
-            <Label fx:id="scoreLabel" text="0"/>
-            <Label fx:id="highScoreLabel" text=""/>
-        </children>
-    </VBox>
-    <Button fx:id="pauseButton" text="||" GridPane.rowIndex="0"  GridPane.valignment="TOP" />
-    <Label fx:id="comboLabel" text="" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.halignment="CENTER" GridPane.valignment="TOP" style="-fx-fill: white"/>
-    <Label fx:id="timerLabel" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP"
-            style="-fx-text-fill: white"/>
-    <Label fx:id="livesLabel" text="" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+<GridPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+       <VBox prefHeight="1.0" prefWidth="10" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="TOP">
+           <children>
+               <Label text="score:" />
+               <Label text="high:" />
+           </children>
+       </VBox>
+       <VBox prefHeight="1.0" prefWidth="10.0" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="0" GridPane.valignment="TOP">
+           <children>
+               <Label fx:id="scoreLabel" text="0" />
+               <Label fx:id="highScoreLabel" text="" />
+           </children>
+       </VBox>
+       <Canvas fx:id="canvas" height="720.0" width="1280.0" />
+       <Button fx:id="pauseButton" text="||" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+       <Label fx:id="comboLabel" style="-fx-fill: white" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+       <Label fx:id="timerLabel" style="-fx-text-fill: white" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+       <Label fx:id="livesLabel" text="" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
+   </children>
 
 
 
