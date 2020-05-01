@@ -1,7 +1,6 @@
 package fruitNinja.models.gameModes.Stratgies;
 
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.utils.Utils;
 import fruitNinja.utils.events.CustomTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
@@ -20,14 +19,8 @@ public class BaseTimerStrategy extends BaseStrategy implements TimerStrategy {
 
     @Override
     public void startCustomTimer() {
-        CustomTimer customTimer = new CustomTimer(time);
+        CustomTimer customTimer = new CustomTimer(time,stage,super.strategyType);
         customTimer.initCustomTimer();
-    }
-
-    @Override
-    public void gameEndingCondition() {
-        Utils utils = new Utils();
-        utils.showGameOverAfterTime(time, stage, super.strategyType);
     }
 
     private void setStage(Canvas canvas) {
