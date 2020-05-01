@@ -31,16 +31,14 @@ public class LivesLabelListener implements EventListener {
     public void update(String eventType, String data) {
 
        if(label.getText().contains("X")||label.getText().isEmpty()){
-            if (!label.getText().equals("XXX")){
+            if (!label.getText().equals("XX")){
             label.setText(label.getText() + "X");
             System.out.println(label.getText());
             }
             else {
                isPaused=true;
-//               GamePlayActions.animationTimer.stop();
-//                this.stage.close();
                 label.setText("GameState over");
-                navigation.showGameDonePage(stage, StrategyType.CLASSIC);
+                navigation.showGameOverPage(stage, StrategyType.CLASSIC);
 
             }
         }
