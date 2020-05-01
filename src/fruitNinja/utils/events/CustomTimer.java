@@ -1,12 +1,15 @@
 package fruitNinja.utils.events;
 
 import fruitNinja.models.gameLogic.GamePlayActions;
+import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.guiUpdate.ControlsUpdater;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
+import fruitNinja.views.guiUtils.Navigation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class CustomTimer {
@@ -15,9 +18,13 @@ public class CustomTimer {
     private IntegerProperty timeSeconds;
     private ControlsUpdater controlsUpdater;
     private boolean over = false;
+    private Stage stage;
+    private StrategyType strategyType;
 
-    public CustomTimer(int startingTime)
+    public CustomTimer(int startingTime, Stage stage, StrategyType strategyType)
     {
+        this.stage = stage;
+        this.strategyType = strategyType;
         this.startingTime = startingTime;
         this.controlsUpdater = ControlsUpdaterSingleton.getInstance();
     }
@@ -44,14 +51,16 @@ public class CustomTimer {
     public void updateTime() {
         controlsUpdater.updateTimer(String.valueOf(timeSeconds.getValue()));
         int seconds = timeSeconds.get();
-        timeSeconds.set(seconds - 1);
         if(GamePlayActions.isPaused){
             timeline.pause();
         }
         if (timeSeconds.get() <= 0) {
             over= true;
+            Navigation navigation = new Navigation();
+            navigation.showGameOverPage(stage,strategyType);
             timeline.stop();
         }
+        timeSeconds.set(seconds - 1);
     }
 
     private void updateTimer(){
