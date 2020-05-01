@@ -24,7 +24,6 @@ public class LivesLabelListener implements EventListener {
         this.stage=stage;
     }
 
-    boolean flag = true;
     Navigation navigation = new Navigation();
 
     @Override
@@ -36,8 +35,8 @@ public class LivesLabelListener implements EventListener {
             System.out.println(label.getText());
             }
             else {
-               isPaused=true;
-                label.setText("GameState over");
+                label.setText(label.getText() + "X");
+                isPaused=true;
                 navigation.showGameOverPage(stage, StrategyType.CLASSIC);
 
             }
