@@ -1,8 +1,5 @@
-package fruitNinja.utils.timerTasks;
+package fruitNinja.models.gameLogic;
 
-import fruitNinja.models.gameLogic.GameLogic;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameLogic.GameProperties;
 import fruitNinja.models.gameModes.StrategyType;
 import javafx.scene.canvas.Canvas;
 
@@ -13,10 +10,6 @@ public class Round extends TimerTask {
     private GamePlayActions gamePlayActions;
     private GameLogic gameLogic;
     private GameProperties gameProperties;
-    private Boolean wasPaused = false;
-
-    private Canvas canvas;
-    private StrategyType strategyType;
 
     public Round(Canvas canvas, StrategyType strategyType )
     {
@@ -24,8 +17,6 @@ public class Round extends TimerTask {
         gamePlayActions.setCanvas(canvas);
         gameLogic = new GameLogic(strategyType);
         gameProperties = new GameProperties();
-        this.canvas = canvas;
-        this.strategyType = strategyType;
     }
 
     @Override

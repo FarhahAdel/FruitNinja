@@ -2,7 +2,7 @@ package fruitNinja.models.gameModes.Stratgies;
 
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.utils.timerTasks.Round;
+import fruitNinja.models.gameLogic.Round;
 import javafx.scene.canvas.Canvas;
 
 import java.util.Timer;

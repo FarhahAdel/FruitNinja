@@ -10,8 +10,7 @@ import java.util.ArrayList;
 
 public class ScoreRepository {
     private ScoreService scoreService;
-
-    private ArrayList<Score> scores=null;
+    private ArrayList<Score> scores;
 
     public ScoreRepository() {
         scoreService = new ScoreService();
@@ -19,13 +18,12 @@ public class ScoreRepository {
     }
 
     private void loadScores() {
-        File file=new File("src/fruitNinja/data/files/scores.xml");
+        File file = new File("src/fruitNinja/data/files/scores.xml");
         boolean empty = file.length() == 0;
-        if(!empty){
+
+        if (!empty) {
             scores = scoreService.readData();
         }
-       // else scores=null;
-
     }
 
     public Score playerData(String username,StrategyType strategyType) {
@@ -35,6 +33,7 @@ public class ScoreRepository {
                 if (score.getUsername().equals(username))
                     return score;
             }
+
             return null;
         }
 
@@ -63,13 +62,15 @@ public class ScoreRepository {
             scoreService.updateData(scoresInit);
         }
     }
-    public String getHighScore(StrategyType strategyType,String username){
-        String highScore=null;
-        for(Score score:scores){
-            if(score.getUsername().equals(username))
-               highScore= score.scoreStrategy(strategyType);
 
+    public String getHighScore(StrategyType strategyType,String username) {
+        String highScore=null;
+
+        for (Score score:scores){
+            if (score.getUsername().equals(username))
+               highScore= score.scoreStrategy(strategyType);
         }
-    return highScore;
+
+        return highScore;
     }
 }
