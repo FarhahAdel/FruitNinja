@@ -1,14 +1,9 @@
 package fruitNinja.controllers;
 
 import fruitNinja.models.audios.AudioController;
-import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.views.guiUtils.Navigation;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.views.pages.GameChooseView;
 import javafx.stage.Stage;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.IOException;
 
 public class GameChooseController extends BaseController {
 
@@ -21,12 +16,12 @@ public class GameChooseController extends BaseController {
         settAudio();
     }
 
-    public void zenMode() {
+    private void zenMode() {
         audioController.stop();
         navigateToGame(StrategyType.ZEN);
     }
 
-    public void classicMode() {
+    private void classicMode() {
         audioController.stop();
         navigateToGame(StrategyType.CLASSIC);
     }

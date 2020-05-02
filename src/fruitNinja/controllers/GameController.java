@@ -1,12 +1,12 @@
 package fruitNinja.controllers;
 
 import fruitNinja.data.repositories.ScoreRepository;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameModes.ModeContext;
-import fruitNinja.models.gameModes.StrategyFactory;
-import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.gameModes.Stratgies.GameStrategy;
-import fruitNinja.models.gameStates.GameState;
+import fruitNinja.models.logic.GamePlayActions;
+import fruitNinja.models.modes.ModeContext;
+import fruitNinja.models.modes.StrategyFactory;
+import fruitNinja.models.modes.StrategyType;
+import fruitNinja.models.modes.Stratgies.GameStrategy;
+import fruitNinja.models.states.GameState;
 import fruitNinja.models.guiUpdate.ControlsUpdater;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.guiUpdate.eventsListeners.*;

@@ -1,8 +1,8 @@
 package fruitNinja.views.pages;
 
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.gameStates.GameState;
+import fruitNinja.models.logic.GamePlayActions;
+import fruitNinja.models.modes.StrategyType;
+import fruitNinja.models.states.GameState;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.Score;
 import fruitNinja.utils.CustomTimer;

@@ -1,7 +1,6 @@
 package fruitNinja.models.wave;
 
-import fruitNinja.models.Difficulty;
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.modes.StrategyType;
 
 public class WaveBuilderFactory {
 

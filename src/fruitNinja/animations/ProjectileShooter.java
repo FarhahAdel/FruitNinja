@@ -1,7 +1,7 @@
 package fruitNinja.animations;
 
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.gameObjects.Sprite;
+import fruitNinja.models.entities.Sprite;
 import javafx.geometry.Point2D;
 
 import java.util.*;

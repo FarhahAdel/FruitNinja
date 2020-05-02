@@ -1,7 +1,7 @@
 package fruitNinja.utils;
 
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.logic.GamePlayActions;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.models.guiUpdate.ControlsUpdater;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.views.guiUtils.Navigation;

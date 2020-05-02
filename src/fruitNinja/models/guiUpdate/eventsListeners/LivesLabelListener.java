@@ -1,12 +1,12 @@
 package fruitNinja.models.guiUpdate.eventsListeners;
 
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.models.guiUpdate.EventListener;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import static fruitNinja.models.gameLogic.GamePlayActions.isPaused;
+import static fruitNinja.models.logic.GamePlayActions.isPaused;
 
 public class LivesLabelListener implements EventListener {
 

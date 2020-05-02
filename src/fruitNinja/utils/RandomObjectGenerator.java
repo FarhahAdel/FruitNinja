@@ -1,13 +1,13 @@
 package fruitNinja.utils;
 
-import fruitNinja.models.gameObjects.bombs.Bomb;
-import fruitNinja.models.gameObjects.bombs.BombFactory;
-import fruitNinja.models.gameObjects.bombs.BombType;
-import fruitNinja.models.gameObjects.fruits.Fruit;
-import fruitNinja.models.gameObjects.fruits.FruitFactory;
-import fruitNinja.models.gameObjects.fruits.FruitType;
-import fruitNinja.models.gameObjects.fruits.ordinary.OrdinaryFruitType;
-import fruitNinja.models.gameObjects.fruits.special.SpecialFruitType;
+import fruitNinja.models.entities.bombs.Bomb;
+import fruitNinja.models.entities.bombs.BombFactory;
+import fruitNinja.models.entities.bombs.BombType;
+import fruitNinja.models.entities.fruits.Fruit;
+import fruitNinja.models.entities.fruits.FruitFactory;
+import fruitNinja.models.entities.fruits.FruitType;
+import fruitNinja.models.entities.fruits.ordinary.OrdinaryFruitType;
+import fruitNinja.models.entities.fruits.special.SpecialFruitType;
 
 public class RandomObjectGenerator {
 

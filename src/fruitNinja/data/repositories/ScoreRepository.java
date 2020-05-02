@@ -1,8 +1,7 @@
 package fruitNinja.data.repositories;
 
 import fruitNinja.data.services.ScoreService;
-import fruitNinja.data.services.Service;
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.models.users.Score;
 
 import java.io.File;

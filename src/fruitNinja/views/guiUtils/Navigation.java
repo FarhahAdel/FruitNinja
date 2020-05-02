@@ -1,8 +1,8 @@
 package fruitNinja.views.guiUtils;
 
 import fruitNinja.controllers.*;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.logic.GamePlayActions;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.views.pages.*;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;

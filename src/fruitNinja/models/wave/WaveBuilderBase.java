@@ -1,6 +1,6 @@
 package fruitNinja.models.wave;
 
-import fruitNinja.models.gameObjects.bombs.BombFactory;
+import fruitNinja.models.entities.bombs.BombFactory;
 import fruitNinja.utils.RandomObjectGenerator;
 import fruitNinja.utils.Utils;
 

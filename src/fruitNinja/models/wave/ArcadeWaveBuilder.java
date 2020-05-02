@@ -1,12 +1,9 @@
 package fruitNinja.models.wave;
 
 import fruitNinja.models.Difficulty;
-import fruitNinja.models.gameObjects.bombs.Bomb;
-import fruitNinja.models.gameObjects.bombs.BombFactory;
-import fruitNinja.models.gameObjects.fruits.Fruit;
-import fruitNinja.models.gameObjects.Sprite;
-import fruitNinja.utils.RandomObjectGenerator;
-import fruitNinja.utils.Utils;
+import fruitNinja.models.entities.bombs.Bomb;
+import fruitNinja.models.entities.fruits.Fruit;
+import fruitNinja.models.entities.Sprite;
 
 import java.util.ArrayList;
 import java.util.Collections;

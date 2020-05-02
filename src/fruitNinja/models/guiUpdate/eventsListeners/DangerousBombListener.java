@@ -1,7 +1,6 @@
 package fruitNinja.models.guiUpdate.eventsListeners;
 
-import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.models.guiUpdate.ControlsUpdater;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.guiUpdate.EventListener;
 import javafx.scene.control.Label;

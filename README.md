@@ -105,7 +105,23 @@ The Models and logic are separated to multiple layers.
 
 Each layer is concerned with a specific set of tasks that are related and it's responsible for delivering the needed input and data for the next layer so that the game cycle is completed successfully.
 
-// TO BE CONTINUED
+- **audio** contains the needed logic to run music and sound effects in the game
+- **entities** contains the game objects and model classes needed for the application like Fruits, Bombs or Special Fruits
+- **guiUpdate** contains a set of classes set applies the observer design pattern which helps us update the gui in the game page
+- **logic** contains the game logic, game loop and cycle that runs the game while keeping track of the user input and injecting it through it
+- **modes** contains a set of classes that applies the strategy pattern to choose a specific algorithm at run time 
+(Different Game mode like classic, zen or arcade) so that each one of them can run with different properties
+- **states** contains set of classes that applies the state design pattern, that helps us in changing the state of the game from pausing to playing
+- **users** contains the models and entities related to the user and his player profile and keeps track of his score
+- **wave** contains a set of classes that applies the builder pattern that we use to create specific wave type for each mode on multiple steps
+
+### Data
+
+The data package contains two layers
+
+**Services** Contains the classes that represents the layer that deals directly with the XML files in the application
+**Repository** Contains the classes that are above that data access layer and acts as the middleman between the services and the application models that requires these types
+
 
 
 ### Workflow

@@ -1,9 +1,9 @@
 package fruitNinja.utils.events;
 
 import fruitNinja.animations.Projectile;
-import fruitNinja.models.gameObjects.Sprite;
-import fruitNinja.models.gameObjects.fruits.special.DoubleScore;
-import fruitNinja.models.gameObjects.fruits.special.SpecialFruit;
+import fruitNinja.models.entities.Sprite;
+import fruitNinja.models.entities.fruits.special.DoubleScore;
+import fruitNinja.models.entities.fruits.special.SpecialFruit;
 import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
@@ -11,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
 import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class MouseDraggedEvent implements EventHandler<MouseEvent> {
 

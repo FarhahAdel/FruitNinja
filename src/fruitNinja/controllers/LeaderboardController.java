@@ -1,8 +1,7 @@
 package fruitNinja.controllers;
 
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.models.users.Leaderboard;
-import fruitNinja.views.guiUtils.Navigation;
 import fruitNinja.views.pages.LeaderboardView;
 import javafx.stage.Stage;
 
@@ -13,8 +12,9 @@ import java.util.List;
  * Created by dc user on 30/04/2020.
  */
 public class LeaderboardController extends BaseController {
-    LeaderboardView leaderboardView;
-    Leaderboard leaderboard;
+
+    private LeaderboardView leaderboardView;
+    private Leaderboard leaderboard;
     List<Leaderboard> scores = new ArrayList<>();
 
     public LeaderboardController(LeaderboardView leaderboardView) {

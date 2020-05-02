@@ -1,6 +1,6 @@
 package fruitNinja.models.users;
 
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.modes.StrategyType;
 
 import javax.xml.bind.annotation.*;
 
@@ -19,6 +19,9 @@ public class Score {
     private String classicScore="0";
     @XmlElement(name = "arcadeScore")
     private String arcadeScore="0";
+
+    @XmlTransient
+    private String scoreType;
 
     public String getUsername() {
         return username;
@@ -69,7 +72,8 @@ public class Score {
         this.username=PlayerSingleton.getInstance().getUsername();
         chooseStrategy(strategyType,this.score);
     }
-    public void chooseStrategy(StrategyType strategyType,String score){
+
+    public void chooseStrategy(StrategyType strategyType,String score) {
         switch (strategyType){
             case ZEN:
                 zenScore=score;
@@ -82,25 +86,23 @@ public class Score {
                 break;
         }
     }
-    @XmlTransient
-    private String scoreType;
-    public void scoreUponStrategy(String score,StrategyType strategyType)
-    { switch (strategyType){
-        case ZEN:
-            setZenScore(score);
-            break;
-        case ARCADE:
-            setArcadeScore(score);
-            break;
-        case CLASSIC:
-           setClassicScore(score);
-            break;
-    }
 
+    public void scoreUponStrategy(String score,StrategyType strategyType) {
+        switch (strategyType){
+            case ZEN:
+                setZenScore(score);
+                break;
+            case ARCADE:
+                setArcadeScore(score);
+                break;
+            case CLASSIC:
+               setClassicScore(score);
+                break;
+        }
     }
     public String scoreStrategy(StrategyType strategyType){
 
-        switch (strategyType){
+        switch (strategyType) {
             case ZEN:
                 scoreType=getZenScore();
                 break;
@@ -111,6 +113,7 @@ public class Score {
                 scoreType=getClassicScore();
                 break;
         }
+
         return scoreType;
     }
 }

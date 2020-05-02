@@ -1,8 +1,6 @@
 package fruitNinja.utils.pause;
 
-import fruitNinja.animations.ProjectileShooter;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import javafx.animation.AnimationTimer;
+import fruitNinja.models.logic.GamePlayActions;
 
 public class PauseLogic {
 

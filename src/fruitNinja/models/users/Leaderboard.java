@@ -1,7 +1,7 @@
 package fruitNinja.models.users;
 
 import fruitNinja.data.services.ScoreService;
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.modes.StrategyType;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,11 +44,12 @@ public class Leaderboard implements Comparable<Leaderboard> {
     public int compareTo(Leaderboard leaderboard) {
         int compare=leaderboard.getScore().compareTo(score);
         if (compare==0)
-           // compare = Integer.compare(Integer.parseInt(leaderboard.userName),Integer.parseInt(userName));
             compare=leaderboard.getUserName().compareTo(userName);
         return compare;
     }
-   public List<Leaderboard> Sort(){
+
+
+    public List<Leaderboard> Sort(){
        ScoreService scoreService= new ScoreService();
        List<Score> scores=scoreService.readData();
        List<Leaderboard> leaderboards=new ArrayList<>();
@@ -58,5 +59,5 @@ public class Leaderboard implements Comparable<Leaderboard> {
        for (Leaderboard leaderboard:leaderboards)
            System.out.println(leaderboard.getScore()+" "+leaderboard.getUserName());
        return leaderboards;
-   }
+    }
 }

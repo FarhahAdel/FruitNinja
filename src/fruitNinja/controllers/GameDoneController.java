@@ -2,10 +2,9 @@ package fruitNinja.controllers;
 
 import fruitNinja.data.repositories.PlayerRepository;
 import fruitNinja.data.repositories.ScoreRepository;
-import fruitNinja.models.gameLogic.GamePlayActions;
-import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.logic.GamePlayActions;
+import fruitNinja.models.modes.StrategyType;
 import fruitNinja.models.users.PlayerSingleton;
-import fruitNinja.views.guiUtils.Navigation;
 import fruitNinja.views.pages.GameDoneView;
 import javafx.stage.Stage;
 
@@ -24,13 +23,13 @@ public class GameDoneController extends BaseController {
         init();
     }
 
-    public void playAgain() {
+    private void playAgain() {
         Stage stage = (Stage)gameDoneView.getPlayAgainBtn().getScene().getWindow();
         navigation.showGameChoosePage(stage);
         GamePlayActions.isPaused=-1;
     }
 
-    public void mainMenu() {
+    private void mainMenu() {
         Stage stage;
         stage = (Stage)gameDoneView.getMainMenuBtn().getScene().getWindow();
         navigation.showMainDashboardPage(stage);
@@ -68,7 +67,7 @@ public class GameDoneController extends BaseController {
         updateLevel();
     }
 
-    public void setEventHandlers()
+    private void setEventHandlers()
     {
         gameDoneView.addPlayAgainButtonListener(event -> playAgain());
         gameDoneView.addMainMenuButtonListener(event -> mainMenu());
