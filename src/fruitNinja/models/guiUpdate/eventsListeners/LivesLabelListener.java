@@ -32,7 +32,7 @@ public class LivesLabelListener implements EventListener {
        if(label.getText().contains("X")||label.getText().isEmpty()){
             if (!label.getText().equals("XX")){
             label.setText(label.getText() + "X");
-            System.out.println(label.getText());
+//            System.out.println(label.getText());
             }
             else {
                 label.setText(label.getText() + "X");

@@ -1,6 +1,7 @@
 package fruitNinja.utils;
 
 import fruitNinja.models.Difficulty;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import javafx.scene.control.Label;
 
 import java.util.Random;
@@ -74,7 +75,6 @@ public class Utils {
             }
         }, time);
     }
-
     int counter = 0;
 
 

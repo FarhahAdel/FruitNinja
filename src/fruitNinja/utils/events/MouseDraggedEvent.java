@@ -2,8 +2,13 @@ package fruitNinja.utils.events;
 
 import fruitNinja.animations.Projectile;
 import fruitNinja.models.gameObjects.Sprite;
+import fruitNinja.models.gameObjects.fruits.special.DoubleScore;
+import fruitNinja.models.gameObjects.fruits.special.SpecialFruit;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
+import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,6 +22,16 @@ public class MouseDraggedEvent implements EventHandler<MouseEvent> {
     }
 
     private int comboCount = 0;
+    private int doubleScoreCount=0;
+    boolean on=false;
+
+    public boolean isOn() {
+        return on;
+    }
+
+    public void setOn(boolean on) {
+        this.on = on;
+    }
 
     @Override
     public void handle(MouseEvent mouseEvent) {
@@ -27,8 +42,30 @@ public class MouseDraggedEvent implements EventHandler<MouseEvent> {
             if (k.intersect(mouseX, mouseY) && !k.isSliced()) {
                 k.slice();
                 incComboCount();
+                if (k instanceof DoubleScore) {
+                    setOn(true);
+                    PauseTransition delay = new PauseTransition(Duration.seconds(3));
+                    delay.setOnFinished(event -> delaySetting());
+                    delay.play();
+                }
+                if (on && !(k instanceof SpecialFruit)) {
+                    ControlsUpdaterSingleton.getInstance().sliceDoubleScore();
+                    if (comboCount>2)
+                    doubleScoreCount+=comboCount;
+                    else doubleScoreCount++;
+                }
+
             }
         });
+
+
+    }
+    private void delaySetting(){
+        setOn(false);
+        if(getDoubleScoreCount()>=0)
+        ControlsUpdaterSingleton.getInstance().sliceOrdinaryFruit(getDoubleScoreCount());
+        setDoubleScoreCount(0);
+        //setComboCount(0);
     }
 
 
@@ -45,6 +82,14 @@ public class MouseDraggedEvent implements EventHandler<MouseEvent> {
     public void incComboCount()
     {
         comboCount++;
+    }
+
+    public int getDoubleScoreCount() {
+        return doubleScoreCount;
+    }
+
+    public void setDoubleScoreCount(int doubleScoreCount) {
+        this.doubleScoreCount = doubleScoreCount;
     }
 
 

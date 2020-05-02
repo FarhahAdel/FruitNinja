@@ -24,4 +24,5 @@ public class ControlsUpdater {
         if(eventManager.getListeners().containsKey("fruitFellUnsliced"))
             eventManager.notify("fruitFellUnsliced", String.valueOf(lifeMinimizing));
     }
+    public void sliceDoubleScore(){eventManager.notify("sliceDoubleScore","1");}
 }

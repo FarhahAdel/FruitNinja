@@ -15,7 +15,9 @@ public class MouseReleaseEvent implements EventHandler<MouseEvent> {
 
     @Override
     public void handle(MouseEvent mouseEvent) {
+
         int combo = mouseDraggedEvent.getComboCount();
+        boolean on=mouseDraggedEvent.isOn();
         if (combo > 2) {
             ControlsUpdaterSingleton.getInstance().comboSliced(combo);
             ControlsUpdaterSingleton.getInstance().sliceOrdinaryFruit(combo);
