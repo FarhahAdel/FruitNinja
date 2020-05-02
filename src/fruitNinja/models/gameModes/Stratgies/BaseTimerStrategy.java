@@ -1,7 +1,7 @@
 package fruitNinja.models.gameModes.Stratgies;
 
 import fruitNinja.models.gameModes.StrategyType;
-import fruitNinja.utils.events.CustomTimer;
+import fruitNinja.utils.CustomTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
 

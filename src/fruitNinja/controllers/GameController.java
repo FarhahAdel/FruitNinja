@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 
-public class GameController {
+public class GameController extends BaseController {
 
     private ScoreRepository scoreRepository = new ScoreRepository();
     private StrategyFactory strategyFactory = new StrategyFactory();

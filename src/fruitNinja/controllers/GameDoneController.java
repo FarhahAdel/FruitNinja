@@ -9,13 +9,11 @@ import fruitNinja.views.guiUtils.Navigation;
 import fruitNinja.views.pages.GameDoneView;
 import javafx.stage.Stage;
 
-public class GameDoneController {
+public class GameDoneController extends BaseController {
 
     private StrategyType strategyType;
 
-    private Navigation navigation = new Navigation();
     private ScoreRepository scoreRepository = new ScoreRepository();
-    private PlayerRepository playerRepository = new PlayerRepository();
 
     private GameDoneView gameDoneView;
 
@@ -23,15 +21,11 @@ public class GameDoneController {
     {
         this.gameDoneView = gameDoneView;
         this.strategyType = strategyType;
-        setEventHandlers();
-        addScore();
-        setScoreValue();
-        setHighScoreValue();
-        playerRepository.updateLevel();
+        init();
     }
 
     public void playAgain() {
-        Stage stage=(Stage)gameDoneView.getPlayAgainBtn().getScene().getWindow();
+        Stage stage = (Stage)gameDoneView.getPlayAgainBtn().getScene().getWindow();
         navigation.showGameChoosePage(stage);
         GamePlayActions.isPaused=-1;
     }
@@ -59,10 +53,26 @@ public class GameDoneController {
         gameDoneView.getHighScoreValue().setText(scoreRepository.getHighScore(strategyType,PlayerSingleton.getInstance().getUsername()));
     }
 
+    private void updateLevel()
+    {
+        PlayerRepository playerRepository = new PlayerRepository();
+        playerRepository.updateLevel();
+    }
+
+    private void init()
+    {
+        setEventHandlers();
+        addScore();
+        setScoreValue();
+        setHighScoreValue();
+        updateLevel();
+    }
+
     public void setEventHandlers()
     {
         gameDoneView.addPlayAgainButtonListener(event -> playAgain());
         gameDoneView.addMainMenuButtonListener(event -> mainMenu());
     }
+
 
 }

@@ -12,12 +12,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
-public class MainDashboardController {
+public class MainDashboardController extends BaseController {
     private Player player = PlayerSingleton.getInstance();
-    private Navigation navigation = new Navigation();
-    private Utils utils = new Utils();
-    private AudioController audioController= new AudioController();
-
     private MainDashboardView mainDashboardView;
 
     public MainDashboardController(MainDashboardView mainDashboardView)

@@ -9,10 +9,8 @@ import fruitNinja.views.guiUtils.Validation;
 import fruitNinja.views.pages.RegisterView;
 import javafx.stage.Stage;
 
-public class RegisterController {
+public class RegisterController extends BaseController {
 
-    private Navigation navigation = new Navigation();
-    private Alerts alerts = new Alerts();
     private PlayerRepository playerRepository = new PlayerRepository();
     private Validation validations=new Validation();
 
