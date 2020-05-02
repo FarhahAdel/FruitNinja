@@ -45,8 +45,10 @@ public class ClassicWaveBuilder extends WaveBuilderBase {
         int n = utils.generateRandomBombNumBasedOnDifficulty(wave.getDifficulty());
         ArrayList<Bomb> bombs = new ArrayList<>();
 
-        for (int i = 0; i < n; i++)
-            bombs.add(bombFactory.createBomb("fatal"));
+        for (int i = 0; i < n; i++) {
+            Bomb bomb = randomObjectGenerator.generateRandomBomb();
+            bombs.add(bomb);
+        }
 
         wave.addBombs(bombs);
     }

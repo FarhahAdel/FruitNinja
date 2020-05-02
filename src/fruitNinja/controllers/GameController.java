@@ -86,7 +86,7 @@ public class GameController {
         controlsUpdater.eventManager.subscribe("sliceOrdinary", new UpdateScoreListener(gameView.getScoreLabel()));
         controlsUpdater.eventManager.subscribe("updateTimer", new UpdateTimerListener(gameView.getTimerLabel()));
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener((Stage) gameView.getScoreLabel().getScene().getWindow(),this.strategyType));
-        controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(gameView.getScoreLabel()));
+        controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(gameView.getScoreLabel(), this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(gameView.getComboLabel()));
         controlsUpdater.eventManager.subscribe("sliceDoubleScore",new SliceDoubleScoreListener(gameView.getScoreX2Label()));
         if(strategyType.equals(StrategyType.CLASSIC))

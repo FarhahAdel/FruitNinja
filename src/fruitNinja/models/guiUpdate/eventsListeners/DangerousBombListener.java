@@ -1,20 +1,31 @@
 package fruitNinja.models.guiUpdate.eventsListeners;
 
+import fruitNinja.models.gameModes.StrategyType;
+import fruitNinja.models.guiUpdate.ControlsUpdater;
+import fruitNinja.models.guiUpdate.ControlsUpdaterSingleton;
 import fruitNinja.models.guiUpdate.EventListener;
 import javafx.scene.control.Label;
 
 public class DangerousBombListener implements EventListener {
-    private Label label;
-    public DangerousBombListener(Label label){
-        this.label = label;
+    private Label scoreLabel;
+    private StrategyType strategyType;
+
+    public DangerousBombListener(Label scoreLabel, StrategyType strategyType){
+        this.scoreLabel = scoreLabel;
+        this.strategyType = strategyType;
     }
 
     @Override
     public void update(String eventType, String data) {
-        int scoreUpdate = Integer.parseInt(data);
-        String newText = String.valueOf(Integer.parseInt(label.getText()) - scoreUpdate);
-        if(Integer.parseInt(newText)<0)
-            newText="0";
-        label.setText(newText);
+
+        if (strategyType.equals(StrategyType.CLASSIC)) {
+            ControlsUpdaterSingleton.getInstance().fruitFell(1);
+        } else {
+            int scoreUpdate = Integer.parseInt(data);
+            String newText = String.valueOf(Integer.parseInt(scoreLabel.getText()) - scoreUpdate);
+            if (Integer.parseInt(newText) < 0)
+                newText = "0";
+            scoreLabel.setText(newText);
+        }
     }
 }
