@@ -37,7 +37,7 @@ public class Utils {
 
     public boolean generateSpecialFruit()
     {
-        int n = (int)((Math.random()*(6-1+1))+1); //random num from 1 to 6
+        int n = (int)((Math.random()*(1-1+1))+1); //random num from 1 to 6
         if (n==1)
             return true;
         return false;
