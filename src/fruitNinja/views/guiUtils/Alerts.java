@@ -2,7 +2,9 @@ package fruitNinja.views.guiUtils;
 
 import javafx.scene.control.Alert;
 
+// CLASS FOR SHOWING THE ALERTS IN THE VIEWS
 public class Alerts {
+
     public void showSuccessAlert(String header, String errorMsg)
     {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

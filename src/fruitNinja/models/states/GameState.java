@@ -2,6 +2,7 @@ package fruitNinja.models.states;
 
 import fruitNinja.utils.pause.PauseLogic;
 
+// CLASS FOR INVOKING THE METHODS OF THE STATE
 public class GameState {
     private PauseLogic pauseLogic = new PauseLogic();
     private State state;

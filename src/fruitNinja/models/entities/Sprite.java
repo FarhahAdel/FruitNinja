@@ -4,6 +4,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public abstract class Sprite implements GameObject {
+
     private Image image;
     private double XLocation;
     private double YLocation;
@@ -17,6 +18,39 @@ public abstract class Sprite implements GameObject {
     {
 
     }
+
+    // RUNS THE REQUIRED LOGIC FOR THE SPRITE WHEN IT FALLS OFF (MOSTLY OVERRIDDEN IN THE CONCRETE CLASSES)
+    @Override
+    public void fellOff()
+    {
+        setHasFallenOff(true);
+    }
+
+    // SLICES THE SPRITE
+    @Override
+    public void slice() {
+        this.isSliced = true;
+    }
+
+
+    // CHECKS IF THE BODY OF THE SPRITE INTERSECTS WITH THE GIVEN COORDINATES
+    @Override
+    public boolean intersect(double x, double y) {
+        return (x >= getXlocation() && x <= getXlocation() + width)
+                && (y >= getYlocation() && y <= getYlocation() + height);
+    }
+
+    // RENDERS AND DRAWS THE CURRENT REQUIRED IMAGE
+    @Override
+    public void render(GraphicsContext gc)
+    {
+        gc.drawImage(image,getXlocation(),getYlocation());
+    }
+
+
+
+
+    // GETTERS AND SETTERS
 
     public Image getImage() {
         return image;
@@ -43,7 +77,6 @@ public abstract class Sprite implements GameObject {
         this.height = height;
     }
 
-
     @Override
     public Boolean isSliced() {
         return isSliced;
@@ -69,7 +102,6 @@ public abstract class Sprite implements GameObject {
         this.YLocation = YLocation;
     }
 
-
     @Override
     public Boolean hasMovedOffScreen() {
         return hasFallenOff;
@@ -78,35 +110,12 @@ public abstract class Sprite implements GameObject {
         this.hasFallenOff = hasFallenOff;
     }
 
-    @Override
-    public void fellOff()
-    {
-        setHasFallenOff(true);
-    }
-
     public double getAngleRad() {
         return angleRad;
     }
 
     public void setAngleRad(double angleRad) {
         this.angleRad = angleRad;
-    }
-
-    @Override
-    public void slice() {
-        this.isSliced = true;
-    }
-
-    @Override
-    public boolean intersect(double x, double y) {
-        return (x >= getXlocation() && x <= getXlocation() + width)
-                && (y >= getYlocation() && y <= getYlocation() + height);
-    }
-
-    @Override
-    public void render(GraphicsContext gc)
-    {
-        gc.drawImage(image,getXlocation(),getYlocation());
     }
 
 }

@@ -1,5 +1,6 @@
 package fruitNinja.models.states;
 
+// A THE STATE IN WHICH APP IS PAUSED
 public class PauseState extends State{
     public PauseState(GameState gameState) {
         super(gameState);
@@ -10,6 +11,7 @@ public class PauseState extends State{
 
     }
 
+    // SWITCH TO THE PLAY STATE
     @Override
     public void clickPlay() {
         gameState.continuePlaying();

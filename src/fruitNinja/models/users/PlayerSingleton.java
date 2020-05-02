@@ -1,5 +1,6 @@
 package fruitNinja.models.users;
 
+// A SINGLETON CLASS FOR THE ONLY PLAYER OBJECT OF THE LOGGED USER
 public class PlayerSingleton {
 
     private volatile static Player playerSingleton;
@@ -9,6 +10,7 @@ public class PlayerSingleton {
 
     }
 
+    // GETS INSTANCE OF THE PLAYER SINGLETON
     public static Player getInstance() {
         if (playerSingleton == null) {
             synchronized (PlayerSingleton.class) {
@@ -20,6 +22,7 @@ public class PlayerSingleton {
         return playerSingleton;
     }
 
+    // SETS THE PLAYER SINGLETON
     public static void setPlayerSingleton(Player player)
     {
         playerSingleton = player;

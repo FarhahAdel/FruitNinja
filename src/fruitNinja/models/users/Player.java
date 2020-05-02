@@ -2,6 +2,7 @@ package fruitNinja.models.users;
 
 import javax.xml.bind.annotation.*;
 
+// PLAYER ENTITY THAT CONTAINS HIS DATA AND LEVEL
 @XmlRootElement(name="player")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Player {
@@ -18,13 +19,8 @@ public class Player {
     private int experience;
     @XmlTransient
     private int currentScore;
-    public int getCurrentScore() {
-        return currentScore;
-    }
 
-    public void setCurrentScore(int currentScore) {
-        this.currentScore = currentScore;
-    }
+
     public Player()
     {
 
@@ -35,6 +31,16 @@ public class Player {
         this.fullName = fullName;
         this.username = username;
         this.password = password;
+    }
+
+    // GETTERS AND SETTERS
+
+    public int getCurrentScore() {
+        return currentScore;
+    }
+
+    public void setCurrentScore(int currentScore) {
+        this.currentScore = currentScore;
     }
 
     public String getUsername() {

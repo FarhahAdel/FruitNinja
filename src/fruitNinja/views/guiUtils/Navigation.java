@@ -14,9 +14,10 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
+// CLASS THAT MANAGES THE NAVIGATION BETWEEN VIEWS IN THE APPLICATION
 public class Navigation {
 
-
+    // DEFAULT WIDTHS AND HEIGHTS
     private final int width = 1280;
     private final int height = 720;
 
@@ -27,6 +28,7 @@ public class Navigation {
         alerts = new Alerts();
     }
 
+    // SHOWS A GRID PAGE WITHOUT CUSTOM CONTROLLER
     private void showGridPageWithoutController(String fileName, String title, Stage stage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
@@ -41,19 +43,7 @@ public class Navigation {
         }
     }
 
-//    private void showAnchorPageWithoutController(String fileName, String title, Stage stage){
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
-//            AnchorPane anchor = loader.load();
-//            stage.setTitle(title);
-//            Scene sc = new Scene(anchor, width, height);
-//            stage.setScene(sc);
-//            stage.show();
-//        } catch (IOException ex) {
-//            alerts.showErrorAlert("Data Error", "Something wrong happened!");
-//        }
-//    }
-
+    // SHOWS ANCHOR PAGE WITHOUT CUSTOM CONTROLLER
     private void showAnchorPageWithoutController(String fileName, String title, Stage stage){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fileName));
@@ -68,6 +58,7 @@ public class Navigation {
         }
     }
 
+    // SHOWS A GRID PAGE WITH A CUSTOM CONTROLLER
     private void showPageGridWithCustomController(String fileName, String title, Stage stage, Object controllerClass)
     {
         try {
@@ -84,6 +75,7 @@ public class Navigation {
         }
     }
 
+    // SHOWS AN ANCHOR PAGE WITH A CUSTOM CONTROLLER
     private void showPageAnchorWithCustomController(String fileName, String title, Stage stage, Object controllerClass)
     {
         try {
@@ -99,6 +91,9 @@ public class Navigation {
             ex.printStackTrace();
         }
     }
+
+
+    // SPECIFIC FUNCTION TO SHOW EACH PAGE IN THE APPLICATION
 
     public void showMainDashboardPage(Stage stage)
     {
@@ -131,6 +126,7 @@ public class Navigation {
         showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameView);
         GameController gameController = new GameController(gameView, strategyType);
     }
+
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
         GamePlayActions.isPaused = -1;

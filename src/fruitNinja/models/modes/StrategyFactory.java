@@ -2,6 +2,7 @@ package fruitNinja.models.modes;
 
 import fruitNinja.models.modes.Stratgies.*;
 
+// FACTORY CLASS FOR CREATING ENCAPSULATING THE ALGORITHM OF CREATING AN OBJECT OF STRATEGIES
 public class StrategyFactory {
 
     public GameStrategy createStrategy(StrategyType strategyType)

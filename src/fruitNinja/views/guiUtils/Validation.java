@@ -5,6 +5,7 @@ import fruitNinja.models.users.Player;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+// CLASS TO VALIDATE THE INPUT IN THE APPLICATION
 public class Validation {
     PlayerService playerService = new PlayerService();
     private Boolean flag = false;

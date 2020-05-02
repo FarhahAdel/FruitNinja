@@ -23,6 +23,65 @@ public class Score {
     @XmlTransient
     private String scoreType;
 
+    public Score() {
+    }
+
+    public Score(StrategyType strategyType, String score) {
+        this.strategyType = strategyType;
+        this.score=score;
+        this.username=PlayerSingleton.getInstance().getUsername();
+        chooseStrategy(strategyType,this.score);
+    }
+
+    // CHOOSES THE STRATEGY OF THE SCORE
+    public void chooseStrategy(StrategyType strategyType,String score) {
+        switch (strategyType){
+            case ZEN:
+                zenScore=score;
+                break;
+            case ARCADE:
+                arcadeScore=score;
+                break;
+            case CLASSIC:
+                classicScore=score;
+                break;
+        }
+    }
+
+    public void scoreUponStrategy(String score,StrategyType strategyType) {
+        switch (strategyType){
+            case ZEN:
+                setZenScore(score);
+                break;
+            case ARCADE:
+                setArcadeScore(score);
+                break;
+            case CLASSIC:
+               setClassicScore(score);
+                break;
+        }
+    }
+
+    // RETURN THE SCORE BY STRATEGY
+    public String scoreStrategy(StrategyType strategyType){
+
+        switch (strategyType) {
+            case ZEN:
+                scoreType=getZenScore();
+                break;
+            case ARCADE:
+                scoreType=getArcadeScore();
+                break;
+            case CLASSIC:
+                scoreType=getClassicScore();
+                break;
+        }
+
+        return scoreType;
+    }
+
+    // GETTERS AND SETTERS
+
     public String getUsername() {
         return username;
     }
@@ -63,58 +122,5 @@ public class Score {
         this.arcadeScore = arcadeScore;
     }
 
-    public Score() {
-    }
-
-    public Score(StrategyType strategyType, String score) {
-        this.strategyType = strategyType;
-        this.score=score;
-        this.username=PlayerSingleton.getInstance().getUsername();
-        chooseStrategy(strategyType,this.score);
-    }
-
-    public void chooseStrategy(StrategyType strategyType,String score) {
-        switch (strategyType){
-            case ZEN:
-                zenScore=score;
-                break;
-            case ARCADE:
-                arcadeScore=score;
-                break;
-            case CLASSIC:
-                classicScore=score;
-                break;
-        }
-    }
-
-    public void scoreUponStrategy(String score,StrategyType strategyType) {
-        switch (strategyType){
-            case ZEN:
-                setZenScore(score);
-                break;
-            case ARCADE:
-                setArcadeScore(score);
-                break;
-            case CLASSIC:
-               setClassicScore(score);
-                break;
-        }
-    }
-    public String scoreStrategy(StrategyType strategyType){
-
-        switch (strategyType) {
-            case ZEN:
-                scoreType=getZenScore();
-                break;
-            case ARCADE:
-                scoreType=getArcadeScore();
-                break;
-            case CLASSIC:
-                scoreType=getClassicScore();
-                break;
-        }
-
-        return scoreType;
-    }
 }
 

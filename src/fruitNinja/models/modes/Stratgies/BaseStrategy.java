@@ -9,18 +9,23 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public abstract class BaseStrategy implements GameStrategy{
+// A CLASS WHICH CONTAINS THE COMMON IMPLEMENTATIONS AND FIELDS BETWEEN THE STRATEGIES FOR IT TO INHERIT FROM
+public abstract class BaseStrategy implements GameStrategy {
+
     private final StrategyType strategyType;
     private Timer timer;
+
     public BaseStrategy(StrategyType strategyType){
         this.strategyType = strategyType;
         timer = new Timer();
 
     }
+
+    // STARTS THE GAME BY STARTING THE TIMER AND STARTING THE GAME LOOP
     @Override
     public void initGame(Canvas canvas) {
-        int x = 4500;
-        timer.schedule(new Round(canvas,strategyType),500,x);
+        int delayBetweenWaves = 4500; // TIME BETWEEN THE FRUIT WAVES
+        timer.schedule(new Round(canvas,strategyType),500,delayBetweenWaves);
 
         Timer pauseTimer = new Timer();
 
@@ -49,7 +54,7 @@ public abstract class BaseStrategy implements GameStrategy{
                         e.printStackTrace();
                     }
                     timer = new Timer();
-                    timer.schedule(new Round(canvas,strategyType),500,x);
+                    timer.schedule(new Round(canvas,strategyType),500,delayBetweenWaves);
                 }
             }
         },500,500);
