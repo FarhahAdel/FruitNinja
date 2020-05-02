@@ -13,6 +13,8 @@ public class DangerousBombListener implements EventListener {
     public void update(String eventType, String data) {
         int scoreUpdate = Integer.parseInt(data);
         String newText = String.valueOf(Integer.parseInt(label.getText()) - scoreUpdate);
+        if(Integer.parseInt(newText)<0)
+            newText="0";
         label.setText(newText);
     }
 }
