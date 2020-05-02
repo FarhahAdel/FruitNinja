@@ -12,6 +12,8 @@ public class ProjectileShooter {
 
     }
 
+    // SETS THE STARTING POINT OF THE THROWN PROJECTILE
+
     public void setStartingPoint(Sprite sprite) {
         Random random = new Random();
 
@@ -23,6 +25,8 @@ public class ProjectileShooter {
         setAngle(sprite);
 
     }
+
+    // MOVES THE PROJECTILE ON HIS PARABOLIC PATH DEPENDING ON THE DIFFICULTY
 
     public void moveProjectile(Sprite sprite, Projectile projectile, Difficulty difficulty)
     {
@@ -41,6 +45,8 @@ public class ProjectileShooter {
             sprite.fellOff();
         }
     }
+
+    // SETS THE ANGLE IN WHICH THE PROJECTILE WILL BE THROWN
 
     private void setAngle(Sprite sprite) {
         Random random = new Random();

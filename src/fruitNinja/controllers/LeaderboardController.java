@@ -8,9 +8,7 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by dc user on 30/04/2020.
- */
+// CONTROLLER THAT MANAGES THE VIEW IN WHICH THE LEADER BOARD IS DISPLAYED
 public class LeaderboardController extends BaseController {
 
     private LeaderboardView leaderboardView;
@@ -22,6 +20,7 @@ public class LeaderboardController extends BaseController {
         setEventHandlers();
     }
 
+    // SETS THE SCORE LABEL AND SHOWS THE SCORE LEADER BOARD FOR THE SELECTED GAME MODE
     private void settingLabel(StrategyType strategyType){
 
         leaderboardView.getNames().setText("");
@@ -36,22 +35,27 @@ public class LeaderboardController extends BaseController {
         }
     }
 
+    // SHOWS THE SCORES FOR THE ARCADE MODE
     private void arcadeScores(){
       settingLabel(StrategyType.ARCADE);
     }
 
+    // SHOWS THE SCORES FOR THE CLASSIC MODE
     private void classicScores(){
        settingLabel(StrategyType.CLASSIC);
     }
 
+    // SHOWS THE SCORES FOR THE ZEN MODE
     private void zenScores(){
         settingLabel(StrategyType.ZEN);
     }
 
+    // NAVIGATES BACK TO THE MAIN DASHBOARD PAGE
     private void back() {
         navigation.showMainDashboardPage((Stage) leaderboardView.getClassicButton().getScene().getWindow());
     }
 
+    // SETS THE EVENT HANDLERS FOR THE VIEW BUTTONS
     private void setEventHandlers()
     {
         leaderboardView.addArcadeButtonListener(event -> arcadeScores());

@@ -11,6 +11,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import java.util.ArrayList;
 
+// SERVICE THAT MANAGES THE W/R OPERATIONS RELATED TO SCORE
 public class ScoreService extends BaseService<Score> {
     public ScoreService()
     {

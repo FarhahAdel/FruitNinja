@@ -8,6 +8,8 @@ import javax.xml.bind.*;
 import java.io.File;
 import java.util.ArrayList;
 
+
+// SERVICE THAT MANAGES THE W/R OPERATIONS RELATED TO PLAYER
 public class PlayerService extends BaseService<Player> {
 
     public PlayerService()

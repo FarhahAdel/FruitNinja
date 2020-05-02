@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+// WRAPPER CLASS FOR PLAYER CLASS USED FOR JAXB LIBRARY
 @XmlRootElement(name="players")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Players {

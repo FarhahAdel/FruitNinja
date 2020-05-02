@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 
+// WRAPPER CLASS FOR SCORE CLASS USED FOR JAXB LIBRARY
 @XmlRootElement(name="scores")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Scores {

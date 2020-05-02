@@ -13,6 +13,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
+// CONTROLLER THAT MANAGES THE VIEW IN WHICH THE USER LOGS IN
 public class LoginController extends BaseController {
 
     private PlayerRepository playerRepository = new PlayerRepository();
@@ -26,6 +27,7 @@ public class LoginController extends BaseController {
         setEventHandlers();
     }
 
+    // LOGIN THE USER INTO THE SYSTEM AND NAVIGATES HIM TO THE MAIN DASHBOARD AND SHOWS AN ERROR IF HE ENTERS WRONG CREDENTIALS
     private void login()
     {
         // TODO: Validations to be made
@@ -47,6 +49,7 @@ public class LoginController extends BaseController {
         navigation.showMainDashboardPage(stage);
     }
 
+    // NAVIGATES THE USER TO THE REGISTER PAGE
     private void signUp()
     {
         Stage stage = (Stage) loginView.getSignUpBtn().getScene().getWindow();
@@ -54,12 +57,13 @@ public class LoginController extends BaseController {
         navigation.showRegisterPage(stage);
     }
 
-
+    // PLAYS THE GAME MUSIC
     private void setAudio() {
         audioController = new AudioController();
         audioController.start("start");
     }
 
+    // SETS THE EVENT HANDLERS FOR THE VIEW BUTTONS
     private void setEventHandlers()
     {
         this.loginView.addLoginButtonListener(actionEvent -> login());

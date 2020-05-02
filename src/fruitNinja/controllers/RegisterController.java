@@ -9,13 +9,11 @@ import fruitNinja.views.guiUtils.Validation;
 import fruitNinja.views.pages.RegisterView;
 import javafx.stage.Stage;
 
+// CONTROLLER THAT MANAGES THE VIEW IN WHICH THE USER SIGNS UP
 public class RegisterController extends BaseController {
 
-    private PlayerRepository playerRepository = new PlayerRepository();
-    private Validation validations;
-
     private RegisterView registerView;
-    Player player;
+    private PlayerRepository playerRepository  = new PlayerRepository();
 
     public RegisterController(RegisterView registerView)
     {
@@ -23,10 +21,10 @@ public class RegisterController extends BaseController {
         setEventHandlers();
     }
 
-
+    // VALIDATES THE USER INPUT
     private boolean validateInput()
     {
-        validations = new Validation();
+        Validation validations = new Validation();
         validations.validateEmptyTextFields(registerView.getFullNameTextField(),registerView.getUsernameTextField(),registerView.getPasswordTextField());
         validations.validateFullNameTextField(registerView.getFullNameTextField());
         validations.validateUsernameTextField(registerView.getUsernameTextField());
@@ -36,27 +34,35 @@ public class RegisterController extends BaseController {
         return !validations.getFlag();
     }
 
+    // SIGNS UP NEW USER TO THE GAME AND NAVIGATES HIM TO THE MAIN DASHBOARD
     private void signUp() {
-        if(validateInput()) {
-            // TODO: Validations to be made
+
+        if (validateInput()) {
+
             String fullName = registerView.getFullNameTextField().getText();
             String username = registerView.getUsernameTextField().getText();
             String password = registerView.getPasswordTextField().getText();
-            player=new Player(fullName,username,password);
+            Player player = playerRepository.signUp(fullName, username, password);
+
+            if (player == null) {
+                alerts.showErrorAlert("Invalid data", "User with the same username already exists");
+                return;
+            }
 
             PlayerSingleton.setPlayerSingleton(player);
 
             Stage stage = (Stage) registerView.getSignUpBtn().getScene().getWindow();
             navigation.showMainDashboardPage(stage);
         }
+    }
 
-
-}
+    // NAVIGATES USER TO THE LOGIN PAGE
     private void login() {
         Stage stage = (Stage) registerView.getSignInBtn().getScene().getWindow();
         navigation.showLoginPage(stage);
     }
 
+    // SETS THE EVENT HANDLERS FOR THE VIEW BUTTONS
     private void setEventHandlers()
     {
         this.registerView.addRegisterButtonListener(actionEvent -> signUp());

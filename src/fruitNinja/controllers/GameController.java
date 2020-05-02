@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
+// CONTROLLER THAT MANAGES THE VIEW IN WHICH THE GAME IS PLAYED
 public class GameController extends BaseController {
 
     private ScoreRepository scoreRepository = new ScoreRepository();
@@ -40,14 +40,17 @@ public class GameController extends BaseController {
         listenToClose();
     }
 
-    private void listenToClose(){
+
+    // TERMINATES THE GAME IF USER CLICKED X (TERMINATES THE RUNNING THREADS)
+    private void listenToClose() {
         Stage stage = (Stage) gameView.getScoreLabel().getScene().getWindow();
         stage.setOnCloseRequest(windowEvent -> {
             System.exit(0);
         });
     }
 
-    private void pause(){
+    // PAUSES THE CURRENT GAME AND CHOOSE THE PAUSE DIALOG
+    private void pause() {
         gameState.clickPause();
         GamePlayActions.isPaused = 1;
 
@@ -67,6 +70,7 @@ public class GameController extends BaseController {
         }
     }
 
+    // STARTS THE GAME (STARTS THROWING FRUITS AND STARTS THE TIMER)
     private void startGame(StrategyType strategyType)
     {
         GameStrategy strategy = strategyFactory.createStrategy(strategyType);
@@ -75,12 +79,14 @@ public class GameController extends BaseController {
 
     }
 
+    // SETS THE LABELS BEFORE THE STARTING OF THE GAME
     private void setControls()
     {
         gameView.getLivesLabel().setText("");
         gameView.getHighScoreLabel().setText(scoreRepository.getHighScore(strategyType,PlayerSingleton.getInstance().getUsername()));
     }
 
+    // SUBSCRIBES THE CONTROLS TO THE EVENT MANAGER SO THAT IT CAN BE NOTIFIED FROM OTHER PLACES
     private void setSubscribers()
     {
         ControlsUpdater controlsUpdater = new ControlsUpdater();
@@ -95,6 +101,7 @@ public class GameController extends BaseController {
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
     }
 
+    // CONTROLLER THAT MANAGES THE VIEW IN WHICH THE USER CHOOSES THE GAME MODE
     private void setEventHandlers()
     {
         gameView.addPauseButtonListener(event -> pause());

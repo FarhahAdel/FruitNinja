@@ -37,6 +37,8 @@ public class Projectile {
         return new Point2D(x,y);
     }
 
+    // GETTERS AND SETTERS
+
     public double getCurrentTime() {
         return currentTime;
     }

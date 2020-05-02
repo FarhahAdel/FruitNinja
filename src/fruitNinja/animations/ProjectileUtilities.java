@@ -4,6 +4,9 @@ import fruitNinja.models.Difficulty;
 import javafx.geometry.Point2D;
 
 public class ProjectileUtilities {
+
+    // SETS PROJECTILE VELOCITY BASED ON DIFFICULTY
+
     public int setVelocityBasedOnDifficulty(Difficulty difficulty){
 
         switch (difficulty){
@@ -13,6 +16,8 @@ public class ProjectileUtilities {
             default: { return 0; }
         }
     }
+
+    // SETS THE TIME IN WHICH THE PROJECTILE MOVES DEPENDING ON VELOCITY
 
     public double setTimeBasedOnDifficulty(Difficulty difficulty) {
         switch (difficulty) {
