@@ -7,6 +7,7 @@ import javafx.scene.canvas.Canvas;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public abstract class BaseStrategy implements GameStrategy{
     private final StrategyType strategyType;
@@ -41,6 +42,12 @@ public abstract class BaseStrategy implements GameStrategy{
                 }
                 else if(wasPaused[0]){
                     wasPaused[0] = false;
+                    try{
+                        TimeUnit.SECONDS.sleep(2);
+                    }
+                    catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
                     timer = new Timer();
                     timer.schedule(new Round(canvas,strategyType),500,x);
                 }
