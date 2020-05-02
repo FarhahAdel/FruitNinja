@@ -1,22 +1,20 @@
 package fruitNinja.views.guiUtils;
 
-import fruitNinja.data.repositories.PlayerRepository;
 import fruitNinja.data.services.PlayerService;
 import fruitNinja.models.users.Player;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import javax.xml.bind.JAXBException;
-import java.awt.*;
-
 public class Validation {
     PlayerService playerService = new PlayerService();
+    private Boolean flag = false;
 
 
     public  boolean isStringOnlyAlphabet(String str) {
-        return ((str != null)
-                ||(str.matches("\\S+"))
-                && (str.matches("^[a-zA-Z]*$")));
+        if ((str != null)) return true;
+        assert false;
+        return (str.matches("\\S+"))
+        && (str.matches("^[a-zA-Z]*$"));
     }
 
 
@@ -38,78 +36,63 @@ public class Validation {
     public Validation() {
     }
 
-    private Alerts alerts = new Alerts();
+    private final Alerts alerts = new Alerts();
 
-    public boolean validateEmptyTextField(TextField textField) {
+    public void validateEmptyTextField(TextField textField) {
         String text = textField.getText();
-        if (text.equals("")) {
+        if (text.equals("") &&!flag) {
+            flag = true;
             alerts.showErrorAlert("Missing Field", "You must enter data in the text fields");
-            return false;
         }
-
-        return true;
     }
 
 
-    public boolean validateUsernameTextField(TextField textField) {
+    public void validateUsernameTextField(TextField textField) {
 
         String username = textField.getText();
         for (Player player:playerService.readData()){
-            if(player.getUsername().equalsIgnoreCase(username)){
+            if(player.getUsername().equalsIgnoreCase(username) && !flag){
+                flag = true;
                 alerts.showErrorAlert("Invalid Username","Username already exits");
-                return false;
             }
         }
-//        if (username.contains(" ") || username.length() > 20 || username.length() < 5) {
-//            alerts.showErrorAlert("Invalid Username",
-//                    "Username should not contain spaces and should be between 5 and 20 chars");
-//            return false;
-//        }
-
-        return true;
     }
 
-    public boolean validateFullNameTextField(TextField textField) {
+    public void validateFullNameTextField(TextField textField) {
         String fullName = textField.getText().toLowerCase();
-        return isStringOnlyAlphabet(fullName);
-
-//        String[] numOfWords = fullName.split(" ");
-//        if (numOfWords.length == 1) {
-//            alerts.showErrorAlert("Invalid Full Name", "please user your full name for ex \"John Smith\"");
-//            return false;
-//        }
-//
-//        for (int i = 0; i < fullName.length(); i++)
-//        {
-//            char c = fullName.charAt(i);
-//            if (!((c >= 'a' && c <= 'z') || c == ' '))
-//            {
-//                alerts.showErrorAlert("Invalid Full Name",  "Please use only alphabetical letters and spaces");
-//                return false;
-//            }
-//        }
-
-//        return true;
-    }
-    public boolean checkFirst(TextField fullName,TextField username,PasswordField passwordField){
-        return validateEmptyTextField(fullName)&&validateEmptyTextField(username)&&validateEmptyTextField(passwordField);
+        if( !isStringOnlyAlphabet(fullName)&&!flag){
+            flag = true;
+            alerts.showErrorAlert("Invalid Full Name","Full Name must be letters");
+        }
     }
 
-    public boolean validatePasswordField(PasswordField passwordField) {
 
-          if( allowedPassword(passwordField.getText()))
-              return true;
-          else {
-            alerts.showErrorAlert("error in pass","please enter pass between 8 and 15");
-            return false;
+    public void validateEmptyTextFields(TextField fullName,TextField username,PasswordField passwordField){
+        validateEmptyTextField(fullName);
+        validateEmptyTextField(username);
+        validateEmptyTextField(passwordField);
+    }
+
+    public void validatePasswordField(PasswordField passwordField) {
+        validateLongPassword(passwordField.getText());
+
+          if( !allowedPassword(passwordField.getText()) && !flag)
+          {
+              flag = true;
+
+              alerts.showErrorAlert("error in pass","please enter pass between 8 and 15");
           }
     }
 
-    public boolean isLongPassword(String password) {
-        if (password.length() < 6) {
+    public void validateLongPassword(String password) {
+        if (password.length() < 6 &&!flag) {
+            flag = true;
+
             alerts.showErrorAlert("Weak Password", "Please choose a password which is at least 6 chars long");
-            return false;
         }
-        return true;
+    }
+
+    public Boolean getFlag() {
+        return flag;
     }
 }

@@ -14,44 +14,43 @@ public class RegisterController {
     private Navigation navigation = new Navigation();
     private Alerts alerts = new Alerts();
     private PlayerRepository playerRepository = new PlayerRepository();
-    private Validation validations=new Validation();
+    private Validation validations;
 
     private RegisterView registerView;
+    Player player;
 
     public RegisterController(RegisterView registerView)
     {
         this.registerView = registerView;
         setEventHandlers();
     }
-    Player player;
+
+
     private boolean validateInput()
     {
-        if(validations.checkFirst(registerView.getFullNameTextField(),registerView.getUsernameTextField(),registerView.getPasswordTextField()))
-            if(validations.validateFullNameTextField(registerView.getFullNameTextField()))
-                if(validations.validateUsernameTextField(registerView.getUsernameTextField()))
-                    return validations.validatePasswordField(registerView.getPasswordTextField());
+        validations = new Validation();
+        validations.validateEmptyTextFields(registerView.getFullNameTextField(),registerView.getUsernameTextField(),registerView.getPasswordTextField());
+        validations.validateFullNameTextField(registerView.getFullNameTextField());
+        validations.validateUsernameTextField(registerView.getUsernameTextField());
+        validations.validatePasswordField(registerView.getPasswordTextField());
 
 
-        return false;
+        return !validations.getFlag();
     }
+
     private void signUp() {
         if(validateInput()) {
             // TODO: Validations to be made
             String fullName = registerView.getFullNameTextField().getText();
             String username = registerView.getUsernameTextField().getText();
             String password = registerView.getPasswordTextField().getText();
-            //player = playerRepository.signUp(fullName, username, password);
-        player=new Player(fullName,username,password);
-        }
-        if (player == null) {
-            //alerts.showErrorAlert("Eligible username", "A User with the same username already exist");
-            return;
-        }
+            player=new Player(fullName,username,password);
 
-        PlayerSingleton.setPlayerSingleton(player);
+            PlayerSingleton.setPlayerSingleton(player);
 
-        Stage stage = (Stage) registerView.getSignUpBtn().getScene().getWindow();
-        navigation.showMainDashboardPage(stage);
+            Stage stage = (Stage) registerView.getSignUpBtn().getScene().getWindow();
+            navigation.showMainDashboardPage(stage);
+        }
 
 
 }

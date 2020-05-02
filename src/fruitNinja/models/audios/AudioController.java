@@ -1,7 +1,5 @@
 package fruitNinja.models.audios;
 
-import fruitNinja.models.gameModes.StrategyFactory;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
