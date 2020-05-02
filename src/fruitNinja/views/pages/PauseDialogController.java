@@ -57,7 +57,7 @@ public class PauseDialogController {
 
 
     public void quitBtnClicked(ActionEvent actionEvent) throws IOException {
-        GamePlayActions.isPaused = true;
+        GamePlayActions.isPaused = -1;
         stage = (Stage)quitBtn.getScene().getWindow();
         stage.close();
         this.stage = (Stage) window;
@@ -65,7 +65,7 @@ public class PauseDialogController {
     }
 
     public void restartBtnClicked(ActionEvent actionEvent){
-        GamePlayActions.isPaused = false;
+        GamePlayActions.isPaused = 0;
         stage = (Stage)quitBtn.getScene().getWindow();
         stage.close();
         this.stage = (Stage) window;
@@ -74,7 +74,7 @@ public class PauseDialogController {
     }
 
     public void resumeBtnClicked(ActionEvent actionEvent) {
-        GamePlayActions.isPaused = false;
+        GamePlayActions.isPaused = 0;
         stage =(Stage)quitBtn.getScene().getWindow();
         stage.close();
         this.stage = (Stage) window;

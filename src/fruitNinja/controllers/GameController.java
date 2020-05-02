@@ -30,6 +30,7 @@ public class GameController {
 
     public GameController(GameView gameView, StrategyType strategyType)
     {
+        GamePlayActions.isPaused = 0;
         this.gameView = gameView;
         this.strategyType = strategyType;
         setEventHandlers();
@@ -48,7 +49,7 @@ public class GameController {
 
     private void pause(){
         gameState.clickPause();
-        GamePlayActions.isPaused = true;
+        GamePlayActions.isPaused = 1;
 
         scoreRepository.addScore(gameView.getScoreLabel().getText(),
                 PlayerSingleton.getInstance().getUsername(),strategyType);

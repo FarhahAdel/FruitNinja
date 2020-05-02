@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 public class GamePlayActions {
     public static AnimationTimer animationTimer;
-    public static boolean isPaused = false;
+    public static int isPaused = 0;
 
     private Canvas canvas;
     private ProjectileShooter projectileShooter;
@@ -48,7 +48,7 @@ public class GamePlayActions {
                 if (!done) this.stop();
             }
         };
-        if(!isPaused)
+        if(isPaused == 0)
             animationTimer.start();
     }
 

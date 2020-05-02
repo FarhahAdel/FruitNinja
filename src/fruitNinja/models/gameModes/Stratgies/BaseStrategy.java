@@ -8,8 +8,8 @@ import javafx.scene.canvas.Canvas;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class BaseStrategy implements GameStrategy{
-    final StrategyType strategyType;
+public abstract class BaseStrategy implements GameStrategy{
+    private final StrategyType strategyType;
     private Timer timer;
     public BaseStrategy(StrategyType strategyType){
         this.strategyType = strategyType;
@@ -28,7 +28,14 @@ public class BaseStrategy implements GameStrategy{
         pauseTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                if(GamePlayActions.isPaused){
+                if(GamePlayActions.isPaused == -1){
+                    wasPaused[0] = false;
+                    timer.cancel();
+                    timer.purge();
+                    pauseTimer.cancel();
+                    pauseTimer.purge();
+                }
+                if(GamePlayActions.isPaused == 1){
                     wasPaused[0] = true;
                     timer.cancel();
                 }

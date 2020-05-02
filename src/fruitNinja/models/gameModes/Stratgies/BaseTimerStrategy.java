@@ -5,7 +5,7 @@ import fruitNinja.utils.events.CustomTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.stage.Stage;
 
-public class BaseTimerStrategy extends BaseStrategy implements TimerStrategy {
+public abstract class BaseTimerStrategy extends BaseStrategy implements TimerStrategy {
     private final int time = 60;
     private Stage stage;
     public BaseTimerStrategy(StrategyType strategyType){
@@ -19,7 +19,7 @@ public class BaseTimerStrategy extends BaseStrategy implements TimerStrategy {
 
     @Override
     public void startCustomTimer() {
-        CustomTimer customTimer = new CustomTimer(time,stage,super.strategyType);
+        CustomTimer customTimer = new CustomTimer(time,stage,super.getStrategyType());
         customTimer.initCustomTimer();
     }
 

@@ -133,7 +133,7 @@ public class Navigation {
     }
     public void showGameDonePage(Stage stage,StrategyType strategyType)
     {
-        GamePlayActions.isPaused = true;
+        GamePlayActions.isPaused = -1;
         GameDoneView gameDoneView = new GameDoneView();
         showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneView);
         GameDoneController gameDoneController = new GameDoneController(gameDoneView, strategyType);
@@ -153,7 +153,7 @@ public class Navigation {
     }
 
     public void showGameOverPage(Stage stage,StrategyType strategyType){
-        GamePlayActions.isPaused = true;
+        GamePlayActions.isPaused = -1;
         showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> stage.close());

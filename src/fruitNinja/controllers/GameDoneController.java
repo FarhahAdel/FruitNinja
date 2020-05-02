@@ -7,12 +7,7 @@ import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.users.PlayerSingleton;
 import fruitNinja.views.guiUtils.Navigation;
 import fruitNinja.views.pages.GameDoneView;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.stage.Stage;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class GameDoneController {
 
@@ -38,14 +33,14 @@ public class GameDoneController {
     public void playAgain() {
         Stage stage=(Stage)gameDoneView.getPlayAgainBtn().getScene().getWindow();
         navigation.showGameChoosePage(stage);
-        GamePlayActions.isPaused=false;
+        GamePlayActions.isPaused=-1;
     }
 
     public void mainMenu() {
         Stage stage;
         stage = (Stage)gameDoneView.getMainMenuBtn().getScene().getWindow();
         navigation.showMainDashboardPage(stage);
-        GamePlayActions.isPaused=false;
+        GamePlayActions.isPaused=-1;
     }
 
     private void addScore()

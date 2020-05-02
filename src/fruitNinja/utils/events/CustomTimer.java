@@ -51,11 +51,12 @@ public class CustomTimer {
     public void updateTime() {
         controlsUpdater.updateTimer(String.valueOf(timeSeconds.getValue()));
         int seconds = timeSeconds.get();
-        if(GamePlayActions.isPaused){
+        if(GamePlayActions.isPaused ==1){
             timeline.pause();
         }
         if (timeSeconds.get() <= 0) {
             over= true;
+            GamePlayActions.isPaused = -1;
             Navigation navigation = new Navigation();
             navigation.showGameOverPage(stage,strategyType);
             timeline.stop();
