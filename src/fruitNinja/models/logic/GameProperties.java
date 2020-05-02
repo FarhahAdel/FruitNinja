@@ -1,9 +1,13 @@
 package fruitNinja.models.logic;
 
+
+// CONTAINS THE PROPERTIES OF THE CURRENT GAME AND KEEPS TRACK OF ITS DATA
 public class GameProperties {
 
     private int wave;
     private int life = 3;
+
+    // GETTERS AND SETTERS
 
     public int getWave() {
         return wave;

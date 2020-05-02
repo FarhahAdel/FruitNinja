@@ -14,6 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+// CONTAINS ACTIONS THAT HAPPEN DURING THE GAMEPLAY
 public class GamePlayActions {
     public static AnimationTimer animationTimer;
     public static int isPaused = 0;
@@ -31,7 +32,8 @@ public class GamePlayActions {
         this.canvas = canvas;
     }
 
-    public void throwFruits(ArrayList<Sprite> sprites, Difficulty difficulty)
+    // THROW THE SPRITES IN THE CANVAS AND UPDATES THEIR MOVEMENT UNTIL THE LAST ONE FALLS
+    public void throwSprites(ArrayList<Sprite> sprites, Difficulty difficulty)
     {
         HashMap<Sprite, Projectile> spriteProjectileHashMap = associateProjectiles(sprites, difficulty);
 
@@ -48,10 +50,12 @@ public class GamePlayActions {
                 if (!done) this.stop();
             }
         };
+
         if(isPaused == 0)
             animationTimer.start();
     }
 
+    // ASSOCIATES EACH SPRITE TO A PROJECTILE OBJECT TO KEEP TRACK OF ITS MOVEMENT IN THE PARABOLIC PATH
     private HashMap<Sprite, Projectile> associateProjectiles(ArrayList<Sprite> sprites, Difficulty difficulty)
     {
         HashMap<Sprite, Projectile> projectileHashMap = new HashMap<>();
@@ -70,6 +74,7 @@ public class GamePlayActions {
 
     }
 
+    // UPDATES THE SPRITE MOVEMENT IN THE GAME AND MOVES IT TO THE NEXT PLACE IT SHOULD BE AND REMOVES THE SPRITES THAT FELL OFF
     private boolean updateSpritesMovement(HashMap<Sprite, Projectile> spriteProjectileHashMap, Difficulty difficulty)
     {
         GraphicsContext gc = canvas.getGraphicsContext2D();

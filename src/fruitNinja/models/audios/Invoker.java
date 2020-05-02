@@ -9,10 +9,13 @@ import java.io.IOException;
  */
 public class Invoker  {
     private Command command;
+
     public void setCommand(Command command){this.command=command;}
+
     public void play() throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         command.execute();
     }
+
     public void stop(){
         command.unexecute();
     }

@@ -13,12 +13,7 @@ import java.util.ArrayList;
 
 public class GamePlayService {
 
-
-    public GamePlayService()
-    {
-
-    }
-
+    // GENERATES WAVE (ARRAYLIST OF FRUITS AND BOMBS) DEPENDING ON MODE
     public ArrayList<Sprite> generateWave(StrategyType strategyType, Difficulty difficulty) {
         WaveBuilderFactory waveBuilderFactory =  new WaveBuilderFactory();
         WaveBuilder waveBuilder = waveBuilderFactory.createWaveBuilder(strategyType);

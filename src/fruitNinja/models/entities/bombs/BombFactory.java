@@ -15,6 +15,7 @@ public class BombFactory {
         }
         return bomb;
     }
+
     public Bomb createBomb(BombType BombType){
         Bomb bomb;
         return createBomb(BombType.toString());

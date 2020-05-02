@@ -67,6 +67,17 @@ Say you slice-combo 4 fruits, Hence you take 4 points for slicing the 4 fruits a
 
 ![Combo GIF](https://i.imgur.com/C50xjqH.gif)
 
+### Difficulty
+
+We went for a different type of difficulty gradient. A more realistic one.
+
+You start any game in any mode with the easiest difficulty, but the point is 
+the more waves you survive through, the more the difficulty increases.
+
+Hence the game starts as easy and once you get to it a bit gets to a medium difficulty and finally to the hardest difficulty.
+
+This theory applies to all game modes.
+
 
 ## Project Structure
 

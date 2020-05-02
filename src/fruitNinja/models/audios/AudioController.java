@@ -9,13 +9,15 @@ import java.io.IOException;
  */
 public class AudioController {
     private String type;
-    Audio audio=new Audio();
-    Invoker invoker=new Invoker();
-    Command command;
+    private Audio audio = new Audio();
+    private Invoker invoker = new Invoker();
+    private Command command;
 
     public AudioController() {
+
     }
 
+    // COMMAND FACTORY THAT INVOKES THE COMMAND DEPENDING ON THE STRING
     public Command start(String type) {
         switch (type.toLowerCase()) {
             case "bomb" :
@@ -34,12 +36,16 @@ public class AudioController {
                 command = new GameOver(audio);
                 break;
         }
+
         invoker.setCommand(command);
+
         try {
             invoker.play();
+
         } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
             e.printStackTrace();
         }
+
         return command;
     }
 

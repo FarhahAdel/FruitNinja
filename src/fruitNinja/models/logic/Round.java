@@ -5,6 +5,7 @@ import javafx.scene.canvas.Canvas;
 
 import java.util.TimerTask;
 
+// TIMER TASK WHICH RUNS THE GAME CYCLE OVER AND OVER AGAIN
 public class Round extends TimerTask {
 
     private GamePlayActions gamePlayActions;
