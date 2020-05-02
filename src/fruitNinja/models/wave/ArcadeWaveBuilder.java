@@ -11,12 +11,7 @@ import fruitNinja.utils.Utils;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ArcadeWaveBuilder implements WaveBuilder {
-
-    private Wave wave;
-    private RandomObjectGenerator randomObjectGenerator = new RandomObjectGenerator();
-    private Utils utils = new Utils();
-    private BombFactory bombFactory=new BombFactory();
+public class ArcadeWaveBuilder extends WaveBuilderBase {
 
     public ArcadeWaveBuilder()
     {

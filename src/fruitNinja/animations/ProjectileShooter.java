@@ -12,7 +12,7 @@ public class ProjectileShooter {
 
     }
 
-    public void setStartingPoint(Sprite sprite){
+    public void setStartingPoint(Sprite sprite) {
         Random random = new Random();
 
         // MAX RANGE RULE TO BE USED TO LIMIT FALLING OFF SIDES
@@ -42,12 +42,7 @@ public class ProjectileShooter {
         }
     }
 
-/*
-    public void setCurrentTime(double currentTime) {
-        this.currentTime = currentTime;
-    }
-*/
-    private void setAngle(Sprite sprite){
+    private void setAngle(Sprite sprite) {
         Random random = new Random();
 
         if(sprite.getXlocation() < (float) 1280/2){

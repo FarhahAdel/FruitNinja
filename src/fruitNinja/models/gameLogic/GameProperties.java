@@ -6,7 +6,6 @@ public class GameProperties {
 
     private int wave;
     private int life = 3;
-    private Timer timer; // TO BE IMPLEMENTED
 
     public int getWave() {
         return wave;

@@ -33,10 +33,6 @@ public class Wave implements WavePlan {
         waveObjects.addAll(bombs);
     }
 
-    public void addSpecialFruits(ArrayList<Fruit> specialFruits) {
-        waveObjects.addAll(specialFruits);
-    }
-
     public Difficulty getDifficulty() {
         return difficulty;
     }
