@@ -13,11 +13,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
-public class LoginController {
-
-    private Navigation navigation = new Navigation();
-    private Alerts alerts = new Alerts();
-    private AudioController audioController;
+public class LoginController extends BaseController {
 
     private PlayerRepository playerRepository = new PlayerRepository();
     private LoginView loginView;

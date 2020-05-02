@@ -10,10 +10,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
-public class GameChooseController {
+public class GameChooseController extends BaseController {
 
-    private Navigation navigation = new Navigation();
-    private AudioController audioController;
     private GameChooseView gameChooseView;
 
     public GameChooseController(GameChooseView gameChooseView)

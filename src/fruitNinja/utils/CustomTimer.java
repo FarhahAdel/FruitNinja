@@ -1,4 +1,4 @@
-package fruitNinja.utils.events;
+package fruitNinja.utils;
 
 import fruitNinja.models.gameLogic.GamePlayActions;
 import fruitNinja.models.gameModes.StrategyType;

@@ -5,7 +5,7 @@ import fruitNinja.models.gameModes.StrategyType;
 import fruitNinja.models.gameStates.GameState;
 import fruitNinja.models.users.Player;
 import fruitNinja.models.users.Score;
-import fruitNinja.utils.events.CustomTimer;
+import fruitNinja.utils.CustomTimer;
 import fruitNinja.views.guiUtils.Navigation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
