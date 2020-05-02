@@ -22,6 +22,18 @@ public class GameView {
     private Label highScoreLabel;
     @FXML
     private Label comboLabel;
+    @FXML
+    private Label scoreX2Label;
+    @FXML
+    private Canvas canvas;
+
+    public Label getScoreX2Label() {
+        return scoreX2Label;
+    }
+
+    public void setScoreX2Label(Label scoreX2Label) {
+        this.scoreX2Label = scoreX2Label;
+    }
 
     public Label getHighScoreLabel() {
         return highScoreLabel;
@@ -31,8 +43,6 @@ public class GameView {
         this.highScoreLabel = highScoreLabel;
     }
 
-    @FXML
-    private Canvas canvas;
 
     public void addPauseButtonListener(EventHandler<ActionEvent> event) {
         pauseButton.setOnAction(event);

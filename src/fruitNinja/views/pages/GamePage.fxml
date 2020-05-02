@@ -10,7 +10,8 @@
    <children>
        <VBox prefHeight="1.0" prefWidth="10" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.valignment="TOP">
            <children>
-               <Label text="score:" />
+               <Label text="score:"  />
+               <!--<Label fx:id="scoreX2" text="X2" />-->
                <Label text="high:" />
            </children>
        </VBox>
@@ -20,9 +21,14 @@
                <Label fx:id="highScoreLabel" text="" />
            </children>
        </VBox>
+       <VBox prefHeight="1.0" prefWidth="10" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="0"  GridPane.halignment="CENTER" GridPane.valignment="TOP">
+           <children>
+               <Label fx:id="comboLabel" style="-fx-fill: white" text=""/>
+               <Label fx:id="scoreX2Label" text="" />
+           </children>
+       </VBox>
        <Canvas fx:id="canvas" height="720.0" width="1280.0" />
        <Button fx:id="pauseButton" text="||" GridPane.rowIndex="0" GridPane.valignment="TOP" />
-       <Label fx:id="comboLabel" style="-fx-fill: white" text="" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="TOP" />
        <Label fx:id="timerLabel" style="-fx-text-fill: white" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
        <Label fx:id="livesLabel" text="" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="TOP" />
    </children>

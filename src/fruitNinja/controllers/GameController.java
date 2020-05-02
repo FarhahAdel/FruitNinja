@@ -72,7 +72,6 @@ public class GameController {
         ModeContext modeContext = new ModeContext(strategy);
             modeContext.startGame(gameView.getCanvas());
 
-
     }
 
     private void setControls()
@@ -89,6 +88,7 @@ public class GameController {
         controlsUpdater.eventManager.subscribe("sliceFatal", new SliceBombListener((Stage) gameView.getScoreLabel().getScene().getWindow(),this.strategyType));
         controlsUpdater.eventManager.subscribe("sliceDangerous", new DangerousBombListener(gameView.getScoreLabel()));
         controlsUpdater.eventManager.subscribe("sliceCombo", new ComboLabelListener(gameView.getComboLabel()));
+        controlsUpdater.eventManager.subscribe("sliceDoubleScore",new SliceDoubleScoreListener(gameView.getScoreX2Label()));
         if(strategyType.equals(StrategyType.CLASSIC))
             controlsUpdater.eventManager.subscribe("fruitFellUnsliced", new LivesLabelListener((Stage)gameView.getScoreLabel().getScene().getWindow(), gameView.getLivesLabel()));
         ControlsUpdaterSingleton.setSingleton(controlsUpdater);
