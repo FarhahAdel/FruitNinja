@@ -17,7 +17,7 @@ public class ProjectileShooter {
 
         // MAX RANGE RULE TO BE USED TO LIMIT FALLING OFF SIDES
 
-        sprite.setXLocation(random.nextInt(1280));
+        sprite.setXLocation(random.nextInt(1240 - 40) + 40);
         sprite.setYLocation(750);
 
         setAngle(sprite);
