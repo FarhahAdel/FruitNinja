@@ -201,3 +201,31 @@ List of the used Design patterns and why it was used
 - **State** used to save the game state and to create ease in swapping between different states like the pausing state that have different behaviour in the game. And to allow us to the save the game state and reload it later.
 - **Singleton** used to create a one object of specific class that will be used through the program. we used it to create the profile for the player that contains his level and experience, and the controls updator that manages the events which are being subscribed to all around the application
 - **Command** used for playing background audio throughout the game and playing sounds when slicing fruits, special fruits or bombs.
+
+## Team Workflow
+
+### Communication
+
+The game is an equal collaboration between all of the four members of the application.
+
+The team brain-stormed the ideas and discuss the problems that needs to be solved in the application.
+
+### Labor Division
+
+We broke the big problems into small tasks, and we categorized them under the categories **bugs**, **functionality** and **bonus**
+
+Then we divided the tasks upon us, and we would circulate the tasks to ensure that everyone gets a piece of learning in every part in the application.
+
+## Conclusion
+
+Fruit Ninja Clone is a humble representation of a great game that seeks to meet a good user experience while maintaining good code design and clean one.
+
+Project is open for any changes and issues are so welcome to be opened up.
+
+Thank you.
+
+Omar Alaa
+Yosra Emad
+Farha Adel
+Nouran Ehab
+
