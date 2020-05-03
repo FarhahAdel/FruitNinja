@@ -18,7 +18,7 @@ public class Main extends Application {
         navigation.showStartPage(primaryStage);
     }
     public static void main(String[] args) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
-        Font font = Font.loadFont(Main.class.getResourceAsStream("./views/fonts/go3v2.ttf"), 14);
+        Font font = Font.loadFont(Main.class.getResourceAsStream("/fruitNinja/views/fonts/go3v2.ttf"), 14);
         launch(args);
     }
 }

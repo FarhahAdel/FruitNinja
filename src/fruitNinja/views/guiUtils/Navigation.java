@@ -6,6 +6,7 @@ import fruitNinja.models.modes.StrategyType;
 import fruitNinja.views.pages.*;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -98,12 +99,12 @@ public class Navigation {
     public void showMainDashboardPage(Stage stage)
     {
         MainDashboardView mainDashboardView = new MainDashboardView();
-        showPageAnchorWithCustomController("../pages/MainDashboard.fxml", "Dashboard", stage, mainDashboardView);
+        showPageAnchorWithCustomController("/fruitNinja/views/pages/MainDashboard.fxml", "Dashboard", stage, mainDashboardView);
         MainDashboardController mainDashboardController = new MainDashboardController(mainDashboardView);
     }
 
     public void showStartPage(Stage primaryStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../pages/LoginPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fruitNinja/views/pages/LoginPage.fxml"));
         LoginView loginView = new LoginView();
         loader.setController(loginView);
         GridPane grid = loader.load();
@@ -116,14 +117,14 @@ public class Navigation {
     public void showRegisterPage(Stage stage)
     {
         RegisterView registerView = new RegisterView();
-        showPageGridWithCustomController("../pages/RegisterPage.fxml", "Register", stage, registerView);
+        showPageGridWithCustomController("/fruitNinja/views/pages/RegisterPage.fxml", "Register", stage, registerView);
         RegisterController registerController = new RegisterController(registerView);
     }
 
     public void showGamePage(Stage stage, StrategyType strategyType)
     {
         GameView gameView = new GameView();
-        showPageGridWithCustomController("../pages/GamePage.fxml", "Game", stage, gameView);
+        showPageGridWithCustomController("/fruitNinja/views/pages/GamePage.fxml", "Game", stage, gameView);
         GameController gameController = new GameController(gameView, strategyType);
     }
 
@@ -131,26 +132,26 @@ public class Navigation {
     {
         GamePlayActions.isPaused = -1;
         GameDoneView gameDoneView = new GameDoneView();
-        showPageGridWithCustomController("../pages/GameDone.fxml", "Game done", stage, gameDoneView);
+        showPageGridWithCustomController("/fruitNinja/views/pages/GameDone.fxml", "Game done", stage, gameDoneView);
         GameDoneController gameDoneController = new GameDoneController(gameDoneView, strategyType);
     }
 
     public void showLoginPage(Stage stage)
     {
         LoginView loginView = new LoginView();
-        showPageGridWithCustomController("../pages/LoginPage.fxml", "Login",  stage, loginView);
+        showPageGridWithCustomController("/fruitNinja/views/pages/LoginPage.fxml", "Login",  stage, loginView);
         LoginController loginController = new LoginController(loginView);
     }
 
     public void showGameChoosePage(Stage stage){
         GameChooseView gameChooseView = new GameChooseView();
-        showPageAnchorWithCustomController("../pages/GameChoose.fxml", "Choose Game", stage, gameChooseView);
+        showPageAnchorWithCustomController("/fruitNinja/views/pages/GameChoose.fxml", "Choose Game", stage, gameChooseView);
         GameChooseController gameChooseController = new GameChooseController(gameChooseView);
     }
 
     public void showGameOverPage(Stage stage,StrategyType strategyType){
         GamePlayActions.isPaused = -1;
-        showAnchorPageWithoutController("../pages/GameOverPage.fxml","Game Over",stage);
+        showAnchorPageWithoutController("/fruitNinja/views/pages/GameOverPage.fxml","Game Over",stage);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(event -> stage.close());
         delay.play();
@@ -160,7 +161,7 @@ public class Navigation {
     }
     public void showLeaderboardPage(Stage stage){
         LeaderboardView leaderboardView = new LeaderboardView();
-        showPageAnchorWithCustomController("../pages/LeaderboardPage.fxml","Ranking",stage,leaderboardView);
+        showPageAnchorWithCustomController("/fruitNinja/views/pages/LeaderboardPage.fxml","Ranking",stage,leaderboardView);
         LeaderboardController leaderboardController = new LeaderboardController(leaderboardView);
     }
 }
